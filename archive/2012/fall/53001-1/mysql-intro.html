@@ -1,0 +1,229 @@
+<HTML>
+<HEAD><TITLE>Getting Started With MySQL</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY>
+<H1><FONT size=+3>Getting Started With MySQL</FONT></H1>
+<HR width="100%">
+
+<UL>
+  <LI><A 
+  href="#overview">Overview</A> 
+
+  <LI><A 
+  href=#Getting an MySQL account">Getting a MySQL account 
+</A>
+  <LI><A 
+  href="#logging in to mysql">Logging 
+  In to MySQL</A> 
+  <LI><A 
+  href="#changing your password">Changing 
+  Your Password</A>
+  <LI><A 
+  href="#using your database">Using Your Database</A>  
+  <LI><A 
+  href="#creating a table">Creating 
+  a Table</A> 
+  <LI><A 
+  href="#creating with key">Creating 
+  a Table With a Primary Key</A> 
+  <LI><A 
+  href="#inserting tuples">Inserting 
+  Tuples</A> 
+  <LI><A 
+  href="#getting the value of a relation">Getting 
+  the Value of a Relation</A> 
+  <LI><A 
+  href="#getting rid of your tables">Getting 
+  Rid of Your Tables</A> 
+  <LI><A 
+  href="#info about db">Getting 
+  Information About Your Database</A> 
+  <LI><A 
+  href="#quitting mysql">Quitting 
+  MySQL</A> 
+  <LI><A 
+  href="#executing sql from a file">Executing 
+  SQL From a File</A> 
+  <LI><A 
+  href="#recording your session">Recording 
+  Your Session</A> 
+  <LI><A 
+  href="#help facilities and other hints">Help 
+  Facilities</A> </LI></UL>
+<HR width="100%">
+
+
+<A name=overview></A><B>Overview</B> <P>You will use the MySQL
+database system to implement your TBP App this quarter. <BR>
+<HR width="100%">
+
+<P><A name="Getting a MySQL account"></A><B>Getting a MySQL
+account</B> <P>To get a MySQL account, please, e-mail Greg your 
+<tt>cs.uchicago.edu</tt> login name. Please include "[csppdb] MySQL
+account request" in you subject line. To request a
+<tt>cs.uchicago.edu</tt> account please follow instructions <A
+href="https://www.cs.uchicago.edu/info/services/account_request">here</A>. Once your
+MySQL account and password are emailed to you, please log in to change
+the initial password.
+<P>
+<HR width="100%">
+
+<P><A name="logging in to mysql"></A><B>Logging In to MySQL</B> 
+<P>You should use your <tt>cs.uchicago.edu</tt> account and login to any CS Linux machine. You can find a CS machines to log in to using the following tool:
+
+<a
+href="http://tools.cs.uchicago.edu/find_cs_hosts/find.cgi">http://tools.cs.uchicago.edu/find_cs_hosts/find.cgi</a>
+ 
+
+<P>Now, you can log in to MySQL by typing: <PRE>&nbsp;&nbsp;&nbsp;&nbsp; mysql -h cspp53001 -u<TT>&lt;yourName&gt;</TT> -p </PRE>Here, 
+<TT>mysql</TT> is MySQL's command line SQL interface and <tt>cspp53001</tt> is the machine on which the MySQL server is running. <TT>&lt;yourName&gt;</TT> 
+refers to your <tt>cs.uchicago.edu</tt> login.  You can actually omit the <tt>-u&lt;yourName&gt;</tt> option since MySQL will use the Linux username by default.  
+<P>You will be prompted for your password. The password initially e-mailed to 
+you should be changed as soon as possible. For security reasons, we suggest that you 
+<I>don't</I> use your regular <tt>cs.uchicago.edu</tt> password, because as we shall see 
+there are opportunities for this password to become visible under certain 
+circumstances. After you enter the correct password, you should receive the 
+prompt <PRE>&nbsp;&nbsp;&nbsp;&nbsp; mysql&gt;</PRE>
+<HR width="100%">
+
+<P><A name="changing your password"></A><B>Changing Your Password</B>
+<P>In response to the <TT>mysql&gt;</TT> prompt, type <PRE>&nbsp;&nbsp;&nbsp;&nbsp; set PASSWORD = PASSWORD("&lt;newPassword&gt;");</PRE>where 
+<TT>&lt;newPassword&gt;</TT> is the password you would like to use in the 
+future. This command, like all other SQL commands, should be terminated with a 
+semicolon.  
+
+<P>Note that MySQL is case-insensitive for keywords and attribute
+names <b>but case sensitive for relation and database names</b>. Once
+you are in <TT>mysql</TT>, you can use capitals or not in keywords
+like <TT>PASSWORD</TT>. We tend to capitalize keywords and not other
+things.  <BR> <HR width="100%">
+
+<P><A name="using your database"></A><B>Using Your Database</B> 
+<p>After you login to MySQL, you can go to your database by typing:
+
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp; use &lt;yourName&gt;DB;</PRE> where <TT>&lt;yourName&gt;</TT> 
+refers to your <tt>cs.uchicago.edu</tt> username, e.g. <tt>use evtimovDB;</tt>.
+<BR>
+<HR width="100%">
+
+<P><A name="creating a table"></A><B>Creating a Table</B> 
+<P>In <TT>mysql</TT> we can execute any SQL command. One simple type of 
+command creates a table (relation). The form is <PRE>&nbsp;&nbsp;&nbsp;&nbsp; CREATE TABLE &lt;tableName&gt; (
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;list of attributes and their types&gt;
+&nbsp;&nbsp;&nbsp;&nbsp; );</PRE>You may enter text on one line or on several 
+lines. If your command runs over several lines, you will be prompted with <tt>-&gt;</tt> until you type the semicolon that ends any command.  An example table-creation command is: <PRE>&nbsp;&nbsp;&nbsp;&nbsp; CREATE TABLE Sells (
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bar varchar(50),
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; beer varchar(20),
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; price real
+&nbsp;&nbsp;&nbsp;&nbsp; );</PRE>This command creates a table named 
+<TT>Sells</TT> with three attributes. The first, named <TT>bar</TT>, is a character string of length up to 50, the second, named <TT>beer</TT>, is a character string of length (up to) 20, and the third one, named <tt>price</tt>, is a real number.
+<BR>
+<HR width="100%">
+
+<P><A name="creating with key"></A><B>Creating a Table With a Primary Key</B> 
+<P>To create a table that declares attribute <TT>a</TT> to be a primary key: <PRE>&nbsp;&nbsp;&nbsp;&nbsp; CREATE TABLE &lt;tableName&gt; (..., a &lt;type&gt; PRIMARY KEY, b, ...);</PRE>To 
+create a table that declares the set of attributes <TT>(a,b,c)</TT> to be a 
+primary key: <PRE>&nbsp;&nbsp;&nbsp;&nbsp; CREATE TABLE &lt;tableName&gt; (&lt;attrs and their types&gt;, PRIMARY KEY (a,b,c));</PRE>
+<HR width="100%">
+
+<P><A name="inserting tuples"></A><B>Inserting Tuples</B> 
+<P>Having created a table, we can insert tuples into it. The simplest way to 
+insert is with the <TT>INSERT</TT> command: <PRE>&nbsp;&nbsp;&nbsp;&nbsp; INSERT INTO &lt;tableName&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VALUES( &lt;list of values for attributes, in order&gt; );</PRE>For 
+instance, we can insert the tuple <TT>('Cans', 'Guinness', 5.25)</TT> into relation 
+<TT>Sells</TT> by <PRE>&nbsp;&nbsp;&nbsp;&nbsp; INSERT INTO Sells VALUES('Cans', 'Guinness', 5.25);</PRE>
+<HR width="100%">
+
+<P><A name="getting the value of a relation"></A><B>Getting the Value of a 
+Relation</B> 
+<P>We can see the tuples in a relation with the command: <PRE>&nbsp;&nbsp;&nbsp;&nbsp; SELECT *
+&nbsp;&nbsp;&nbsp;&nbsp; FROM &lt;tableName&gt;;</PRE>For instance, after the 
+above create and insert statements, the command <PRE>&nbsp;&nbsp;&nbsp;&nbsp; SELECT * FROM Sells;</PRE>produces the result 
+<PRE>
+&nbsp;&nbsp;&nbsp;&nbsp;+------+----------+-------+
+&nbsp;&nbsp;&nbsp;&nbsp;| bar  | beer     | price |
+&nbsp;&nbsp;&nbsp;&nbsp;+------+----------+-------+
+&nbsp;&nbsp;&nbsp;&nbsp;| Cans | Guinness |  5.25 |
+&nbsp;&nbsp;&nbsp;&nbsp;+------+----------+-------+
+</PRE>
+<HR width="100%">
+
+<P><A name="getting rid of your tables"></A><B>Getting Rid of Your Tables</B> 
+<P>To remove a table from your database, execute <PRE>&nbsp;&nbsp;&nbsp;&nbsp; DROP TABLE &lt;tableName&gt;;</PRE>We suggest you 
+execute <PRE>&nbsp;&nbsp;&nbsp;&nbsp; DROP TABLE Sells;</PRE>after trying out this 
+sequence of commands to avoid leaving a lot of garbage around that will be still 
+there the next time you use the MySQL system. <BR>
+<HR width="100%">
+
+<P><A name="info about db"></A><B>Getting Information About Your Database</B> 
+<P>The system keeps information about your own database in certain system 
+tables. You can recall the 
+names of your tables by issuing the command: <PRE>&nbsp;&nbsp;&nbsp;&nbsp; SHOW TABLES;</PRE>
+
+You can recall the attributes of a table once you know its name by issuing the command: <PRE>&nbsp;&nbsp;&nbsp;&nbsp; DESCRIBE &lt;tableName&gt;;</PRE>to learn about 
+the attributes of relation <TT>&lt;tableName&gt;</TT>. <BR>
+<HR width="100%">
+
+<P><A name="quitting mysql"></A><B>Quitting MySQL</B> 
+<P>To leave <TT>mysql</TT>, type <PRE>&nbsp;&nbsp;&nbsp;&nbsp; quit;</PRE> or <PRE>&nbsp;&nbsp;&nbsp;&nbsp; exit;</PRE> in response to the <TT>mysql&gt;</TT> 
+prompt. <BR>
+<HR width="100%">
+
+<P><A name="executing sql from a file"></A><B>Executing SQL From a File</B> 
+<P>Instead of executing SQL commands typed at a terminal, it is often more 
+convenient to type the SQL command(s) into a file and cause the file to be 
+executed. 
+<P>To run the file <TT>thirsty.sql</TT>, type: <PRE>&nbsp;&nbsp;&nbsp;&nbsp; mysql -h cspp53001 -u&lt;yourName&gt; -p &lt;yourName&gt;DB &lt; thirsty.sql</PRE>
+
+<P>For more information on using MySQL in batch mode see Section 3.5 of the MySQL Reference Manual <a href="http://dev.mysql.com/doc/refman/5.1/en/batch-mode.html">"Using mysql in Batch Mode"</a>. 
+
+<BR>
+<HR width="100%">
+
+  <P><A name="recording your session"></A><B>Recording Your
+Session</B></P></DL>There are several methods for recording your SQL
+commands in order to generate the scripts to turn in for your
+programming assignments. The most primitive way is to cut and paste
+your terminal output and save it in a file (if you have windowing
+capabilities).  Another method is to use the Unix command
+<TT>script</TT> to record the terminal interaction. The
+<TT>script</TT> command records everything printed on your screen. The
+syntax for the command is <PRE>&nbsp;&nbsp; script [ -a ] [ filename ]</PRE>The record is written to <TT>filename</TT>. If no file name is
+given, the record is saved in the file <TT>typescript</TT>. The <TT>-a
+</TT>option allows you to append the session record to
+<TT>filename</TT>, rather than overwrite it. To end the recording,
+type <PRE>&nbsp;&nbsp;&nbsp; exit</PRE>For more information on how to
+run the <TT>script</TT> command, check out its man
+page. <TT>mysql</TT> provides the command <TT>tee</TT> to save query
+results to a file. At the <TT>mysql&gt;</TT> prompt, you say:
+<PRE>&nbsp;&nbsp;&nbsp; tee thirsty.lst;</PRE>and a file called
+<TT>thirsty.lst</TT> will appear in your current directory and will
+record all user input and system output, until you exit <TT>mysql</TT>
+or type: <PRE>&nbsp;&nbsp;&nbsp; notee;</PRE>Note that if the file
+<TT>thirsty.lst</TT> existed previously, it will be appended.
+<P>Finally, if you use Emacs, you can simply run <TT>mysql</TT> in a shell 
+buffer and save the buffer to a file. To prevent your MySQL password from being 
+echoed in the Emacs buffer, add the following lines to your <TT>.emacs</TT> 
+file: <PRE>(setq-default
+&nbsp;comint-output-filter-functions
+&nbsp;'(comint-watch-for-password-prompt))
+(setq
+&nbsp;comint-password-prompt-regexp
+&nbsp;&quot;\\(\\([Oo]ld \\|[Nn]ew \\|^\\)[Pp]assword\\|Enter password\\):\\s *\\'&quot;)</PRE>
+<HR width="100%">
+
+<P><A name="help facilities and other hints"></A><B>Help
+Facilities</B> <P>In response to the <TT>mysql&gt;</TT> prompt, type
+<TT>help</TT> and follow the instructions.  You can also browse the complete MySQL Manual online at <a href="http://dev.mysql.com/doc/refman/5.1/en/">http://dev.mysql.com/doc/refman/5.1/en/</a>.  The MySQL server running on <tt>cspp53001</tt> is version 5.1.
+
+<BR>
+<HR width="100%">
+<FONT size=-2>This document was written originally for Prof. Jeff Ullman's CS145 
+class in Autumn, 1997; revised by Jun Yang for Prof. Jennifer Widom's CS145 
+class in Spring, 1998; further revisions by Jeff Ullman, Autumn, 1998; further 
+revisions by Jennifer Widom, Spring 2000; further revisions by Nathan Folkert, 
+Spring 2001; further revisions by Matei Ripeanu, Autumn 2001; further revisions 
+by Xuehai Zhang for CS235 at the University of Chicago in Autumn 2002 and Autumn 2003. Adapted for MySQL by Svetlozar Nestorov for CS235 in Autumn 2005;further revisions by Svetlozar Nestorov in Spring 2007;further revisions by Svetlozar Nestorov in Fall 2009, Spring 2010, Autumn 2010, Spring 2011, Fall 2011, Spring 2012, Fall 2012 for CSPP53001.</FONT> 
+</BODY></HTML>

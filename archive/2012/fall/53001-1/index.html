@@ -1,0 +1,480 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+      "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+  <title>CSPP53001: Databases</title>
+  <meta name="generator" content="Amaya, see http://www.w3.org/Amaya/">
+  <style type="text/css" title="Amaya theme">
+/* Modern style for Amaya Editor Lite */
+
+/* default rules for the whole document */
+body {
+    font-size: 12pt;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    color: black;
+    background-color: white;
+    line-height: 1.2em;
+    margin-left: 4em;
+    margin-right: 2em;
+   }
+
+/* paragraphs */
+p  {
+    padding: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: left;
+   }
+
+/* headings */
+h1 {
+    font-size: 180%;
+    font-weight: bold;
+    font-style: normal;
+    font-variant: small-caps;
+    text-align: left;
+    padding: 0;
+    margin-top: 1.7em;
+    margin-bottom: 1.7em;
+   }
+h2 {
+    font-size: 150%;
+    font-weight: bold;
+    font-style: normal;
+    padding: 0;
+    margin-top: 1.5em;
+    margin-bottom: 1.1em;
+   }
+h3 {
+    font-size: 130%;
+    font-weight: bold;
+    font-style: normal;
+    padding: 0;
+    margin-top: 1.3em;
+    margin-bottom: 1.1em;
+   }
+h4 {
+    font-size: 110%;
+    font-weight: bold;
+    font-style: normal;
+    padding: 0;
+    margin-top: 1.1em;
+    margin-bottom: 1.1em;
+   }
+h5 {
+    font-size: 100%;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+   }
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+    font-style: italic;
+    padding: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+   }
+
+/* divisions */
+div {
+    padding: 0;
+    margin-top: 0em;
+    margin-bottom: 0em;
+   }
+
+/* lists */
+ul, ol {
+    padding: 0 0 0 3em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+   }
+ul ul, ol ol, ul ol, ol ul {
+    margin-top: 1em;
+    margin-bottom: 1em;
+   }
+li {
+    padding: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: left;
+   }
+li p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+   }
+dl {
+    padding: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 1em;
+   }
+dl dl {
+    margin-top: 0em;
+    margin-bottom: 0em;
+   }
+dt {
+    padding: 0;
+    font-weight: bold;
+    margin-top: .3em;
+    margin-bottom: .3em;
+   }
+dd {
+    padding: 0;
+    margin-top: .3em;
+    margin-left: 3em;
+    margin-bottom: .3em;
+   }
+dl p {
+    margin-top: .3em;
+    margin-bottom: .3em;
+   }
+
+th {
+   background-color: orange;
+}
+
+/* inline */
+strong {
+    font-weight: bold;
+   }
+em {
+    font-style: italic;
+   }
+code {
+    font-family: Courier New, Courier, monospace;
+   }
+ins {
+    background-color: yellow;
+    text-decoration: underline;
+   }
+del {
+    text-decoration: line-through;
+   }
+
+/* anchors */
+a[href] {
+    color: blue;
+    text-decoration: underline;
+   }
+
+/* end */
+  </style>
+</head>
+
+<body>
+<h2 style="text-align:center;margin-left:auto;margin-right:auto;">
+Databases (CS53001 Fall 2012)
+<span
+style="font-family: Arial,Helvetica,sans-serif"></span></h2>
+
+<center>
+<table border="1" style="font-family: Arial,Helvetica,sans-serif">
+  <col>
+  <col>
+  <tbody>
+    <tr>
+      <th><strong>Location &amp; Time</strong></th>
+      <td>Ryerson 251, 5:30pm - 8:30pm, Thursdays</td>
+    </tr>
+    <tr>
+      <th><strong>Instructor</strong></th>
+      <td>Svetlozar Nestorov (evtimov <em>at</em> uchicago.edu) email for appointment, 
+	<br>include string <strong>csppdb</strong> in the subject line</td>
+    </tr>
+    <tr>
+      <th><strong>TAs</strong></th>
+      <td>For faster response, please, address your email to csppdb <em>at</em> cs.uchicago.edu. 
+	<br>This email address reaches the instructor and the 3 TAs. 
+      <br>James Sams (jasams <em>at</em> uchicago.edu) email for appointment,
+      <br>Samuel Olofin (solofin <em>at</em> uchicago.edu) email for appointment,	
+      <br>Greg Cross (grog <em>at</em> cs.uchicago.edu) email for appointment,	
+      <br>include string <strong>csppdb</strong> in the subject line</td>
+    </tr>
+    <tr>
+      <th><strong>Textbook</strong></th>
+      <td><a href="http://infolab.stanford.edu/~ullman/fcdb.html">A First
+        Course in Database Systems</a> (3rd ed.) by Jeff Ullman and Jennifer Widom</td>
+    </tr>
+    <tr>
+      <th><strong>Academic Policies</strong></th>
+      <td>
+      <a href="http://studentmanual.uchicago.edu/honesty">Academic Policies & Requirements at UChicago</a>
+      </td>
+  </tbody>
+</table>
+<p>
+<table border="1" style="font-family: Arial,Helvetica,sans-serif">
+  <col>
+  <col>
+  <tbody>
+    <tr>
+      <th>Date</th>
+      <th>Announcement</th>
+    </tr>
+    <tr>
+      <td>11/1</td>
+      <td>For faster response, please, address your email to csppdb <em>at</em> cs.uchicago.edu. 
+	<br>This email address reaches the instructor and the 3 TAs. </td>
+    </tr>
+    <tr>
+      <td>10/22</td>
+      <td>
+	We have a new (third) TA: Greg Cross. His contact info is grog <em>at</em> cs.uchicago.edu.
+      </td>
+    </tr>
+    <tr>
+      <td>10/17</td>
+      <td>
+	Our next class is on Thursday, Oct 18.  <br> We will have a make-up class on Saturday, Oct 20, at 10:30am in Ryerson 251.
+      </td>
+    </tr>
+
+    <tr>
+      <td>10/4</td>
+      <td>
+	Please, subscribe to the class mailing <a href="https://mailman.cs.uchicago.edu/mailman/listinfo/cspp53001">list</a>.
+      </td>
+    </tr>
+    <tr>
+      <td>10/4</td>
+      <td>Slides and homework will be posted on chalk.</td>
+    </tr>
+    <tr>
+      <td>10/4</td>
+      <td>Please, complete the <a href="http://www.surveymonkey.com/s/2M5ZFGQ">background survey</a>.</td>
+    </tr>
+    <tr>
+      <td>10/2</td>
+      <td>First class meets on October 4, 2012!</td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+<table BORDER=4 CELLPADDING=5 >
+<caption>&nbsp;</caption>
+
+<tr>
+<th>Week</th>
+
+<th>Date</th>
+
+<th>Topics</th>
+
+<th>Reading</th>
+
+<th>Assignments</th>
+</tr>
+
+<tr>
+<td>1</td> 
+
+<td>10/4</td>
+
+<td>Introduction, Entity-Relationship model and design</td>
+
+<td>1, 4.1-4.4</td>
+
+<td><a href="hw1.html">hw1</a></td>
+
+</tr>
+
+<tr>
+
+<td>2 </td>
+
+<td>
+10/18
+</td>
+
+<td>Database design, Relational model, Functional dependencies </td>
+
+<td>2.1-2.2, 4.5-4.6, 3.1-3.5</td>
+
+<td><a href="hw2.html">hw2</a></td>
+
+</tr>
+
+<tr>
+
+<td>3</td>
+
+
+<td>
+10/20
+</td>
+
+<td>Normal forms, Relational algebra, SQL: Schemas, Simple queries </td>
+
+
+<td>2.3-2.5, 5, 6.1-6.2</td>
+
+<td>
+</td>
+
+</tr>
+
+<tr>
+
+<td>4</td>
+
+
+<td>
+10/25
+</td>
+
+<td>SQL: Subqueries, Aggregation, Modifications </td>
+
+
+<td>6.2-6.5</td>
+
+<td><a href="hw3.html">hw3</a></td>
+
+</tr>
+
+<tr>
+
+<td>5</td>
+
+
+<td>
+11/1
+</td>
+
+<td>SQL: Joins, Views, Indexes, Constraints </td>
+
+
+<td>6.3, 7.1-7.2, 8.1-8.4</td>
+
+<td><a href="hw4.html">hw4</a></td>
+
+
+</tr>
+
+<tr>
+
+<td>6</td>
+
+
+<td>
+11/8
+</td>
+
+<td><b>Midterm;</b> Transactions, Authorization </td>
+
+<td>6.6, 10.1</td>
+
+<td><a href="hw5.html">hw5</a></td>
+</tr>
+
+<tr>
+
+<td>7</td>
+
+
+<td>11/15
+</td>
+
+
+<td>Midterm review; Triggers, Stored procedures</td>
+
+<td>7.5, 9.1-9.4</td>
+
+<td><a href="hw6.html">hw6</a></td>
+
+
+</tr>
+
+
+<tr>
+
+<td>8</td>
+
+
+<td>
+11/29
+</td>
+
+<td>Database connectivity, Web programming </td>
+
+<td>9.5-9.7, class notes</td>
+
+<td><a href="hw7.html">hw7</a></td>
+
+</tr>
+
+<tr>
+
+<td>9</td>
+
+
+<td>
+12/6
+</td>
+
+<td>
+Data warehousing, Data mining 
+</td>
+
+
+<td>class notes</td>
+
+
+<td><a href="hw8.html">hw8</a></td>
+
+
+
+</tr>
+
+<tr>
+
+<td>10</td>
+
+
+<td>TBD
+</td>
+
+<td>
+NoSQL Databases, Big Data
+</td>
+
+
+<td>class notes</td>
+
+<td>
+</td>
+</tr>
+
+<td>-</td>
+
+
+<td>
+12/12
+</td>
+
+<td>Final project deadline!</td>
+
+
+<td>no class</td>
+
+<td>
+
+</td>
+
+</tr>
+
+
+</table>
+
+<p>
+<p>
+
+</body>
+</html>

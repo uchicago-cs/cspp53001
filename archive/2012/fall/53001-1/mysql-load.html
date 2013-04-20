@@ -1,0 +1,139 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Microsoft FrontPage 4.0">
+   <TITLE>Loading Data in MySQL</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+<FONT SIZE=+3>Loading Data in MySQL</FONT>&nbsp;
+</h1>
+<HR WIDTH="100%">
+
+<UL>
+<LI>
+<A HREF="#overview">Overview</A></LI>
+
+<LI>
+<A HREF="#creating the data file">Creating the Data File</A></LI>
+
+<LI>
+<A HREF="#loading your data">Loading Your Data</A></LI>
+
+<LI>
+<A HREF="#entering nulls">Entering NULL Values</A></LI>
+
+</UL>
+
+<HR WIDTH="100%">
+<p><A NAME="overview"></A><b>Overview</b>
+<p>
+To load data in MySQL, you need to create a <I>data file</I>,
+which specifies <I>what</I> data should be loaded and then run a command that specifies <i>how</i> data should be loaded.
+
+<HR WIDTH="100%">
+<p><A NAME="creating the data file"></A><b>Creating the Data File</b>
+<p>Each line in the data file specifies one tuple to be loaded into <TT>&lt;tableName></TT>.
+It lists, in order, values for the attributes in the list specified in
+the <tt>LOAD</tt> command (described below), separated by <TT>&lt;separator></TT>. As a concrete example, consider relation <i>Likes(drinker, beer)</i> and a data file 
+<TT>likes.dat</TT> that might look like:
+<PRE>zarko|Guinness
+karin|Bud
+karin| BudLite</PRE>
+As a result of loading <TT>likes.dat</TT>, the following tuples are inserted into <TT>Likes</TT>:
+<PRE>('zarko', 'Guinness')
+('karin', 'Bud')
+('karin', ' BudLite')</PRE>
+<B>Warning:</B> Note that the third line of <TT>likes.dat</TT> has a blank
+after "<TT>|</TT>". This blank is <I>not</I> ignored by the loader. The
+value to be loaded for attribute <TT>beer</TT> is <TT>' Bud'</TT>, a four-character
+string with a leading blank. It is a common mistake to assume that <TT>'Bud'</TT>,
+a three-character string with no leading blank, will be loaded instead.
+This can lead to some very frustrating problems that you will not notice
+until you try to query your loaded data, because <TT>' Bud'</TT> and <TT>'Bud'</TT>
+are different strings.
+
+<HR WIDTH="100%">
+<p><A NAME="loading your data"></A><b>Loading Your Data</b>
+<p>
+A simple load command has the following form:
+<PRE>LOAD DATA
+LOCAL INFILE "&lt;dataFile&gt;"
+REPLACE INTO TABLE &lt;tableName&gt;
+FIELDS TERMINATED BY '&lt;separator&gt;'
+(&lt;list of all attribute names to load&gt;)</PRE>
+
+<UL>
+<LI>
+<TT>&lt;dataFile></TT> is the name of the data file.  The optional keyword <tt>LOCAL</tt> means that the filename is interpreted with respect to the client end of the connection, i.e. your home directory rather than the mysql server (<tt>interlibrary.cs.uchicago.edu</tt>)</LI>
+
+<LI>
+<TT>&lt;tableName></TT> is the name of the table to which data will be
+loaded. Of course, it should have been created already before the bulk
+load operation.</LI>
+
+<LI>
+The optional keyword <TT>REPLACE</TT> controls handling of input records that duplicate existing records on unique key values.  <tt>REPLACE</tt> means that when there are duplicates the new tuples are used and the old ones are deleted. <tt>IGNORE</tt> means that the new tuples are ignored and the old ones kept.  
+
+<LI>
+<TT>&lt;separator></TT> specifies the field separator for your data file.
+This can be any single character. It is a good idea to use a character
+that you know will never appear in the data, so the separator will not
+be confused with data fields.</LI>
+
+<LI>
+Finally, list the names of attributes of <TT>&lt;tableName></TT> that are
+set by your data file, separated by commas and enclosed in parentheses.
+This list need not be the complete list of attributes in the actual schema
+of the table, nor must it be arranged in the same order as the attributes
+when the table was created.  Any attributes unspecified in the list
+of attributes will be set to their default values, if declared, and <TT>NULL</TT> otherwise.
+</LI>
+</UL>
+As a concrete example, here is a <TT>LOAD</TT> command for loading <tt>likes.dat</tt> into <tt>Likes</tt>:
+<PRE>LOAD DATA
+LOCAL INFILE "likes.dat"
+REPLACE INTO TABLE Likes
+FIELDS TERMINATED BY '|'
+(drinker, beer)</PRE>
+
+<p> For more information on the <tt>LOAD</tt> command consult the online MySQL <a href="http://dev.mysql.com/doc/refman/5.1/en/load-data.html">documentation</a>. 
+
+
+<HR WIDTH="100%">
+<p><A NAME="entering nulls"></A><b>Entering NULL Values</b>
+<P>
+You may specify <TT>NULL</TT> values simply by entering \N.  For example, if we were entering integer 
+values into a table with schema <TT>(a, b, c)</TT> specified in the 
+<TT>LOAD</TT> command, the following lines in the data file:
+<PRE>3|\N|5
+\N|2|4
+1|\N|6
+\N|\N|7</PRE>
+<P>would result in inserting the following tuples in the relation:
+<PRE>(3, NULL, 5)
+(NULL, 2, 4)
+(1, NULL, 6)
+(NULL, NULL, 7)</PRE>
+<P>Keep in mind that any primary keys or other constraints requiring that 
+values be non-<TT>NULL</TT> will reject tuples for which those
+attributes are unspecified.  
+
+<P>
+If you do not wish to enter values for any row of a given column, you can,
+as mentioned above, leave that column out of the attribute list
+altogether.
+
+<P>
+<HR WIDTH="100%"><FONT SIZE=-2>This document was written originally
+for Prof. Jeff Ullman's CS145 class in Autumn, 1997; revised by Jun Yang
+for Prof. Jennifer Widom's CS145 class in Spring, 1998; further
+revisions by Jeff Ullman, Autumn, 1998; further revisions by Srinivas
+Vemuri for Prof. Jeff Ullman's CS145 class in Autumn, 1999;
+further revisions by Nathan Folkert for Prof. Jennifer Widom's CS145 class
+in Spring, 2001; further revisions by Xuehai Zhang for CS235 at the 
+University of Chicago in Autumn 2002 and Autumn 2003.  Adapted for MySQL by Svetlozar Nestorov for CS235 in Autumn, 2005; further revisions by Svetlozar Nestorov in Spring 2007; further revisions by Svetlozar Nestorov in Fall 2009, Spring 2010, Autumn 2010, Spring 2011, Fall 2011, Spring 2012, Fall 2012 for CS5PP3001.
+</FONT>
+</BODY>
+</HTML>

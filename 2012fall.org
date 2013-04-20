@@ -1,0 +1,1322 @@
+** Databases (CS53001 Fall 2012)
+
+*Location & Time*
+
+Ryerson 251, 5:30pm - 8:30pm, Thursdays
+
+*Instructor*
+
+Svetlozar Nestorov (evtimov /at/ uchicago.edu) email for appointment,
+include string *csppdb* in the subject line
+
+*TAs*
+
+For faster response, please, address your email to csppdb /at/
+cs.uchicago.edu.
+This email address reaches the instructor and the 3 TAs.
+James Sams (jasams /at/ uchicago.edu) email for appointment,
+Samuel Olofin (solofin /at/ uchicago.edu) email for appointment,
+Greg Cross (grog /at/ cs.uchicago.edu) email for appointment,
+include string *csppdb* in the subject line
+
+*Textbook*
+
+[[http://infolab.stanford.edu/~ullman/fcdb.html][A First Course in
+Database Systems]] (3rd ed.) by Jeff Ullman and Jennifer Widom
+
+*Academic Policies*
+
+[[http://studentmanual.uchicago.edu/honesty][Academic Policies &
+Requirements at UChicago]]
+
+Date
+
+Announcement
+
+11/1
+
+For faster response, please, address your email to csppdb /at/
+cs.uchicago.edu.
+This email address reaches the instructor and the 3 TAs.
+
+10/22
+
+We have a new (third) TA: Greg Cross. His contact info is grog /at/
+cs.uchicago.edu.
+
+10/17
+
+Our next class is on Thursday, Oct 18.
+ We will have a make-up class on Saturday, Oct 20, at 10:30am in Ryerson
+251.
+
+10/4
+
+Please, subscribe to the class mailing
+[[https://mailman.cs.uchicago.edu/mailman/listinfo/cspp53001][list]].
+
+10/4
+
+Slides and homework will be posted on chalk.
+
+10/4
+
+Please, complete the [[http://www.surveymonkey.com/s/2M5ZFGQ][background
+survey]].
+
+10/2
+
+First class meets on October 4, 2012!
+
+ 
+
+Week
+
+Date
+
+Topics
+
+Reading
+
+Assignments
+
+1
+
+10/4
+
+Introduction, Entity-Relationship model and design
+
+1, 4.1-4.4
+
+[[hw1.html][hw1]]
+
+2
+
+10/18
+
+Database design, Relational model, Functional dependencies
+
+2.1-2.2, 4.5-4.6, 3.1-3.5
+
+[[hw2.html][hw2]]
+
+3
+
+10/20
+
+Normal forms, Relational algebra, SQL: Schemas, Simple queries
+
+2.3-2.5, 5, 6.1-6.2
+
+4
+
+10/25
+
+SQL: Subqueries, Aggregation, Modifications
+
+6.2-6.5
+
+[[hw3.html][hw3]]
+
+5
+
+11/1
+
+SQL: Joins, Views, Indexes, Constraints
+
+6.3, 7.1-7.2, 8.1-8.4
+
+[[hw4.html][hw4]]
+
+6
+
+11/8
+
+*Midterm;* Transactions, Authorization
+
+6.6, 10.1
+
+[[hw5.html][hw5]]
+
+7
+
+11/15
+
+Midterm review; Triggers, Stored procedures
+
+7.5, 9.1-9.4
+
+[[hw6.html][hw6]]
+
+8
+
+11/29
+
+Database connectivity, Web programming
+
+9.5-9.7, class notes
+
+[[hw7.html][hw7]]
+
+9
+
+12/6
+
+Data warehousing, Data mining
+
+class notes
+
+[[hw8.html][hw8]]
+
+10
+
+TBD
+
+NoSQL Databases, Big Data
+
+class notes
+
+-
+
+12/12
+
+Final project deadline!
+
+no class
+
+CSPP 53001: Assignment 1
+
+* CSPP 53001: Assignment 1
+
+*** Due by 11:59pm on Wednesday, October 10, 2012
+
+--------------
+
+*** Adminstrative tasks
+
+-  Subscribe to the class mailing
+   [[https://mailman.cs.uchicago.edu/mailman/listinfo/cspp53001][list]].
+-  Follow the class [[http://twitter.com/csppdb][@csppdb]] on twitter.
+-  Explore [[http://erdplus.com][ERDPlus]] and draw the
+   Bars-Beers-Drinkers E/R diagram from our first class.
+-  Take the background
+   [[http://www.surveymonkey.com/s/2M5ZFGQ][survey]].
+
+--------------
+
+*** Problem Set
+
+You will complete the problem set using
+[[http://www.newgradiance.com/][Gradiance]]
+(http://www.newgradiance.com/), an online learning system, developed by
+a team led by professor Jeff Ullman. You will need to create an account
+on Gradiance by following the instructions on the site. Please, note
+that the url of the site is *newgradiance.com*. To sign up for our
+course, specify *the class sign up token* provided in class.
+
+The name of the homework is CSPPDB-Aut12 HW1. All questions in this
+problem set are multiple choice. However, to answer them correctly you
+will need to work out their long (general) answers. A correct answer is
+worth 3 points. You lose a point for each incorrect answer. You can
+attempt the problem set as many times as you like; only your highest
+score will count. Note that you will probably get slightly different
+questions each time you take it.
+
+*The due date for the Gradiance part of the homework is 11:59pm on
+Wednesday, October 10, 2012.*
+
+CSPP 53001: Assignment 2
+
+* CSPP 53001: Assignment 2
+
+*** Due by 11:59pm on Wednesday, October 24, 2012
+
+*** Step 1 of Your Twitter Basic Plus (TBP) App
+
+Your programming project for CSPP 53001 will be to build a substantial
+database application that provides the basic functionality of Twitter
+and adds or changes some of the features (hence the "Plus"). You should
+certainly preserve the basic concepts of tweeting and following but you
+are free to add or omit any other aspects such as HashTags, Favorites,
+Lists, etc.
+
+First, you will design the E/R diagram for your TBP, then you will
+transform the E/R diagram to a relational schema for the database, and
+you will create an actual database using MySQL. You will populate the
+database with lots of data, write interactive queries and modifications
+on the database. Finally, you will develop an online interface to your
+TBP.
+
+Your first step is to identify the features of your TBP that you would
+like to manage with your database, and to construct an
+entity-relationship diagram for the data. Try to pick an app that is
+relatively substantial, but not too enormous. For example, when
+expressed in the entity-relationship model, you might want your design
+to have five to ten entity sets, and a similar number of relationships.
+The total number of entity sets plus relationships for most reasonable
+designs should be between 10 and 20. If you feel that your app is too
+complex or too simple, please, discuss it with the TAs or the
+instructor.
+
+You should certainly include different kinds of relationships (e.g.,
+many-to-one, many-to-many) and different kinds of data (strings,
+integers, etc.), but your app is not required to use advanced features,
+such as subclassing, multiway relationships, or weak entity sets, if
+they are not appropriate for your scenario.
+
+Here are a few hints on getting started with your E/R diagram. You can
+start with the Users (or perhaps Twitterers?) and Tweets entity sets.
+Then you can create two relationship Following and Sends. Following will
+be a many-to-many relationship between Users and Users while Sends will
+be a one-to-many relationship between Users and Tweets. Next, you can
+consider how to add the concept of Re-tweeting to you E/R diagram.
+
+*So, here is what you need to do for step 1 of your TBP:*
+
+1. Describe the TBP that you propose in a few paragraphs in a text file
+   called =TBP_description.txt= Your description should be brief and
+   relatively informal. Your description will be graded only on
+   suitability and conciseness.
+2. Specify an entity-relationship diagram for your proposed database. As
+   always, don't forget to underline key attributes and include
+   arrowheads and rounded arrows indicating the multiplicity of
+   relationships. If there are weak entity sets, indicate them by double
+   lines, as described in class.
+
+   The recommended tool for creating your E/R diagram is
+   [[http://erdplus.com/][ERDplus]]. Of course, you can draw the diagram
+   using any software you like. You can also draw the diagram by hand
+   and then scan it. Store your ER diagram in a file called
+   =TBP_ERD.???=. Note that the file should be in some readable format
+   such as pdf, bmp or png.
+
+3. Transform the E/R diagram you created to a relational schema as
+   follows:
+4. Using the method for translating an E/R diagram to relations, produce
+   a set of relations for your database design, underlining key
+   attributes in your relations.
+5. For each relation in your schema, specify a set of nontrivial
+   functional dependencies that hold based on your particular app. /Some
+   of your relations may have no nontrivial functional dependencies./
+   Show the relational schema and the functional dependencies in a text
+   file called =TBP_schema.txt=
+
+You will submit your homework using the =hwsubmit= command. Please,
+create a new directory called hw1\_<your\_username>, e.g. hw1\_evtimov,
+and move all of the relevant files there:
+=TBP_description.txt, TBP_ERD.???, TBP_schema.txt=. Then, you can submit
+your work by typing (<path\_to> is the directory path to your hw1
+directory):
+
+=hwsubmit cspp53001 <path_to>/hw1_<your_username>=
+
+*Please make sure that all of the relevant files and no others are in
+that directory.*
+
+If you are having trouble thinking of any additional features for your
+Twitter Basic Plus, or if you are unsure whether your proposed features
+are appropriate, please feel free to consult with the instructor or the
+TAs.
+
+--------------
+
+*** Problem Set
+
+You will complete the problem set using
+[[http://www.newgradiance.com/][Gradiance]]
+(http://www.newgradiance.com/).
+
+The name of the homework is CSPPDB-Aut12 HW2. There are 11 questions in
+this homework - 10 regular questions and one extra credit one (about
+seven subsets). All questions in this problem set are multiple choice.
+However, to answer them correctly you will need to work out their long
+(general) answers. A correct answer is worth 3 points. You lose a point
+for each incorrect answer. You can attempt the problem set as many times
+as you like; only your highest score will count. Note that you will
+probably get slightly different questions each time you take it.
+
+*The due date for the Gradiance part of the homework is 11:59pm on
+Wednesday, October 24, 2012.*
+
+CSPP 53001: Assignment 3
+
+* CSPP 53001: Assignment 3
+
+*** Online homework and project due by 11:59pm on Wednesday, October 31,
+2012
+
+*** Step 2 of Your TBP
+
+The second part of your TBP project is to create a database in MySQL,
+populate it with some real data and run several interesting queries.
+
+1. Get a MySQL account. For specific instructions on how to get a MySQL
+   account, login to MySQL, create relations, etc. please, refer to
+   [[mysql-intro.html][/Getting Started With MySQL/]]. Get acquainted
+   with MySQL, change your initial password, experiment with some simple
+   commands, and check out the =help= command.
+2. Create relations for your TBP based on your final relational schema
+   from *Step 1*. In addition to creating the appropriate attributes and
+   types, please declare /primary keys/ for your relations. The
+   attribute types supported by MySQL are described in the
+   [[http://dev.mysql.com/doc/refman/5.1/en/data-types.html][MySQL
+   online documentation]]. Please, generate a script file called
+   =create_db.sql= that creates all of your tables.
+3. Develop a small amount (10-20 tuples per relation) of real data and
+   load it into your relations using the =SQL load= command. See
+   [[mysql-load.html][/Loading Data in MySQL/]] for information on how
+   to bulk-load data. Please, generate a script file called
+   =populate_db.sql= that loads all of your tables. Note that the script
+   will likely reference several data files in your directory.
+
+4. Develop and test at least six SQL data retrieval (=select=) commands.
+5. Please, generate a script file called =query2.sql= with all of your
+   queries.
+
+Please note:
+
+-  You can invoke your SQL commands interactively through =mysql=, as
+   described in the document [[mysql-intro.html][/Getting Started With
+   MySQL/]].
+-  Please write "interesting" queries. You should try to use most or all
+   of the SQL constructs discussed in class and in the textbook. You
+   will not receive full credit if your queries are all extremely
+   simple.
+
+   You will submit your homework using the =hwsubmit= command. Please,
+   create a new directory called hw2\_<your\_username>, e.g.
+   hw2\_evtimov, and move all of the relevant scripts and data files
+   there. Then, you can submit your work by typing (<path\_to> is the
+   directory path to your hw2 directory).
+
+   =hwsubmit cspp53001 <path_to>/hw2_<your_username>=
+
+   *Please make sure that all of the relevant files and no others are in
+   that directory.*
+
+--------------
+
+*** Problem Set
+
+You will complete the problem set using
+[[http://www.newgradiance.com/][Gradiance]]
+(http://www.newgradiance.com/).
+
+The name of the homework is CSPPDB-Aut12 HW3. There are 11 questions in
+this homework - 10 regular questions and one extra credit one
+(relational division). All questions in this problem set are multiple
+choice. However, to answer them correctly you will need to work out
+their long (general) answers. A correct answer is worth 3 points. You
+lose a point for each incorrect answer. You can attempt the problem set
+as many times as you like; only your highest score will count. Note that
+you will probably get slightly different questions each time you take
+it.
+
+*The due date for the Gradiance part of the homework is 11:59pm on
+Wednesday, October 31, 2012.*
+
+CSPP 53001: Assignment 4
+
+* CSPP 53001: Assignment 4
+
+*** Online homework and project due by 11:59pm on Wednesday, November 7,
+2012
+
+*** Step 3 of Your TBP
+
+The third part of the TBP project is to design and run some interesting
+queries involving joins and aggregation. Please, choose your queries
+carefully and add comments that describe the purpose of each query. Your
+queries should correspond to actions or functionality that your TBP app
+may implement. For example, you may want to find all users that follow
+at least one twitterer that you follow.
+
+1. Develop and test at least eight SQL queries involving joins. Please,
+   generate a script file called =joins3.sql= with all of your queries.
+2. Develop and test at least eight SQL queries involving aggregation.
+   Please, generate a script file called =aggrs3.sql= with all of your
+   queries.
+   When you write the join and aggregation queries, consider the
+   functionality of your TBP app. Try to write queries that will be
+   useful in implementing some features of your TBP app. For example,
+   displaying the tweets of all of the users someone follows will
+   involve a join while listing the number of followers for any user
+   will be an aggregation query.
+3. Develop and test at least two each of the four types of SQL data
+   modification commands: =insert= a single tuple, =insert= a subquery,
+   =delete=, =update=. Please, generate a script file called =mods3.sql=
+   with all of your modifications.
+
+You will submit your homework using the =hwsubmit= command. Please,
+create a new directory called hw3\_<your\_username>, e.g. hw3\_evtimov,
+and move all of the relevant scripts and data files there. Then, you can
+submit your work by typing (<path\_to> is the directory path to your hw3
+directory).
+
+=hwsubmit cspp53001 <path_to>/hw3_<your_username>=
+
+*Please make sure that all of the relevant files and no others are in
+that directory.*
+
+--------------
+
+--------------
+
+*** Problem Set
+
+You will complete the problem set using
+[[http://www.newgradiance.com/][Gradiance]]
+(http://www.newgradiance.com/).
+
+The name of the homework is CSPPDB-Aut12 HW4. There are 11 questions in
+this homework - 10 regular questions and one extra credit one (about
+outer joins). All questions in this problem set are multiple choice.
+However, to answer them correctly you will need to work out their long
+(general) answers. A correct answer is worth 3 points. You lose a point
+for each incorrect answer. You can attempt the problem set as many times
+as you like; only your highest score will count. You do not have to
+solve the challenge question to receive full credit but if you get it
+wrong you will lose a point. Note that you will probably get slightly
+different questions each time you attempt the problem set.
+
+*The due date for the Gradiance part of the homework is 11:59pm on
+Wednesday, November 7, 2012.*
+
+CSPP 53001: Assignment 5
+
+* CSPP 53001: Assignment 5
+
+*** Project is due by 11:59pm on Friday, November 16, 2012
+
+*** Steps 4 and 5 of Your TBP App
+
+The fourth part of your TBP project is to generate some more data and
+populate your MySQL database with it. The fifth part is to design and
+develop several join and aggregation queries on this larger database.
+
+You also have the *optional* choice to redesign your database based on
+the feedback you have received from the instructor and the TAs and your
+experience developing the TBP App so far. If you do choose to redesign
+your database in a significant way, please, include your new ER diagram,
+named TBP\_ERD\_v2.??? with your submission. Note that adding or
+deleting several attributes or adding a few new relationships *is not* a
+significant redesign. If you do choose these option, please, make sure
+that the relations in your database correspond (i.e. have the same
+names) to the entity sets and relationships in your ER diagram.
+
+Develop a larger amount of data for your database and load it into your
+relations using the SQL load command. The data you generate and load
+should be on the order of:
+
+-  At least two relations with thousands of tuples
+-  At least one additional relation with hundreds of tuples
+
+To create more data for your relations, you can write a program in any
+programming language you like. The program should create large files
+consisting of records in an *ASCII text-only* format acceptable to the
+MySQL bulk loader. Then you should load the data into your TBP
+relations. If you are using real data, your program will need to
+transform the data into files of records conforming to your TBP schema.
+Otherwise you will write a program to fabricate data: your program will
+generate either random or nonrandom (e.g., sequential) records
+conforming to your schema. Note that it is acceptable for your data
+values to be meaningless (i.e. random sequence of characters instead of
+actual names).
+
+If the semantics of your schema includes relations that are expected to
+be relatively small (e.g., states in the US), it is fine to use some
+small relations, but please ensure that you have relations of the sizes
+prescribed above as well. When writing a program to fabricate data,
+there are two important points to keep in mind:
+
+-  Be sure not to generate duplicate values for your key attributes.
+-  Your TBP certainly includes relations that are expected to join with
+   each other. For example, if the key of the Users relation is
+   username, then it is expected to join with the username\_leader and
+   username\_follower attributes of the Follows relation. In generating
+   data, be sure to generate values that actually do join -- otherwise
+   all of your interesting queries will have empty results! One way to
+   guarantee joinability is to generate the values in one relation
+   (corresponding to an entity set in your E/R diagram), then use the
+   generated values to select joining values for the other relation
+   (corresponding to a relationship in your E/R diagram). For example,
+   you could generate usernames first (either sequentially or randomly),
+   then use these usernames to fill in the username\_leader and
+   username\_follower values in the Follows relation.
+
+You will need to submit your new =create_db_large.sql= and
+=populate_db_large.sql= scripts along with *all data files* referenced
+in your =populate_db_large.sql= script.
+
+To demonstrate the size of your new relations, please, generate a script
+file called =count.sql= that finds the number of tuples in every one of
+your relations.
+
+*Extra credit:* Develop a single query that returns the name of every
+table along with its size. For example, if you had only three tables:
+Users, Tweets, and Follows and their sizes were 10000, 50000, and
+100000, the result of your single query should look like this:
+
+#+BEGIN_EXAMPLE
+    +------------+------------+
+    | table_name | table_size |
+    +------------+------------+
+    | Users      |      10000 |
+    +------------+------------+
+    | Tweets     |      50000 |
+    +------------+------------+
+    | Follows    |     100000 |
+    +------------+------------+
+#+END_EXAMPLE
+
+Develop and test at least ten SQL queries using the JOIN syntax
+discussed in class. At least five of your queries should involve
+aggregation. To receive full credit, you should use all JOIN variations
+discussed in class (ON, USING, NATURAL, OUTER) and aggregation with and
+without GROUP BY clause. Please, generate a script file called
+=query5.sql= with all of your join and aggregation queries. *Your
+queries must not produce empty results and also must complete in a
+reasonable amount of time (a few minutes).* If any of your queries takes
+a long time to complete, consider modifying it by adding more conditions
+that limit the size of the intermediate results or final result. For
+example, if your query finds all pairs of users that follow at least one
+user in common:
+
+#+BEGIN_EXAMPLE
+    SELECT DISTINCT F_1.username_follower AS user1, 
+    F_2.username_follower AS user2
+    FROM Follows F_1 JOIN Follows F_2
+    USING (username_leader)
+    WHERE F_1.username_follower <> F_2.username_follower;
+#+END_EXAMPLE
+
+and it takes 30 minutes or more to produces millions of results,
+consider adding some conditions that limit the users from F\_1 and F\_2.
+For example, you can only consider usernames starting with the letters
+"a" and "b":
+
+#+BEGIN_EXAMPLE
+    SELECT DISTINCT F_1.username_follower AS user1, 
+    F_2.username_follower AS user2
+    FROM Follows F_1 JOIN Follows F_2
+    ON (F_1.username_leader = F_2.username_leader
+    AND F_1.username_follower LIKE "a%"
+    AND F_2.username_follower LIKE "b%")
+    WHERE F_1.username_follower <> F_2.username_follower;
+#+END_EXAMPLE
+
+Note that you *do need to submit the scripts that populates your large
+database as well as the corresponding data files*
+
+You will submit your homework using the =hwsubmit= command. Please,
+create a new directory called hw5\_<your\_username>, e.g. hw5\_evtimov,
+and move there all of the relevant scripts *and all data files*. For
+this assignment, there should be the four scripts:
+=create_db_large.sql=, =populate_db_large.sql=, =count.sql= and
+=query5.sql=, all the large data files and, if you have chosen to
+redesign your database, your new ER diagram TBP\_ERD\_v2.???. Then, you
+can submit your work by typing (<path\_to> is the directory path to your
+hw5 directory).
+
+=hwsubmit cspp53001 <path_to>/hw5_<your_username>=
+
+*Please make sure that all of the relevant files and no others are in
+that directory.*
+
+--------------
+
+*** There is no Gradiance Problem Set this week
+
+CSPP 53001: Assignment 6
+
+* CSPP 53001: Assignment 6
+
+*** Online homework and project due by 11:59pm on Monday, November 26,
+2012
+
+*** Step 6 of Your TBP App
+
+The sixth part of your TBP project is to create several triggers and
+stored routines.
+
+Create at least three triggers and show that they work. One of your
+triggers should enforce an attribute constraint. You should also have a
+trigger that keeps track of some quantity such as the number of tuples
+in a relation, or an aggregate function of some attribute. Please,
+create a script =triggers.sql= that includes all of your trigger
+definitions. To show that your triggers work create a script
+=scenario1.sql= that shows, for each trigger, the effect of two database
+modifications. One modification should activate the trigger while the
+other should not. In the script, show queries that demonstrate that the
+trigger has an effect in the first case and not in the second one.
+
+Create at least three stored routines, with at least one including a
+database modification, and show that they work. Please, create, a script
+=routines.sql= that includes all of your stored routine definitions. To
+show that your routines work create a script =scenario2.sql= that shows
+the effect of each routine. For routines including database
+modifications show the instance of an affected relation before and after
+the routine is called.
+
+In addition to the four new scripts, please, also submit
+=create_db_large.sql= and =populate_db_large.sql= scripts along with
+*all data files* referenced in your =populate_db_large.sql= script from
+hw5. You can modify these scripts in order to ensure that your triggers
+and routines work as expected.
+
+You will submit your homework using the =hwsubmit= command. Please,
+create a new directory called hw6\_<your\_username>, e.g. hw6\_evtimov,
+and move there all of the relevant scripts *and all data files*. For
+this assignment, there should be the four new scripts:
+=triggers.sql, scenario1.sql, routines.sql, scenario2.sql=, the scripts
+from hw5: =create_db_large.sql=, =populate_db_large.sql=, and all the
+large data files, Then, you can submit your work by typing (<path\_to>
+is the directory path to your hw6 directory):
+
+=hwsubmit cspp53001 <path_to>/hw6_<your_username>=
+
+*Please make sure that all of the relevant files and no others are in
+that directory.*
+
+--------------
+
+*** Problem Set
+
+You will complete the problem set using
+[[http://www.newgradiance.com/][Gradiance]]
+(http://www.newgradiance.com/).
+
+The name of the homework is CSPPDB-Aut12 HW6. There are 10 questions in
+this homework. All questions in this problem set are multiple choice.
+However, to answer them correctly you will need to work out their long
+(general) answers. A correct answer is worth 3 points. You lose a point
+for each incorrect answer. You can attempt the problem set as many times
+as you like; only your highest score will count. Note that you will
+probably get slightly different questions each time you attempt the
+problem set.
+
+*The due date for the Gradiance part of the homework is 11:59pm on
+Monday, November 26, 2012.*
+
+CSPP 53001: Assignment 7
+
+* CSPP 53001: Assignment 7
+
+*** Online homework and project due by 11:59pm on Tuesday, December 4,
+2012
+
+*** Step 7 of Your TBP App
+
+The seventh part of your TBP project is to create a web interface to
+your database using the php programming language and a web server.
+
+First, you will need to request an
+[[https://tools.cs.uchicago.edu/activate_cgi_service][account]] on the
+CS CGI server. Then you should create a directory named =cs53001= in
+your =/stage/cgi-cspp/<your_username>/public_html= directory.
+
+Next, you will create a web page that will be the (temporary) interface
+to your TBP. This web page should consist of links and forms and short
+explanations for any complex functions that implement the functionality
+needed by your TBP app. The functions and their parameters will depend
+on your schema and application scenario but you should certainly include
+functions that display users and tweets based on some conditions.
+
+Every link and form on this web page should correspond to (and
+implement) a particular functionality of your TBP app. For this
+assignment, you will only need to implement 8-10 functions. You don't
+have to implement any functions that modify your database such as
+registering a new user or sending a tweet - you will get to do that in
+the last part of your TBP app.
+
+Here is an example of a web page, [[tbp.html.txt][=tbp.html=]], that has
+a link to a php script [[list_tables.php.txt][=list_tables.php=]] and a
+form that runs [[list_attrs.php.txt][=list_attrs.php=]]. Note that the
+names of the files have an extra =.txt= extension so the source code can
+be viewed in your browser. The second php file assumes that you have a
+table Users with several attributes.
+
+For a quick primer on HTML forms you can go to
+[[http://www.w3schools.com/html/html_forms.asp][http://www.w3schools.com/html/html\_forms.asp]].
+
+For more information on how to handle form variables passed to php refer
+to this section of the php manual
+[[http://us3.php.net/manual/en/language.variables.external.php][http://us3.php.net/manual/en/language.variables.external.php]].
+
+For more information on accessing MySQL from php read
+[[http://us3.php.net/manual/en/ref.mysql.php][http://us3.php.net/manual/en/ref.mysql.php]].
+
+Your web page that contains all links and forms should be named`
+=tbp.html= and should be placed in your
+=/stage/cgi-cspp/<your_username>/public_html/cs53001/= directory. Make
+sure that this page is viewable by a browser. The url is:
+=http://cgi-cspp.cs.uchicago.edu/~<your_username>/cs53001/tbp.html=.
+
+You will submit your homework by emailing the TAs and instructor a link
+to your TBP web page.
+
+*** Problem Set
+
+You will complete two SQL labs using
+[[http://www.newgradiance.com/][Gradiance]]
+(http://www.newgradiance.com/). The names of the SQL Labs are
+CSPPDB-Aut12 HW7a and CSPPDB-Aut12 HW7b
+
+*The due date for the SQL labs is midnight on Tuesday, December 4,
+2012.*
+
+CSPP 53001: Assignment 8
+
+* CSPP 53001: Assignment 8
+
+*** Online homework and project due by 11:59pm on Wednesday, 12/12/12
+
+*** Final Step of Your TBP App
+
+The final part of your TBP App project is to create a basic web site
+powered by your database using the php programming language and a web
+server.
+
+First, you will add data entry functionality to the web interface
+created in part 7. Then, you will create individual pages corresponding
+to different aspects of your application.
+
+You will create several new web pages that will comprise the data entry
+interface to your TBP App. Each web page should contain at least one
+form that implements some data entry functionality needed by your TBP.
+For example, you can have a registration page for new users, followed by
+a menu page that directs users to choose other users to follow and write
+tweets. Your functions and their parameters will depend on your schema
+and application scenario.
+
+You can also incorporate the functions you wrote for part 7 by adding
+them to the appropriate pages of your site. For example, you can add any
+search functions to the home page for each user (the page that appears
+after a user logs in).
+
+The point of entry to your web site should be named =final.html= and
+should be placed in your
+=/stage/cgi-cspp/<your_username>/public_html/cs53001/= directory. Make
+sure that this page is viewable by a browser. The url is:
+=http://cgi-cspp.cs.uchicago.edu/~<your_username>/cs53001/final.html=.
+
+You will submit your homework by emailing /csppdb at cs.uchicago.edu/
+the link to your TBP App.
+
+--------------
+
+*** Problem Set
+
+You will complete two SQL labs using
+[[http://www.newgradiance.com/][Gradiance]]
+(http://www.newgradiance.com/). The names of the SQL Labs are Kings and
+Presidents.
+
+*The due date for the SQL labs is midnight on Wednesday, December 12,
+2012.*
+
+Getting Started With MySQL
+
+* Getting Started With MySQL
+
+--------------
+
+-  [[#overview][Overview]]
+-  [[#Getting][Getting a MySQL account]]
+-  [[#logging%20in%20to%20mysql][Logging In to MySQL]]
+-  [[#changing%20your%20password][Changing Your Password]]
+-  [[#using%20your%20database][Using Your Database]]
+-  [[#creating%20a%20table][Creating a Table]]
+-  [[#creating%20with%20key][Creating a Table With a Primary Key]]
+-  [[#inserting%20tuples][Inserting Tuples]]
+-  [[#getting%20the%20value%20of%20a%20relation][Getting the Value of a
+   Relation]]
+-  [[#getting%20rid%20of%20your%20tables][Getting Rid of Your Tables]]
+-  [[#info%20about%20db][Getting Information About Your Database]]
+-  [[#quitting%20mysql][Quitting MySQL]]
+-  [[#executing%20sql%20from%20a%20file][Executing SQL From a File]]
+-  [[#recording%20your%20session][Recording Your Session]]
+-  [[#help%20facilities%20and%20other%20hints][Help Facilities]]
+
+--------------
+
+*Overview*
+
+You will use the MySQL database system to implement your TBP App this
+quarter.
+
+--------------
+
+*Getting a MySQL account*
+
+To get a MySQL account, please, e-mail Greg your =cs.uchicago.edu= login
+name. Please include "[csppdb] MySQL account request" in you subject
+line. To request a =cs.uchicago.edu= account please follow instructions
+[[https://www.cs.uchicago.edu/info/services/account_request][here]].
+Once your MySQL account and password are emailed to you, please log in
+to change the initial password.
+
+--------------
+
+*Logging In to MySQL*
+
+You should use your =cs.uchicago.edu= account and login to any CS Linux
+machine. You can find a CS machines to log in to using the following
+tool:
+[[http://tools.cs.uchicago.edu/find_cs_hosts/find.cgi][http://tools.cs.uchicago.edu/find\_cs\_hosts/find.cgi]]
+
+Now, you can log in to MySQL by typing:
+
+#+BEGIN_EXAMPLE
+         mysql -h cspp53001 -u<yourName> -p 
+#+END_EXAMPLE
+
+Here, =mysql= is MySQL's command line SQL interface and =cspp53001= is
+the machine on which the MySQL server is running. =<yourName>= refers to
+your =cs.uchicago.edu= login. You can actually omit the =-u<yourName>=
+option since MySQL will use the Linux username by default.
+
+You will be prompted for your password. The password initially e-mailed
+to you should be changed as soon as possible. For security reasons, we
+suggest that you /don't/ use your regular =cs.uchicago.edu= password,
+because as we shall see there are opportunities for this password to
+become visible under certain circumstances. After you enter the correct
+password, you should receive the prompt
+
+#+BEGIN_EXAMPLE
+         mysql>
+#+END_EXAMPLE
+
+--------------
+
+*Changing Your Password*
+
+In response to the =mysql>= prompt, type
+
+#+BEGIN_EXAMPLE
+         set PASSWORD = PASSWORD("<newPassword>");
+#+END_EXAMPLE
+
+where =<newPassword>= is the password you would like to use in the
+future. This command, like all other SQL commands, should be terminated
+with a semicolon.
+
+Note that MySQL is case-insensitive for keywords and attribute names
+*but case sensitive for relation and database names*. Once you are in
+=mysql=, you can use capitals or not in keywords like =PASSWORD=. We
+tend to capitalize keywords and not other things.
+
+--------------
+
+*Using Your Database*
+
+After you login to MySQL, you can go to your database by typing:
+
+#+BEGIN_EXAMPLE
+         use <yourName>DB;
+#+END_EXAMPLE
+
+where =<yourName>= refers to your =cs.uchicago.edu= username, e.g.
+=use evtimovDB;=.
+
+--------------
+
+*Creating a Table*
+
+In =mysql= we can execute any SQL command. One simple type of command
+creates a table (relation). The form is
+
+#+BEGIN_EXAMPLE
+         CREATE TABLE <tableName> (
+             <list of attributes and their types>
+         );
+#+END_EXAMPLE
+
+You may enter text on one line or on several lines. If your command runs
+over several lines, you will be prompted with =->= until you type the
+semicolon that ends any command. An example table-creation command is:
+
+#+BEGIN_EXAMPLE
+         CREATE TABLE Sells (
+             bar varchar(50),
+             beer varchar(20),
+             price real
+         );
+#+END_EXAMPLE
+
+This command creates a table named =Sells= with three attributes. The
+first, named =bar=, is a character string of length up to 50, the
+second, named =beer=, is a character string of length (up to) 20, and
+the third one, named =price=, is a real number.
+
+--------------
+
+*Creating a Table With a Primary Key*
+
+To create a table that declares attribute =a= to be a primary key:
+
+#+BEGIN_EXAMPLE
+         CREATE TABLE <tableName> (..., a <type> PRIMARY KEY, b, ...);
+#+END_EXAMPLE
+
+To create a table that declares the set of attributes =(a,b,c)= to be a
+primary key:
+
+#+BEGIN_EXAMPLE
+         CREATE TABLE <tableName> (<attrs and their types>, PRIMARY KEY (a,b,c));
+#+END_EXAMPLE
+
+--------------
+
+*Inserting Tuples*
+
+Having created a table, we can insert tuples into it. The simplest way
+to insert is with the =INSERT= command:
+
+#+BEGIN_EXAMPLE
+         INSERT INTO <tableName>
+             VALUES( <list of values for attributes, in order> );
+#+END_EXAMPLE
+
+For instance, we can insert the tuple =('Cans', 'Guinness', 5.25)= into
+relation =Sells= by
+
+#+BEGIN_EXAMPLE
+         INSERT INTO Sells VALUES('Cans', 'Guinness', 5.25);
+#+END_EXAMPLE
+
+--------------
+
+*Getting the Value of a Relation*
+
+We can see the tuples in a relation with the command:
+
+#+BEGIN_EXAMPLE
+         SELECT *
+         FROM <tableName>;
+#+END_EXAMPLE
+
+For instance, after the above create and insert statements, the command
+
+#+BEGIN_EXAMPLE
+         SELECT * FROM Sells;
+#+END_EXAMPLE
+
+produces the result
+
+#+BEGIN_EXAMPLE
+        +------+----------+-------+
+        | bar  | beer     | price |
+        +------+----------+-------+
+        | Cans | Guinness |  5.25 |
+        +------+----------+-------+
+#+END_EXAMPLE
+
+--------------
+
+*Getting Rid of Your Tables*
+
+To remove a table from your database, execute
+
+#+BEGIN_EXAMPLE
+         DROP TABLE <tableName>;
+#+END_EXAMPLE
+
+We suggest you execute
+
+#+BEGIN_EXAMPLE
+         DROP TABLE Sells;
+#+END_EXAMPLE
+
+after trying out this sequence of commands to avoid leaving a lot of
+garbage around that will be still there the next time you use the MySQL
+system.
+
+--------------
+
+*Getting Information About Your Database*
+
+The system keeps information about your own database in certain system
+tables. You can recall the names of your tables by issuing the command:
+
+#+BEGIN_EXAMPLE
+         SHOW TABLES;
+#+END_EXAMPLE
+
+You can recall the attributes of a table once you know its name by
+issuing the command:
+
+#+BEGIN_EXAMPLE
+         DESCRIBE <tableName>;
+#+END_EXAMPLE
+
+to learn about the attributes of relation =<tableName>=.
+
+--------------
+
+*Quitting MySQL*
+
+To leave =mysql=, type
+
+#+BEGIN_EXAMPLE
+         quit;
+#+END_EXAMPLE
+
+or
+
+#+BEGIN_EXAMPLE
+         exit;
+#+END_EXAMPLE
+
+in response to the =mysql>= prompt.
+
+--------------
+
+*Executing SQL From a File*
+
+Instead of executing SQL commands typed at a terminal, it is often more
+convenient to type the SQL command(s) into a file and cause the file to
+be executed.
+
+To run the file =thirsty.sql=, type:
+
+#+BEGIN_EXAMPLE
+         mysql -h cspp53001 -u<yourName> -p <yourName>DB < thirsty.sql
+#+END_EXAMPLE
+
+For more information on using MySQL in batch mode see Section 3.5 of the
+MySQL Reference Manual
+[[http://dev.mysql.com/doc/refman/5.1/en/batch-mode.html]["Using mysql
+in Batch Mode"]].
+
+--------------
+
+*Recording Your Session*
+
+There are several methods for recording your SQL commands in order to
+generate the scripts to turn in for your programming assignments. The
+most primitive way is to cut and paste your terminal output and save it
+in a file (if you have windowing capabilities). Another method is to use
+the Unix command =script= to record the terminal interaction. The
+=script= command records everything printed on your screen. The syntax
+for the command is
+
+#+BEGIN_EXAMPLE
+       script [ -a ] [ filename ]
+#+END_EXAMPLE
+
+The record is written to =filename=. If no file name is given, the
+record is saved in the file =typescript=. The =-a=option allows you to
+append the session record to =filename=, rather than overwrite it. To
+end the recording, type
+
+#+BEGIN_EXAMPLE
+        exit
+#+END_EXAMPLE
+
+For more information on how to run the =script= command, check out its
+man page. =mysql= provides the command =tee= to save query results to a
+file. At the =mysql>= prompt, you say:
+
+#+BEGIN_EXAMPLE
+        tee thirsty.lst;
+#+END_EXAMPLE
+
+and a file called =thirsty.lst= will appear in your current directory
+and will record all user input and system output, until you exit =mysql=
+or type:
+
+#+BEGIN_EXAMPLE
+        notee;
+#+END_EXAMPLE
+
+Note that if the file =thirsty.lst= existed previously, it will be
+appended.
+
+Finally, if you use Emacs, you can simply run =mysql= in a shell buffer
+and save the buffer to a file. To prevent your MySQL password from being
+echoed in the Emacs buffer, add the following lines to your =.emacs=
+file:
+
+#+BEGIN_EXAMPLE
+    (setq-default
+     comint-output-filter-functions
+     '(comint-watch-for-password-prompt))
+    (setq
+     comint-password-prompt-regexp
+     "\\(\\([Oo]ld \\|[Nn]ew \\|^\\)[Pp]assword\\|Enter password\\):\\s *\\'")
+#+END_EXAMPLE
+
+--------------
+
+*Help Facilities*
+
+In response to the =mysql>= prompt, type =help= and follow the
+instructions. You can also browse the complete MySQL Manual online at
+[[http://dev.mysql.com/doc/refman/5.1/en/][http://dev.mysql.com/doc/refman/5.1/en/]].
+The MySQL server running on =cspp53001= is version 5.1.
+
+--------------
+
+This document was written originally for Prof. Jeff Ullman's CS145 class
+in Autumn, 1997; revised by Jun Yang for Prof. Jennifer Widom's CS145
+class in Spring, 1998; further revisions by Jeff Ullman, Autumn, 1998;
+further revisions by Jennifer Widom, Spring 2000; further revisions by
+Nathan Folkert, Spring 2001; further revisions by Matei Ripeanu, Autumn
+2001; further revisions by Xuehai Zhang for CS235 at the University of
+Chicago in Autumn 2002 and Autumn 2003. Adapted for MySQL by Svetlozar
+Nestorov for CS235 in Autumn 2005;further revisions by Svetlozar
+Nestorov in Spring 2007;further revisions by Svetlozar Nestorov in Fall
+2009, Spring 2010, Autumn 2010, Spring 2011, Fall 2011, Spring 2012,
+Fall 2012 for CSPP53001.
+
+Loading Data in MySQL
+
+* Loading Data in MySQL 
+
+--------------
+
+-  [[#overview][Overview]]
+-  [[#creating%20the%20data%20file][Creating the Data File]]
+-  [[#loading%20your%20data][Loading Your Data]]
+-  [[#entering%20nulls][Entering NULL Values]]
+
+--------------
+
+*Overview*
+
+To load data in MySQL, you need to create a /data file/, which specifies
+/what/ data should be loaded and then run a command that specifies /how/
+data should be loaded.
+
+--------------
+
+*Creating the Data File*
+
+Each line in the data file specifies one tuple to be loaded into
+=<tableName>=. It lists, in order, values for the attributes in the list
+specified in the =LOAD= command (described below), separated by
+=<separator>=. As a concrete example, consider relation /Likes(drinker,
+beer)/ and a data file =likes.dat= that might look like:
+
+#+BEGIN_EXAMPLE
+    zarko|Guinness
+    karin|Bud
+    karin| BudLite
+#+END_EXAMPLE
+
+As a result of loading =likes.dat=, the following tuples are inserted
+into =Likes=:
+
+#+BEGIN_EXAMPLE
+    ('zarko', 'Guinness')
+    ('karin', 'Bud')
+    ('karin', ' BudLite')
+#+END_EXAMPLE
+
+*Warning:* Note that the third line of =likes.dat= has a blank after
+"=|=". This blank is /not/ ignored by the loader. The value to be loaded
+for attribute =beer= is =' Bud'=, a four-character string with a leading
+blank. It is a common mistake to assume that ='Bud'=, a three-character
+string with no leading blank, will be loaded instead. This can lead to
+some very frustrating problems that you will not notice until you try to
+query your loaded data, because =' Bud'= and ='Bud'= are different
+strings.
+
+--------------
+
+*Loading Your Data*
+
+A simple load command has the following form:
+
+#+BEGIN_EXAMPLE
+    LOAD DATA
+    LOCAL INFILE "<dataFile>"
+    REPLACE INTO TABLE <tableName>
+    FIELDS TERMINATED BY '<separator>'
+    (<list of all attribute names to load>)
+#+END_EXAMPLE
+
+-  =<dataFile>= is the name of the data file. The optional keyword
+   =LOCAL= means that the filename is interpreted with respect to the
+   client end of the connection, i.e. your home directory rather than
+   the mysql server (=interlibrary.cs.uchicago.edu=)
+-  =<tableName>= is the name of the table to which data will be loaded.
+   Of course, it should have been created already before the bulk load
+   operation.
+-  The optional keyword =REPLACE= controls handling of input records
+   that duplicate existing records on unique key values. =REPLACE= means
+   that when there are duplicates the new tuples are used and the old
+   ones are deleted. =IGNORE= means that the new tuples are ignored and
+   the old ones kept.
+-  =<separator>= specifies the field separator for your data file. This
+   can be any single character. It is a good idea to use a character
+   that you know will never appear in the data, so the separator will
+   not be confused with data fields.
+-  Finally, list the names of attributes of =<tableName>= that are set
+   by your data file, separated by commas and enclosed in parentheses.
+   This list need not be the complete list of attributes in the actual
+   schema of the table, nor must it be arranged in the same order as the
+   attributes when the table was created. Any attributes unspecified in
+   the list of attributes will be set to their default values, if
+   declared, and =NULL= otherwise.
+
+As a concrete example, here is a =LOAD= command for loading =likes.dat=
+into =Likes=:
+
+#+BEGIN_EXAMPLE
+    LOAD DATA
+    LOCAL INFILE "likes.dat"
+    REPLACE INTO TABLE Likes
+    FIELDS TERMINATED BY '|'
+    (drinker, beer)
+#+END_EXAMPLE
+
+For more information on the =LOAD= command consult the online MySQL
+[[http://dev.mysql.com/doc/refman/5.1/en/load-data.html][documentation]].
+
+--------------
+
+*Entering NULL Values*
+
+You may specify =NULL= values simply by entering \N. For example, if we
+were entering integer values into a table with schema =(a, b, c)=
+specified in the =LOAD= command, the following lines in the data file:
+
+#+BEGIN_EXAMPLE
+    3|\N|5
+    \N|2|4
+    1|\N|6
+    \N|\N|7
+#+END_EXAMPLE
+
+would result in inserting the following tuples in the relation:
+
+#+BEGIN_EXAMPLE
+    (3, NULL, 5)
+    (NULL, 2, 4)
+    (1, NULL, 6)
+    (NULL, NULL, 7)
+#+END_EXAMPLE
+
+Keep in mind that any primary keys or other constraints requiring that
+values be non-=NULL= will reject tuples for which those attributes are
+unspecified.
+
+If you do not wish to enter values for any row of a given column, you
+can, as mentioned above, leave that column out of the attribute list
+altogether.
+
+--------------
+
+This document was written originally for Prof. Jeff Ullman's CS145 class
+in Autumn, 1997; revised by Jun Yang for Prof. Jennifer Widom's CS145
+class in Spring, 1998; further revisions by Jeff Ullman, Autumn, 1998;
+further revisions by Srinivas Vemuri for Prof. Jeff Ullman's CS145 class
+in Autumn, 1999; further revisions by Nathan Folkert for Prof. Jennifer
+Widom's CS145 class in Spring, 2001; further revisions by Xuehai Zhang
+for CS235 at the University of Chicago in Autumn 2002 and Autumn 2003.
+Adapted for MySQL by Svetlozar Nestorov for CS235 in Autumn, 2005;
+further revisions by Svetlozar Nestorov in Spring 2007; further
+revisions by Svetlozar Nestorov in Fall 2009, Spring 2010, Autumn 2010,
+Spring 2011, Fall 2011, Spring 2012, Fall 2012 for CS5PP3001.
