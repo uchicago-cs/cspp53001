@@ -1,0 +1,108 @@
+#+TITLE:CSPP 53001: Assignment 2
+
+* Term Project: Your Twitter Basic Plus (TBP) App, Step 1
+
+Your programming project for CSPP 53001 will be to build a substantial
+database application that provides the basic functionality of Twitter
+and adds or changes some of the features (hence the "Plus"). You
+should certainly preserve the basic concepts of tweeting and following
+but you are free to add or omit any other aspects such as HashTags,
+Favorites, Lists, etc.
+
+First, you will design the E/R diagram for your TBP, then you will
+transform the E/R diagram to a relational schema for the database, and
+you will create an actual database using MySQL. You will populate the
+database with lots of data, write interactive queries and
+modifications on the database. Finally, you will develop an online
+interface to your TBP.
+
+Your first step is to identify the features of your TBP that you would
+like to manage with your database, and to construct an
+entity-relationship diagram for the data. Try to pick an app that is
+relatively substantial, but not too enormous. For example, when
+expressed in the entity-relationship model, you might want your design
+to have five to ten entity sets, and a similar number of
+relationships.  The total number of entity sets plus relationships for
+most reasonable designs should be between 10 and 20. If you feel that
+your app is too complex or too simple, please, discuss it with the TAs
+or the instructor.
+
+You should certainly include different kinds of relationships (e.g.,
+many-to-one, many-to-many) and different kinds of data (strings,
+integers, etc.), but your app is not required to use advanced
+features, such as subclassing, multiway relationships, or weak entity
+sets, if they are not appropriate for your scenario.
+
+Here are a few hints on getting started with your E/R diagram. You can
+start with the Users (or perhaps Twitterers?) and Tweets entity sets.
+Then you can create two relationship Following and Sends. Following
+will be a many-to-many relationship between Users and Users while
+Sends will be a one-to-many relationship between Users and
+Tweets. Next, you can consider how to add the concept of Re-tweeting
+to your E/R diagram.
+
+*So, here is what you need to do for step 1 of your TBP:*
+
+1. Describe the TBP that you propose in a few paragraphs in a text
+file called =TBP_description.txt= Your description should be brief and
+relatively informal. Your description will be graded only on
+suitability and conciseness.
+2. Specify an entity-relationship diagram for your proposed
+database. As always, don't forget to underline key attributes and
+include arrowheads and rounded arrows indicating the multiplicity of
+relationships. If there are weak entity sets, indicate them by double
+lines, as described in class.
+
+   The recommended tool for creating your E/R diagram is [[http://erdplus.com/][ERDplus]]. Of
+   course, you can draw the diagram using any software you like. You
+   can also draw the diagram by hand and then scan it. Store your ER
+   diagram in a file called =TBP_ERD.???=. Note that the file should
+   be in some readable format such as pdf, bmp or png.
+
+3. Transform the E/R diagram you created to a relational schema as
+follows:
+   - Using the method for translating an E/R diagram to relations,
+produce a set of relations for your database design, underlining key
+attributes in your relations.
+   - For each relation in your schema, specify a set of nontrivial
+functional dependencies that hold based on your particular app. /Some
+of your relations may have no nontrivial functional dependencies./
+Show the relational schema and the functional dependencies in a text
+file called =TBP_schema.txt=
+
+You will submit your homework using the =hwsubmit= command. Please,
+create a new directory called hw1\_<your\_username>,
+e.g. hw1\_evtimov, and move all of the relevant files there:
+=TBP_description.txt, TBP_ERD.???, TBP_schema.txt=. Then, you can
+submit your work by typing (<path\_to> is the directory path to your
+hw1 directory):
+
+=hwsubmit cspp53001 <path_to>/hw1_<your_username>=
+
+*Please make sure that all of the relevant files and no others are in
+that directory.*
+
+If you are having trouble thinking of any additional features for your
+Twitter Basic Plus, or if you are unsure whether your proposed
+features are appropriate, please feel free to consult with the TA or
+the instructor.
+
+*The due date for the project part of the homework is 11:59pm on
+Wednesday, April 24, 2013.*
+
+
+* Gradiance Problem Set 2
+
+You will complete the problem set using [[http://www.newgradiance.com/][Gradiance]].
+
+The name of the homework is CSPPDB-Spr13 HW2. There are 11 questions in
+this homework - 10 regular questions and one extra credit one (about
+seven subsets). All questions in this problem set are multiple choice.
+However, to answer them correctly you will need to work out their long
+(general) answers. A correct answer is worth 3 points. You lose a point
+for each incorrect answer. You can attempt the problem set as many times
+as you like; only your highest score will count. Note that you will
+probably get slightly different questions each time you take it.
+
+*The due date for the Gradiance part of the homework is 11:59pm on
+Wednesday, April 24, 2013.*

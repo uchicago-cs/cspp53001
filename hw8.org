@@ -1,0 +1,47 @@
+* CSPP 53001: Assignment 8
+
+*** Online homework and project due by 11:59pm on Wednesday, 12/12/12
+
+*** Final Step of Your TBP App
+
+The final part of your TBP App project is to create a basic web site
+powered by your database using the php programming language and a web
+server.
+
+First, you will add data entry functionality to the web interface
+created in part 7. Then, you will create individual pages corresponding
+to different aspects of your application.
+
+You will create several new web pages that will comprise the data entry
+interface to your TBP App. Each web page should contain at least one
+form that implements some data entry functionality needed by your TBP.
+For example, you can have a registration page for new users, followed by
+a menu page that directs users to choose other users to follow and write
+tweets. Your functions and their parameters will depend on your schema
+and application scenario.
+
+You can also incorporate the functions you wrote for part 7 by adding
+them to the appropriate pages of your site. For example, you can add any
+search functions to the home page for each user (the page that appears
+after a user logs in).
+
+The point of entry to your web site should be named =final.html= and
+should be placed in your
+=/stage/cgi-cspp/<your_username>/public_html/cs53001/= directory. Make
+sure that this page is viewable by a browser. The url is:
+=http://cgi-cspp.cs.uchicago.edu/~<your_username>/cs53001/final.html=.
+
+You will submit your homework by emailing /csppdb at cs.uchicago.edu/
+the link to your TBP App.
+
+--------------
+
+*** Problem Set
+
+You will complete two SQL labs using
+[[http://www.newgradiance.com/][Gradiance]]
+(http://www.newgradiance.com/). The names of the SQL Labs are Kings and
+Presidents.
+
+*The due date for the SQL labs is midnight on Wednesday, December 12,
+2012.*

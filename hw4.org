@@ -1,0 +1,63 @@
+* CSPP 53001: Assignment 4
+
+*** Online homework and project due by 11:59pm on Wednesday, November 7, 2012
+
+*** Step 3 of Your TBP
+
+The third part of the TBP project is to design and run some interesting
+queries involving joins and aggregation. Please, choose your queries
+carefully and add comments that describe the purpose of each query. Your
+queries should correspond to actions or functionality that your TBP app
+may implement. For example, you may want to find all users that follow
+at least one twitterer that you follow.
+
+1. Develop and test at least eight SQL queries involving joins. Please,
+   generate a script file called =joins3.sql= with all of your queries.
+2. Develop and test at least eight SQL queries involving aggregation.
+   Please, generate a script file called =aggrs3.sql= with all of your
+   queries.
+   When you write the join and aggregation queries, consider the
+   functionality of your TBP app. Try to write queries that will be
+   useful in implementing some features of your TBP app. For example,
+   displaying the tweets of all of the users someone follows will
+   involve a join while listing the number of followers for any user
+   will be an aggregation query.
+3. Develop and test at least two each of the four types of SQL data
+   modification commands: =insert= a single tuple, =insert= a subquery,
+   =delete=, =update=. Please, generate a script file called =mods3.sql=
+   with all of your modifications.
+
+You will submit your homework using the =hwsubmit= command. Please,
+create a new directory called hw3\_<your\_username>, e.g. hw3\_evtimov,
+and move all of the relevant scripts and data files there. Then, you can
+submit your work by typing (<path\_to> is the directory path to your hw3
+directory).
+
+=hwsubmit cspp53001 <path_to>/hw3_<your_username>=
+
+*Please make sure that all of the relevant files and no others are in
+that directory.*
+
+--------------
+
+--------------
+
+*** Problem Set
+
+You will complete the problem set using
+[[http://www.newgradiance.com/][Gradiance]]
+(http://www.newgradiance.com/).
+
+The name of the homework is CSPPDB-Aut12 HW4. There are 11 questions in
+this homework - 10 regular questions and one extra credit one (about
+outer joins). All questions in this problem set are multiple choice.
+However, to answer them correctly you will need to work out their long
+(general) answers. A correct answer is worth 3 points. You lose a point
+for each incorrect answer. You can attempt the problem set as many times
+as you like; only your highest score will count. You do not have to
+solve the challenge question to receive full credit but if you get it
+wrong you will lose a point. Note that you will probably get slightly
+different questions each time you attempt the problem set.
+
+*The due date for the Gradiance part of the homework is 11:59pm on
+Wednesday, November 7, 2012.*

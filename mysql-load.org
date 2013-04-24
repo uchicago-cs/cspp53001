@@ -1,0 +1,153 @@
+#+TITLE: Loading Data in MySQL
+
+* Contents
+
+- [[Overview]]
+- [[Creating the Data File]]
+- [[Loading Your Data]]
+- [[Entering NULL Values]]
+
+
+* Overview
+
+To load data in MySQL, you need to create a /data file/, which specifies
+/what/ data should be loaded and then run a command that specifies /how/
+data should be loaded.
+
+
+* Creating the Data File
+
+Each line in the data file specifies one tuple to be loaded into
+=<tableName>=. It lists, in order, values for the attributes in the list
+specified in the =LOAD= command (described below), separated by
+=<separator>=. As a concrete example, consider relation /Likes(drinker,
+beer)/ and a data file =likes.dat= that might look like:
+
+#+BEGIN_EXAMPLE
+    zarko|Guinness
+    karin|Bud
+    karin| BudLite
+#+END_EXAMPLE
+
+As a result of loading =likes.dat=, the following tuples are inserted
+into =Likes=:
+
+#+BEGIN_EXAMPLE
+    ('zarko', 'Guinness')
+    ('karin', 'Bud')
+    ('karin', ' BudLite')
+#+END_EXAMPLE
+
+*Warning:* Note that the third line of =likes.dat= has a blank after
+"=|=". This blank is /not/ ignored by the loader. The value to be loaded
+for attribute =beer= is =' Bud'=, a four-character string with a leading
+blank. It is a common mistake to assume that ='Bud'=, a three-character
+string with no leading blank, will be loaded instead. This can lead to
+some very frustrating problems that you will not notice until you try to
+query your loaded data, because =' Bud'= and ='Bud'= are different
+strings.
+
+
+* Loading Your Data
+
+A simple load command has the following form:
+
+#+BEGIN_EXAMPLE
+    LOAD DATA
+    LOCAL INFILE "<dataFile>"
+    REPLACE INTO TABLE <tableName>
+    FIELDS TERMINATED BY '<separator>'
+    (<list of all attribute names to load>)
+#+END_EXAMPLE
+
+-  =<dataFile>= is the name of the data file. The optional keyword
+   =LOCAL= means that the filename is interpreted with respect to the
+   client end of the connection, i.e. your home directory rather than
+   the mysql server (=interlibrary.cs.uchicago.edu=)
+-  =<tableName>= is the name of the table to which data will be loaded.
+   Of course, it should have been created already before the bulk load
+   operation.
+-  The optional keyword =REPLACE= controls handling of input records
+   that duplicate existing records on unique key values. =REPLACE= means
+   that when there are duplicates the new tuples are used and the old
+   ones are deleted. =IGNORE= means that the new tuples are ignored and
+   the old ones kept.
+-  =<separator>= specifies the field separator for your data file. This
+   can be any single character. It is a good idea to use a character
+   that you know will never appear in the data, so the separator will
+   not be confused with data fields.
+-  Finally, list the names of attributes of =<tableName>= that are set
+   by your data file, separated by commas and enclosed in parentheses.
+   This list need not be the complete list of attributes in the actual
+   schema of the table, nor must it be arranged in the same order as the
+   attributes when the table was created. Any attributes unspecified in
+   the list of attributes will be set to their default values, if
+   declared, and =NULL= otherwise.
+
+As a concrete example, here is a =LOAD= command for loading =likes.dat=
+into =Likes=:
+
+#+BEGIN_EXAMPLE
+    LOAD DATA
+    LOCAL INFILE "likes.dat"
+    REPLACE INTO TABLE Likes
+    FIELDS TERMINATED BY '|'
+    (drinker, beer)
+#+END_EXAMPLE
+
+For more information on the =LOAD= command consult the online MySQL
+[[http://dev.mysql.com/doc/refman/5.5/en/load-data.html][documentation]].
+
+
+* Entering NULL Values
+
+You may specify =NULL= values simply by entering =\N=. For example, if we
+were entering integer values into a table with schema =(a, b, c)=
+specified in the =LOAD= command, the following lines in the data file:
+
+#+BEGIN_EXAMPLE
+    3|\N|5
+    \N|2|4
+    1|\N|6
+    \N|\N|7
+#+END_EXAMPLE
+
+would result in inserting the following tuples in the relation:
+
+#+BEGIN_EXAMPLE
+    (3, NULL, 5)
+    (NULL, 2, 4)
+    (1, NULL, 6)
+    (NULL, NULL, 7)
+#+END_EXAMPLE
+
+Keep in mind that any primary keys or other constraints requiring that
+values be non-=NULL= will reject tuples for which those attributes are
+unspecified.
+
+If you do not wish to enter values for any row of a given column, you
+can, as mentioned above, leave that column out of the attribute list
+altogether.
+
+--------------
+
+#+begin_html
+<BR>
+<HR width="100%">
+<FONT size=-2>
+#+end_html
+
+This document was written originally for Prof. Jeff Ullman's CS145
+class in Autumn, 1997; revised by Jun Yang for Prof. Jennifer Widom's
+CS145 class in Spring, 1998; further revisions by Jeff Ullman, Autumn,
+1998; further revisions by Srinivas Vemuri for Prof. Jeff Ullman's
+CS145 class in Autumn, 1999; further revisions by Nathan Folkert for
+Prof. Jennifer Widom's CS145 class in Spring, 2001; further revisions
+by Xuehai Zhang for CS235 at the University of Chicago in Autumn 2002
+and Autumn 2003.  Adapted for MySQL by Svetlozar Nestorov for CS235 in
+Autumn, 2005; further revisions by Svetlozar Nestorov in Spring 2007;
+further revisions by Svetlozar Nestorov in Fall 2009, Spring 2010,
+Autumn 2010, Spring 2011, Fall 2011, Spring 2012, Fall 2012 and by
+Neil Best, Spring 2013 for CS5PP3001.
+
+#+HTML: </FONT> 

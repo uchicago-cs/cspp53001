@@ -1,0 +1,343 @@
+#+TITLE: Getting Started With MySQL
+
+* Contents
+
+-  [[Overview]]
+# -  [[#Getting][Getting a MySQL account]
+-  [[Logging In to MySQL]]
+-  [[Changing Your Password]]
+-  [[Using Your Database]]
+-  [[Creating a Table]]
+-  [[Creating a Table With a Primary Key]]
+-  [[Inserting Tuples]]
+-  [[Getting the Value of a Relation]]
+-  [[Getting Rid of Your Tables]]
+-  [[Getting Information About Your Database]]
+-  [[Quitting MySQL]]
+-  [[Executing SQL From a File]]
+-  [[Recording Your Session]]
+-  [[Help Facilities]]
+
+
+* Overview
+
+You will use the MySQL database system to implement your TBP App this
+quarter.
+
+
+* COMMENT Getting a MySQL account
+
+To get a MySQL account, please, e-mail Greg your =cs.uchicago.edu=
+login name. Please include "[csppdb] MySQL account request" in you
+subject line. To request a =cs.uchicago.edu= account please follow
+instructions [[https://www.cs.uchicago.edu/info/services/account_request][here]].  Once your MySQL account and password are emailed
+to you, please log in to change the initial password.
+
+
+* Logging In to MySQL
+
+You should use your =cs.uchicago.edu= account and login to any CS
+Linux machine. You can find a CS machines to log in to using the
+following tool: [[http://tools.cs.uchicago.edu/find_cs_hosts/find.cgi][http://tools.cs.uchicago.edu/find\_cs\_hosts/find.cgi]]
+
+Now, you can log in to MySQL by typing:
+
+#+BEGIN_EXAMPLE
+  mysql -h classdbs -u<yourName> -p 
+#+END_EXAMPLE
+
+Here, =mysql= is MySQL's command line SQL interface and =classdbs= is
+the machine on which the MySQL server is running. =<yourName>= refers to
+your =cs.uchicago.edu= login. You can actually omit the =-u<yourName>=
+option since MySQL will use the Linux username by default.
+
+You will be prompted for your password. The password initially e-mailed
+to you should be changed as soon as possible. For security reasons, we
+suggest that you /don't/ use your regular =cs.uchicago.edu= password,
+because as we shall see there are opportunities for this password to
+become visible under certain circumstances. After you enter the correct
+password, you should receive this prompt:
+
+#+BEGIN_EXAMPLE
+  mysql>
+#+END_EXAMPLE
+
+--------------
+
+
+* Changing Your Password
+
+In response to the =mysql>= prompt, type
+
+#+BEGIN_SRC sql
+  set PASSWORD = PASSWORD("<newPassword>");
+#+END_SRC
+
+where =<newPassword>= is the password you would like to use in the
+future. This command, like all other SQL commands, should be terminated
+with a semicolon.
+
+Note that MySQL is case-insensitive for keywords and attribute names
+*but case sensitive for relation and database names*. Once you are in
+=mysql=, you can use capitals or not in keywords like =PASSWORD=. We
+tend to capitalize keywords and not other things.
+
+
+* Using Your Database
+
+After you login to MySQL, you can go to your database by typing:
+
+#+BEGIN_SRC sql
+  use <yourName>DB;
+#+END_SRC
+
+where =<yourName>= refers to your =cs.uchicago.edu= username, e.g.
+=use nbestDB;=.
+
+
+* Creating a Table
+
+In =mysql= we can execute any SQL command. One simple type of command
+creates a table (relation). The form is
+
+#+BEGIN_SRC sql
+  CREATE TABLE <tableName> (
+    <list of attributes and their types>
+  );
+#+END_SRC
+
+You may enter text on one line or on several lines. If your command runs
+over several lines, you will be prompted with =->= until you type the
+semicolon that ends any command. An example table-creation command is:
+
+#+BEGIN_SRC sql
+  CREATE TABLE Sells (
+    bar varchar(50),
+    beer varchar(20),
+    price real
+  );
+#+END_SRC
+
+This command creates a table named =Sells= with three attributes. The
+first, named =bar=, is a character string of length up to 50, the
+second, named =beer=, is a character string of length up to 20, and
+the third one, named =price=, is a real number.
+
+
+* Creating a Table With a Primary Key
+
+To create a table that declares attribute =a= to be a primary key:
+
+#+BEGIN_EXAMPLE
+  CREATE TABLE <tableName> (..., a <type> PRIMARY KEY, b, ...);
+#+END_EXAMPLE
+
+To create a table that declares the set of attributes =(a,b,c)= to be a
+primary key:
+
+#+BEGIN_EXAMPLE
+  CREATE TABLE <tableName> (<attrs and their types>, PRIMARY KEY (a,b,c));
+#+END_EXAMPLE
+
+
+* Inserting Tuples
+
+Having created a table, we can insert tuples into it. The simplest way
+to insert is with the =INSERT= command:
+
+#+BEGIN_EXAMPLE
+INSERT INTO <tableName>
+  VALUES( <list of values for attributes, in order> );
+#+END_EXAMPLE
+
+For instance, we can insert the tuple =('Cans', 'Guinness', 5.25)= into
+relation =Sells= by
+
+#+BEGIN_SRC sql
+  INSERT INTO Sells VALUES('Cans', 'Guinness', 5.25);
+#+END_SRC
+
+
+* Getting the Value of a Relation
+
+We can see the tuples in a relation with the command:
+
+#+BEGIN_EXAMPLE
+  SELECT *
+    FROM <tableName>;
+#+END_EXAMPLE
+
+For instance, after the above create and insert statements, the command
+
+#+BEGIN_EXAMPLE
+  SELECT * FROM Sells;
+#+END_EXAMPLE
+
+produces the result
+
+#+BEGIN_EXAMPLE
++------+----------+-------+
+| bar  | beer     | price |
++------+----------+-------+
+| Cans | Guinness |  5.25 |
++------+----------+-------+
+#+END_EXAMPLE
+
+
+* Getting Rid of Your Tables
+
+To remove a table from your database, execute
+
+#+BEGIN_EXAMPLE
+  DROP TABLE <tableName>;
+#+END_EXAMPLE
+
+We suggest you execute
+
+#+BEGIN_EXAMPLE
+  DROP TABLE Sells;
+#+END_EXAMPLE
+
+after trying out this sequence of commands to avoid leaving a lot of
+garbage around that will be still there the next time you use the MySQL
+system.
+
+
+* Getting Information About Your Database
+
+The system keeps information about your own database in certain system
+tables. You can recall the names of your tables by issuing the command:
+
+#+BEGIN_EXAMPLE
+SHOW TABLES;
+#+END_EXAMPLE
+
+You can recall the attributes of a table once you know its name by
+issuing the command:
+
+#+BEGIN_EXAMPLE
+DESCRIBE <tableName>;
+#+END_EXAMPLE
+
+to learn about the attributes of relation =<tableName>=.
+
+
+* Quitting MySQL
+
+To leave =mysql=, type
+
+#+BEGIN_EXAMPLE
+quit;
+#+END_EXAMPLE
+
+or
+
+#+BEGIN_EXAMPLE
+exit;
+#+END_EXAMPLE
+
+in response to the =mysql>= prompt.
+
+
+* Executing SQL From a File
+
+Instead of executing SQL commands typed at a terminal, it is often more
+convenient to type the SQL command(s) into a file and cause the file to
+be executed.
+
+To run the file =thirsty.sql=, type:
+
+#+BEGIN_EXAMPLE
+  mysql -h classdbs -u<yourName> -p <yourName>DB < thirsty.sql
+#+END_EXAMPLE
+
+For more information on using MySQL in batch mode see Section 3.5 of the
+MySQL Reference Manual [[http://dev.mysql.com/doc/refman/5.5/en/batch-mode.html]["Using mysql in Batch Mode"]].
+
+
+* Recording Your Session
+
+There are several methods for recording your SQL commands in order to
+generate the scripts to turn in for your programming assignments. The
+most primitive way is to cut and paste your terminal output and save it
+in a file (if you have windowing capabilities). Another method is to use
+the Unix command =script= to record the terminal interaction. The
+=script= command records everything printed on your screen. The syntax
+for the command is
+
+#+BEGIN_EXAMPLE
+  script [ -a ] [ filename ]
+#+END_EXAMPLE
+
+The record is written to =filename=. If no file name is given, the
+record is saved in the file =typescript=. The =-a=option allows you to
+append the session record to =filename=, rather than overwrite it. To
+end the recording, type
+
+#+BEGIN_EXAMPLE
+  exit
+#+END_EXAMPLE
+
+For more information on how to run the =script= command, check out its
+man page. =mysql= provides the command =tee= to save query results to a
+file. At the =mysql>= prompt, you say:
+
+#+BEGIN_EXAMPLE
+  tee thirsty.lst;
+#+END_EXAMPLE
+
+and a file called =thirsty.lst= will appear in your current directory
+and will record all user input and system output, until you exit =mysql=
+or type:
+
+#+BEGIN_EXAMPLE
+  notee;
+#+END_EXAMPLE
+
+Note that if the file =thirsty.lst= existed previously, it will be
+appended.
+
+Finally, if you use Emacs, you can simply run =mysql= in a shell buffer
+and save the buffer to a file. To prevent your MySQL password from being
+echoed in the Emacs buffer, add the following lines to your =.emacs=
+file:
+
+#+BEGIN_SRC emacs-lisp
+  (setq-default
+   comint-output-filter-functions
+   '(comint-watch-for-password-prompt))
+  (setq
+   comint-password-prompt-regexp
+   "\\(\\([Oo]ld \\|[Nn]ew \\|^\\)[Pp]assword\\|Enter password\\):\\s *\\'")
+#+END_SRC
+
+
+* Help Facilities
+
+In response to the =mysql>= prompt, type =help= and follow the
+instructions. You can also browse the complete MySQL Manual online at
+[[http://dev.mysql.com/doc/refman/5.1/en/][http://dev.mysql.com/doc/refman/5.5/en/]].  The MySQL server running on
+=classdbs= is version 5.5.
+
+--------------
+
+#+begin_html
+<BR>
+<HR width="100%">
+<FONT size=-2>
+#+end_html
+
+This document was written originally for Prof. Jeff Ullman's CS145
+class in Autumn, 1997; revised by Jun Yang for Prof. Jennifer Widom's
+CS145 class in Spring, 1998; further revisions by Jeff Ullman, Autumn,
+1998; further revisions by Jennifer Widom, Spring 2000; further
+revisions by Nathan Folkert, Spring 2001; further revisions by Matei
+Ripeanu, Autumn 2001; further revisions by Xuehai Zhang for CS235 at
+the University of Chicago in Autumn 2002 and Autumn 2003. Adapted for
+MySQL by Svetlozar Nestorov for CS235 in Autumn 2005; further
+revisions by Svetlozar Nestorov in Spring 2007; further revisions by
+Svetlozar Nestorov in Fall 2009, Spring 2010, Autumn 2010, Spring
+2011, Fall 2011, Spring 2012, Fall 2012 and by Neil Best in Spring
+2013 for CSPP53001.
+
+#+HTML: </FONT> 

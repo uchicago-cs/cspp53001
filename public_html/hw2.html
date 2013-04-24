@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>CSPP 53001: Assignment 2</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="title" content="CSPP 53001: Assignment 2"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2013-04-23 22:24:25 CDT"/>
+<meta name="author" content="Neil Best"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">CSPP 53001: Assignment 2</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Term Project: Your Twitter Basic Plus (TBP) App, Step 1</a></li>
+<li><a href="#sec-2">2 Gradiance Problem Set 2</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Term Project: Your Twitter Basic Plus (TBP) App, Step 1</h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+Your programming project for CSPP 53001 will be to build a substantial
+database application that provides the basic functionality of Twitter
+and adds or changes some of the features (hence the "Plus"). You
+should certainly preserve the basic concepts of tweeting and following
+but you are free to add or omit any other aspects such as HashTags,
+Favorites, Lists, etc.
+</p>
+<p>
+First, you will design the E/R diagram for your TBP, then you will
+transform the E/R diagram to a relational schema for the database, and
+you will create an actual database using MySQL. You will populate the
+database with lots of data, write interactive queries and
+modifications on the database. Finally, you will develop an online
+interface to your TBP.
+</p>
+<p>
+Your first step is to identify the features of your TBP that you would
+like to manage with your database, and to construct an
+entity-relationship diagram for the data. Try to pick an app that is
+relatively substantial, but not too enormous. For example, when
+expressed in the entity-relationship model, you might want your design
+to have five to ten entity sets, and a similar number of
+relationships.  The total number of entity sets plus relationships for
+most reasonable designs should be between 10 and 20. If you feel that
+your app is too complex or too simple, please, discuss it with the TAs
+or the instructor.
+</p>
+<p>
+You should certainly include different kinds of relationships (e.g.,
+many-to-one, many-to-many) and different kinds of data (strings,
+integers, etc.), but your app is not required to use advanced
+features, such as subclassing, multiway relationships, or weak entity
+sets, if they are not appropriate for your scenario.
+</p>
+<p>
+Here are a few hints on getting started with your E/R diagram. You can
+start with the Users (or perhaps Twitterers?) and Tweets entity sets.
+Then you can create two relationship Following and Sends. Following
+will be a many-to-many relationship between Users and Users while
+Sends will be a one-to-many relationship between Users and
+Tweets. Next, you can consider how to add the concept of Re-tweeting
+to your E/R diagram.
+</p>
+<p>
+<b>So, here is what you need to do for step 1 of your TBP:</b>
+</p>
+<ol>
+<li>Describe the TBP that you propose in a few paragraphs in a text
+</li>
+</ol>
+
+<p>file called <code>TBP_description.txt</code> Your description should be brief and
+relatively informal. Your description will be graded only on
+suitability and conciseness.
+</p><ol>
+<li>Specify an entity-relationship diagram for your proposed
+</li>
+</ol>
+
+<p>database. As always, don't forget to underline key attributes and
+include arrowheads and rounded arrows indicating the multiplicity of
+relationships. If there are weak entity sets, indicate them by double
+lines, as described in class.
+</p>
+<p>
+   The recommended tool for creating your E/R diagram is <a href="http://erdplus.com/">ERDplus</a>. Of
+   course, you can draw the diagram using any software you like. You
+   can also draw the diagram by hand and then scan it. Store your ER
+   diagram in a file called <code>TBP_ERD.???</code>. Note that the file should
+   be in some readable format such as pdf, bmp or png.
+</p>
+<ol>
+<li>Transform the E/R diagram you created to a relational schema as
+</li>
+</ol>
+
+<p>follows:
+</p><ul>
+<li>Using the method for translating an E/R diagram to relations,
+</li>
+</ul>
+
+<p>produce a set of relations for your database design, underlining key
+attributes in your relations.
+</p><ul>
+<li>For each relation in your schema, specify a set of nontrivial
+</li>
+</ul>
+
+<p>functional dependencies that hold based on your particular app. <i>Some of your relations may have no nontrivial functional dependencies.</i>
+Show the relational schema and the functional dependencies in a text
+file called <code>TBP_schema.txt</code>
+</p>
+<p>
+You will submit your homework using the <code>hwsubmit</code> command. Please,
+create a new directory called hw1_&lt;your_username&gt;,
+e.g. hw1_evtimov, and move all of the relevant files there:
+<code>TBP_description.txt, TBP_ERD.???, TBP_schema.txt</code>. Then, you can
+submit your work by typing (&lt;path_to&gt; is the directory path to your
+hw1 directory):
+</p>
+<p>
+<code>hwsubmit cspp53001 &lt;path_to&gt;/hw1_&lt;your_username&gt;</code>
+</p>
+<p>
+<b>Please make sure that all of the relevant files and no others are in that directory.</b>
+</p>
+<p>
+If you are having trouble thinking of any additional features for your
+Twitter Basic Plus, or if you are unsure whether your proposed
+features are appropriate, please feel free to consult with the TA or
+the instructor.
+</p>
+<p>
+<b>The due date for the project part of the homework is 11:59pm on Wednesday, April 24, 2013.</b>
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Gradiance Problem Set 2</h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+You will complete the problem set using <a href="http://www.newgradiance.com/">Gradiance</a>.
+</p>
+<p>
+The name of the homework is CSPPDB-Spr13 HW2. There are 11 questions in
+this homework - 10 regular questions and one extra credit one (about
+seven subsets). All questions in this problem set are multiple choice.
+However, to answer them correctly you will need to work out their long
+(general) answers. A correct answer is worth 3 points. You lose a point
+for each incorrect answer. You can attempt the problem set as many times
+as you like; only your highest score will count. Note that you will
+probably get slightly different questions each time you take it.
+</p>
+<p>
+<b>The due date for the Gradiance part of the homework is 11:59pm on Wednesday, April 24, 2013.</b>
+</p></div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2013-04-23 22:24:25 CDT</p>
+<p class="author">Author: Neil Best</p>
+<p class="creator">Org version 7.8.11 with Emacs version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>

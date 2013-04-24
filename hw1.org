@@ -1,0 +1,35 @@
+#+TITLE:CSPP 53001: Assignment 1
+
+* Join the Piazza site
+
+
+* COMMENT Follow the class [[http://twitter.com/csppdb][@csppdb]] on twitter.
+
+
+* COMMENT Explore [[http://erdplus.com][ERDPlus]] and draw the Bars-Beers-Drinkers E/R diagram from our first class.
+
+
+* Take the background [[http://www.surveymonkey.com/s/RBCN3NH][survey]].
+
+
+* Sign up for Gradiance and complete first problem set
+
+Throughout the course you will complete a number of problem sets using
+a service called Gradiance at http://www.newgradiance.com/, an online
+learning system developed by a team led by professor Jeff Ullman of
+Stanford University, http://infolab.stanford.edu/~ullman/.
+
+You will need to create an account on Gradiance by following the
+instructions on the site. To sign up for our course enter this token:
+1D199E71.
+
+The name of the first homework is CSPPDB-Spr13 HW1. All questions in
+this problem set are multiple choice. However, to answer them
+correctly you will need to work out their long (general) answers. A
+correct answer is worth 3 points. You lose a point for each incorrect
+answer. You can attempt the problem set as many times as you like;
+only your highest score will count. Note that you will probably get
+slightly different questions each time you take it.
+
+*The due date for the Gradiance part of the homework is 11:59pm on
+ Wednesday, April 17, 2013.*

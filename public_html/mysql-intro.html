@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Getting Started With MySQL</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="Getting Started With MySQL"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2013-04-23 22:24:23 CDT"/>
+<meta name="author" content="Neil Best"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">Getting Started With MySQL</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Contents</a></li>
+<li><a href="#sec-2">2 Overview</a></li>
+<li><a href="#sec-3">3 Logging In to MySQL</a></li>
+<li><a href="#sec-4">4 Changing Your Password</a></li>
+<li><a href="#sec-5">5 Using Your Database</a></li>
+<li><a href="#sec-6">6 Creating a Table</a></li>
+<li><a href="#sec-7">7 Creating a Table With a Primary Key</a></li>
+<li><a href="#sec-8">8 Inserting Tuples</a></li>
+<li><a href="#sec-9">9 Getting the Value of a Relation</a></li>
+<li><a href="#sec-10">10 Getting Rid of Your Tables</a></li>
+<li><a href="#sec-11">11 Getting Information About Your Database</a></li>
+<li><a href="#sec-12">12 Quitting MySQL</a></li>
+<li><a href="#sec-13">13 Executing SQL From a File</a></li>
+<li><a href="#sec-14">14 Recording Your Session</a></li>
+<li><a href="#sec-15">15 Help Facilities</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Contents</h2>
+<div class="outline-text-2" id="text-1">
+
+
+<ul>
+<li><a href="#sec-2">Overview</a>
+</li>
+</ul>
+
+<ul>
+<li><a href="#sec-3">Logging In to MySQL</a>
+</li>
+<li><a href="#sec-4">Changing Your Password</a>
+</li>
+<li><a href="#sec-5">Using Your Database</a>
+</li>
+<li><a href="#sec-6">Creating a Table</a>
+</li>
+<li><a href="#sec-7">Creating a Table With a Primary Key</a>
+</li>
+<li><a href="#sec-8">Inserting Tuples</a>
+</li>
+<li><a href="#sec-9">Getting the Value of a Relation</a>
+</li>
+<li><a href="#sec-10">Getting Rid of Your Tables</a>
+</li>
+<li><a href="#sec-11">Getting Information About Your Database</a>
+</li>
+<li><a href="#sec-12">Quitting MySQL</a>
+</li>
+<li><a href="#sec-13">Executing SQL From a File</a>
+</li>
+<li><a href="#sec-14">Recording Your Session</a>
+</li>
+<li><a href="#sec-15">Help Facilities</a>
+</li>
+</ul>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Overview</h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+You will use the MySQL database system to implement your TBP App this
+quarter.
+</p>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Logging In to MySQL</h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+You should use your <code>cs.uchicago.edu</code> account and login to any CS
+Linux machine. You can find a CS machines to log in to using the
+following tool: <a href="http://tools.cs.uchicago.edu/find_cs_hosts/find.cgi">http://tools.cs.uchicago.edu/find_cs_hosts/find.cgi</a>
+</p>
+<p>
+Now, you can log in to MySQL by typing:
+</p>
+
+
+
+<pre class="example">mysql -h classdbs -u&lt;yourName&gt; -p 
+</pre>
+
+
+<p>
+Here, <code>mysql</code> is MySQL's command line SQL interface and <code>classdbs</code> is
+the machine on which the MySQL server is running. <code>&lt;yourName&gt;</code> refers to
+your <code>cs.uchicago.edu</code> login. You can actually omit the <code>-u&lt;yourName&gt;</code>
+option since MySQL will use the Linux username by default.
+</p>
+<p>
+You will be prompted for your password. The password initially e-mailed
+to you should be changed as soon as possible. For security reasons, we
+suggest that you <i>don't</i> use your regular <code>cs.uchicago.edu</code> password,
+because as we shall see there are opportunities for this password to
+become visible under certain circumstances. After you enter the correct
+password, you should receive this prompt:
+</p>
+
+
+
+<pre class="example">mysql&gt;
+</pre>
+
+
+
+<hr/>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Changing Your Password</h2>
+<div class="outline-text-2" id="text-4">
+
+
+<p>
+In response to the <code>mysql&gt;</code> prompt, type
+</p>
+
+
+
+<pre class="example">set PASSWORD = PASSWORD("&lt;newPassword&gt;");
+</pre>
+
+
+<p>
+where <code>&lt;newPassword&gt;</code> is the password you would like to use in the
+future. This command, like all other SQL commands, should be terminated
+with a semicolon.
+</p>
+<p>
+Note that MySQL is case-insensitive for keywords and attribute names
+<b>but case sensitive for relation and database names</b>. Once you are in
+<code>mysql</code>, you can use capitals or not in keywords like <code>PASSWORD</code>. We
+tend to capitalize keywords and not other things.
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Using Your Database</h2>
+<div class="outline-text-2" id="text-5">
+
+
+<p>
+After you login to MySQL, you can go to your database by typing:
+</p>
+
+
+
+<pre class="example">use &lt;yourName&gt;DB;
+</pre>
+
+
+<p>
+where <code>&lt;yourName&gt;</code> refers to your <code>cs.uchicago.edu</code> username, e.g.
+<code>use nbestDB;</code>.
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Creating a Table</h2>
+<div class="outline-text-2" id="text-6">
+
+
+<p>
+In <code>mysql</code> we can execute any SQL command. One simple type of command
+creates a table (relation). The form is
+</p>
+
+
+
+<pre class="example">CREATE TABLE &lt;tableName&gt; (
+  &lt;list of attributes and their types&gt;
+);
+</pre>
+
+
+<p>
+You may enter text on one line or on several lines. If your command runs
+over several lines, you will be prompted with <code>-&gt;</code> until you type the
+semicolon that ends any command. An example table-creation command is:
+</p>
+
+
+
+<pre class="example">CREATE TABLE Sells (
+  bar varchar(50),
+  beer varchar(20),
+  price real
+);
+</pre>
+
+
+<p>
+This command creates a table named <code>Sells</code> with three attributes. The
+first, named <code>bar</code>, is a character string of length up to 50, the
+second, named <code>beer</code>, is a character string of length up to 20, and
+the third one, named <code>price</code>, is a real number.
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Creating a Table With a Primary Key</h2>
+<div class="outline-text-2" id="text-7">
+
+
+<p>
+To create a table that declares attribute <code>a</code> to be a primary key:
+</p>
+
+
+
+<pre class="example">CREATE TABLE &lt;tableName&gt; (..., a &lt;type&gt; PRIMARY KEY, b, ...);
+</pre>
+
+
+<p>
+To create a table that declares the set of attributes <code>(a,b,c)</code> to be a
+primary key:
+</p>
+
+
+
+<pre class="example">CREATE TABLE &lt;tableName&gt; (&lt;attrs and their types&gt;, PRIMARY KEY (a,b,c));
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> Inserting Tuples</h2>
+<div class="outline-text-2" id="text-8">
+
+
+<p>
+Having created a table, we can insert tuples into it. The simplest way
+to insert is with the <code>INSERT</code> command:
+</p>
+
+
+
+<pre class="example">INSERT INTO &lt;tableName&gt;
+  VALUES( &lt;list of values for attributes, in order&gt; );
+</pre>
+
+
+<p>
+For instance, we can insert the tuple <code>('Cans', 'Guinness', 5.25)</code> into
+relation <code>Sells</code> by
+</p>
+
+
+
+<pre class="example">INSERT INTO Sells VALUES('Cans', 'Guinness', 5.25);
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> Getting the Value of a Relation</h2>
+<div class="outline-text-2" id="text-9">
+
+
+<p>
+We can see the tuples in a relation with the command:
+</p>
+
+
+
+<pre class="example">SELECT *
+  FROM &lt;tableName&gt;;
+</pre>
+
+
+<p>
+For instance, after the above create and insert statements, the command
+</p>
+
+
+
+<pre class="example">SELECT * FROM Sells;
+</pre>
+
+
+<p>
+produces the result
+</p>
+
+
+
+<pre class="example">+------+----------+-------+
+| bar  | beer     | price |
++------+----------+-------+
+| Cans | Guinness |  5.25 |
++------+----------+-------+
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-10" class="outline-2">
+<h2 id="sec-10"><span class="section-number-2">10</span> Getting Rid of Your Tables</h2>
+<div class="outline-text-2" id="text-10">
+
+
+<p>
+To remove a table from your database, execute
+</p>
+
+
+
+<pre class="example">DROP TABLE &lt;tableName&gt;;
+</pre>
+
+
+<p>
+We suggest you execute
+</p>
+
+
+
+<pre class="example">DROP TABLE Sells;
+</pre>
+
+
+<p>
+after trying out this sequence of commands to avoid leaving a lot of
+garbage around that will be still there the next time you use the MySQL
+system.
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-11" class="outline-2">
+<h2 id="sec-11"><span class="section-number-2">11</span> Getting Information About Your Database</h2>
+<div class="outline-text-2" id="text-11">
+
+
+<p>
+The system keeps information about your own database in certain system
+tables. You can recall the names of your tables by issuing the command:
+</p>
+
+
+
+<pre class="example">SHOW TABLES;
+</pre>
+
+
+<p>
+You can recall the attributes of a table once you know its name by
+issuing the command:
+</p>
+
+
+
+<pre class="example">DESCRIBE &lt;tableName&gt;;
+</pre>
+
+
+<p>
+to learn about the attributes of relation <code>&lt;tableName&gt;</code>.
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-12" class="outline-2">
+<h2 id="sec-12"><span class="section-number-2">12</span> Quitting MySQL</h2>
+<div class="outline-text-2" id="text-12">
+
+
+<p>
+To leave <code>mysql</code>, type
+</p>
+
+
+
+<pre class="example">quit;
+</pre>
+
+
+<p>
+or
+</p>
+
+
+
+<pre class="example">exit;
+</pre>
+
+
+<p>
+in response to the <code>mysql&gt;</code> prompt.
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-13" class="outline-2">
+<h2 id="sec-13"><span class="section-number-2">13</span> Executing SQL From a File</h2>
+<div class="outline-text-2" id="text-13">
+
+
+<p>
+Instead of executing SQL commands typed at a terminal, it is often more
+convenient to type the SQL command(s) into a file and cause the file to
+be executed.
+</p>
+<p>
+To run the file <code>thirsty.sql</code>, type:
+</p>
+
+
+
+<pre class="example">mysql -h classdbs -u&lt;yourName&gt; -p &lt;yourName&gt;DB &lt; thirsty.sql
+</pre>
+
+
+<p>
+For more information on using MySQL in batch mode see Section 3.5 of the
+MySQL Reference Manual <a href="http://dev.mysql.com/doc/refman/5.5/en/batch-mode.html">"Using mysql in Batch Mode"</a>.
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-14" class="outline-2">
+<h2 id="sec-14"><span class="section-number-2">14</span> Recording Your Session</h2>
+<div class="outline-text-2" id="text-14">
+
+
+<p>
+There are several methods for recording your SQL commands in order to
+generate the scripts to turn in for your programming assignments. The
+most primitive way is to cut and paste your terminal output and save it
+in a file (if you have windowing capabilities). Another method is to use
+the Unix command <code>script</code> to record the terminal interaction. The
+<code>script</code> command records everything printed on your screen. The syntax
+for the command is
+</p>
+
+
+
+<pre class="example">script [ -a ] [ filename ]
+</pre>
+
+
+<p>
+The record is written to <code>filename</code>. If no file name is given, the
+record is saved in the file <code>typescript</code>. The <code>-a=option allows you to append the session record to =filename</code>, rather than overwrite it. To
+end the recording, type
+</p>
+
+
+
+<pre class="example">exit
+</pre>
+
+
+<p>
+For more information on how to run the <code>script</code> command, check out its
+man page. <code>mysql</code> provides the command <code>tee</code> to save query results to a
+file. At the <code>mysql&gt;</code> prompt, you say:
+</p>
+
+
+
+<pre class="example">tee thirsty.lst;
+</pre>
+
+
+<p>
+and a file called <code>thirsty.lst</code> will appear in your current directory
+and will record all user input and system output, until you exit <code>mysql</code>
+or type:
+</p>
+
+
+
+<pre class="example">notee;
+</pre>
+
+
+<p>
+Note that if the file <code>thirsty.lst</code> existed previously, it will be
+appended.
+</p>
+<p>
+Finally, if you use Emacs, you can simply run <code>mysql</code> in a shell buffer
+and save the buffer to a file. To prevent your MySQL password from being
+echoed in the Emacs buffer, add the following lines to your <code>.emacs</code>
+file:
+</p>
+
+
+
+<pre class="example">(setq-default
+ comint-output-filter-functions
+ '(comint-watch-for-password-prompt))
+(setq
+ comint-password-prompt-regexp
+ "\\(\\([Oo]ld \\|[Nn]ew \\|^\\)[Pp]assword\\|Enter password\\):\\s *\\'")
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-15" class="outline-2">
+<h2 id="sec-15"><span class="section-number-2">15</span> Help Facilities</h2>
+<div class="outline-text-2" id="text-15">
+
+
+<p>
+In response to the <code>mysql&gt;</code> prompt, type <code>help</code> and follow the
+instructions. You can also browse the complete MySQL Manual online at
+<a href="http://dev.mysql.com/doc/refman/5.1/en/">http://dev.mysql.com/doc/refman/5.5/en/</a>.  The MySQL server running on
+<code>classdbs</code> is version 5.5.
+</p>
+
+<hr/>
+
+
+
+<BR>
+<HR width="100%">
+<FONT size=-2>
+
+<p>
+This document was written originally for Prof. Jeff Ullman's CS145
+class in Autumn, 1997; revised by Jun Yang for Prof. Jennifer Widom's
+CS145 class in Spring, 1998; further revisions by Jeff Ullman, Autumn,
+1998; further revisions by Jennifer Widom, Spring 2000; further
+revisions by Nathan Folkert, Spring 2001; further revisions by Matei
+Ripeanu, Autumn 2001; further revisions by Xuehai Zhang for CS235 at
+the University of Chicago in Autumn 2002 and Autumn 2003. Adapted for
+MySQL by Svetlozar Nestorov for CS235 in Autumn 2005; further
+revisions by Svetlozar Nestorov in Spring 2007; further revisions by
+Svetlozar Nestorov in Fall 2009, Spring 2010, Autumn 2010, Spring
+2011, Fall 2011, Spring 2012, Fall 2012 and by Neil Best in Spring
+2013 for CSPP53001.
+</p>
+
+
+</FONT> 
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2013-04-23 22:24:23 CDT</p>
+<p class="author">Author: Neil Best</p>
+<p class="creator">Org version 7.8.11 with Emacs version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>

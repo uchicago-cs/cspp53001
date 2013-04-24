@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Loading Data in MySQL</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="Loading Data in MySQL"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2013-04-23 22:24:23 CDT"/>
+<meta name="author" content="Neil Best"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">Loading Data in MySQL</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Contents</a></li>
+<li><a href="#sec-2">2 Overview</a></li>
+<li><a href="#sec-3">3 Creating the Data File</a></li>
+<li><a href="#sec-4">4 Loading Your Data</a></li>
+<li><a href="#sec-5">5 Entering NULL Values</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Contents</h2>
+<div class="outline-text-2" id="text-1">
+
+
+<ul>
+<li><a href="#sec-2">Overview</a>
+</li>
+<li><a href="#sec-3">Creating the Data File</a>
+</li>
+<li><a href="#sec-4">Loading Your Data</a>
+</li>
+<li><a href="#sec-5">Entering NULL Values</a>
+</li>
+</ul>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Overview</h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+To load data in MySQL, you need to create a <i>data file</i>, which specifies
+<i>what</i> data should be loaded and then run a command that specifies <i>how</i>
+data should be loaded.
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Creating the Data File</h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+Each line in the data file specifies one tuple to be loaded into
+<code>&lt;tableName&gt;</code>. It lists, in order, values for the attributes in the list
+specified in the <code>LOAD</code> command (described below), separated by
+<code>&lt;separator&gt;</code>. As a concrete example, consider relation <i>Likes(drinker, beer)</i> and a data file <code>likes.dat</code> that might look like:
+</p>
+
+
+
+<pre class="example">zarko|Guinness
+karin|Bud
+karin| BudLite
+</pre>
+
+
+<p>
+As a result of loading <code>likes.dat</code>, the following tuples are inserted
+into <code>Likes</code>:
+</p>
+
+
+
+<pre class="example">('zarko', 'Guinness')
+('karin', 'Bud')
+('karin', ' BudLite')
+</pre>
+
+
+<p>
+<b>Warning:</b> Note that the third line of <code>likes.dat</code> has a blank after
+"<code>|</code>". This blank is <i>not</i> ignored by the loader. The value to be loaded
+for attribute <code>beer</code> is =' Bud'=, a four-character string with a leading
+blank. It is a common mistake to assume that ='Bud'=, a three-character
+string with no leading blank, will be loaded instead. This can lead to
+some very frustrating problems that you will not notice until you try to
+query your loaded data, because =' Bud'= and ='Bud'= are different
+strings.
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Loading Your Data</h2>
+<div class="outline-text-2" id="text-4">
+
+
+<p>
+A simple load command has the following form:
+</p>
+
+
+
+<pre class="example">LOAD DATA
+LOCAL INFILE "&lt;dataFile&gt;"
+REPLACE INTO TABLE &lt;tableName&gt;
+FIELDS TERMINATED BY '&lt;separator&gt;'
+(&lt;list of all attribute names to load&gt;)
+</pre>
+
+
+<ul>
+<li><code>&lt;dataFile&gt;</code> is the name of the data file. The optional keyword
+   <code>LOCAL</code> means that the filename is interpreted with respect to the
+   client end of the connection, i.e. your home directory rather than
+   the mysql server (<code>interlibrary.cs.uchicago.edu</code>)
+</li>
+<li><code>&lt;tableName&gt;</code> is the name of the table to which data will be loaded.
+   Of course, it should have been created already before the bulk load
+   operation.
+</li>
+<li>The optional keyword <code>REPLACE</code> controls handling of input records
+   that duplicate existing records on unique key values. <code>REPLACE</code> means
+   that when there are duplicates the new tuples are used and the old
+   ones are deleted. <code>IGNORE</code> means that the new tuples are ignored and
+   the old ones kept.
+</li>
+<li><code>&lt;separator&gt;</code> specifies the field separator for your data file. This
+   can be any single character. It is a good idea to use a character
+   that you know will never appear in the data, so the separator will
+   not be confused with data fields.
+</li>
+<li>Finally, list the names of attributes of <code>&lt;tableName&gt;</code> that are set
+   by your data file, separated by commas and enclosed in parentheses.
+   This list need not be the complete list of attributes in the actual
+   schema of the table, nor must it be arranged in the same order as the
+   attributes when the table was created. Any attributes unspecified in
+   the list of attributes will be set to their default values, if
+   declared, and <code>NULL</code> otherwise.
+</li>
+</ul>
+
+
+<p>
+As a concrete example, here is a <code>LOAD</code> command for loading <code>likes.dat</code>
+into <code>Likes</code>:
+</p>
+
+
+
+<pre class="example">LOAD DATA
+LOCAL INFILE "likes.dat"
+REPLACE INTO TABLE Likes
+FIELDS TERMINATED BY '|'
+(drinker, beer)
+</pre>
+
+
+<p>
+For more information on the <code>LOAD</code> command consult the online MySQL
+<a href="http://dev.mysql.com/doc/refman/5.5/en/load-data.html">documentation</a>.
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Entering NULL Values</h2>
+<div class="outline-text-2" id="text-5">
+
+
+<p>
+You may specify <code>NULL</code> values simply by entering <code>\N</code>. For example, if we
+were entering integer values into a table with schema <code>(a, b, c)</code>
+specified in the <code>LOAD</code> command, the following lines in the data file:
+</p>
+
+
+
+<pre class="example">3|\N|5
+\N|2|4
+1|\N|6
+\N|\N|7
+</pre>
+
+
+<p>
+would result in inserting the following tuples in the relation:
+</p>
+
+
+
+<pre class="example">(3, NULL, 5)
+(NULL, 2, 4)
+(1, NULL, 6)
+(NULL, NULL, 7)
+</pre>
+
+
+<p>
+Keep in mind that any primary keys or other constraints requiring that
+values be non-=NULL= will reject tuples for which those attributes are
+unspecified.
+</p>
+<p>
+If you do not wish to enter values for any row of a given column, you
+can, as mentioned above, leave that column out of the attribute list
+altogether.
+</p>
+
+<hr/>
+
+
+
+<BR>
+<HR width="100%">
+<FONT size=-2>
+
+<p>
+This document was written originally for Prof. Jeff Ullman's CS145
+class in Autumn, 1997; revised by Jun Yang for Prof. Jennifer Widom's
+CS145 class in Spring, 1998; further revisions by Jeff Ullman, Autumn,
+1998; further revisions by Srinivas Vemuri for Prof. Jeff Ullman's
+CS145 class in Autumn, 1999; further revisions by Nathan Folkert for
+Prof. Jennifer Widom's CS145 class in Spring, 2001; further revisions
+by Xuehai Zhang for CS235 at the University of Chicago in Autumn 2002
+and Autumn 2003.  Adapted for MySQL by Svetlozar Nestorov for CS235 in
+Autumn, 2005; further revisions by Svetlozar Nestorov in Spring 2007;
+further revisions by Svetlozar Nestorov in Fall 2009, Spring 2010,
+Autumn 2010, Spring 2011, Fall 2011, Spring 2012, Fall 2012 and by
+Neil Best, Spring 2013 for CS5PP3001.
+</p>
+
+
+</FONT> 
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2013-04-23 22:24:23 CDT</p>
+<p class="author">Author: Neil Best</p>
+<p class="creator">Org version 7.8.11 with Emacs version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>

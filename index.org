@@ -1,0 +1,98 @@
+#+TITLE:Databases (CS53001 Spring 2013)
+
+#+begin_src emacs-lisp :results silent :exports none
+  (require 'org-publish)
+  (setq org-publish-project-alist
+        '(("cspp53001-org"
+           :base-directory "./"
+           :base-extension "org"
+;;           :include "\\(index\\|hw[123]\\|mysql-[^.]+\\)\\.org"
+           :publishing-directory "./public_html/"
+           :recursive t
+           :publishing-function org-publish-org-to-html
+           :headline-levels 4       ; Just the default for this project.
+           :auto-preamble t)
+          ("cspp53001-images"
+           :base-directory "./"
+           :base-extension "png"
+           :publishing-function org-publish-attachment)
+          ("cspp53001" :components ("cspp53001-org" "cspp53001-images"))))
+#+end_src
+
+* Textbooks
+
+[[http://infolab.stanford.edu/~ullman/fcdb.html][A First Course in Database Systems]] (3rd ed.)  
+by Jeff Ullman and Jennifer Widom (U&W)
+
+[[http://dbtextbook.com/][Database Systems, Introduction to Databases and Data Warehouses]] 
+by Nenad Jukić, Susan Vrbsky, and Svetlozar Nestorov (JV&N)
+
+
+* Academic Policies
+
+[[http://studentmanual.uchicago.edu/Policies][Academic Policies & Requirements at UChicago]]
+
+
+* Grades
+
+
+|--------------+-----|
+| Problem sets | 25% |
+| Midterm exam | 25% |
+| Term project | 50% |
+|--------------+-----|
+
+Assignments will include problem sets and term project tasks.
+
+Work submitted late without prior arrangements or extenuating
+circumstances will not receive full credit.
+
+
+
+* Readings
+
+|------+------------------+------------------------------------------+------+---------------------------|
+| Week | Date             | Topics                                   | JV&N | U&W                       |
+|------+------------------+------------------------------------------+------+---------------------------|
+|      |                  | <40>                                     |      |                           |
+|    1 | <2013-04-04 Thu> | Introduction, Entity-Relationship model and design | 1, 2 | 1, 4.1-4.4                |
+|    2 | <2013-04-11 Thu> | Database design, Relational model, Functional dependencies | 3, 4 | 2.1-2.2, 4.5-4.6, 3.1-3.5 |
+|    3 | <2013-04-18 Thu> | Normal forms, +Relational algebra+, SQL: Schemas, Simple queries | 4, 5 | 2.3-2.5, 5, 6.1-6.2       |
+|    4 | <2013-04-25 Thu> | SQL: Subqueries, Aggregation, Modifications | 5    | 6.2-6.5                   |
+|    5 | <2013-05-02 Thu> | SQL: Joins, Views, Indexes, Constraints  | 5, 6 | 6.3, 7.1-7.2, 8.1-8.4     |
+|    6 | <2013-05-09 Thu> | *Midterm;* Transactions, Authorization   | 10   | 6.6, 10.1                 |
+|    7 | <2013-05-16 Thu> | Midterm review; Triggers, Stored procedures |      | 7.5, 9.1-9.4              |
+|    8 | <2013-05-23 Thu> | Database connectivity, Web programming   |      | 9.5-9.7, class notes      |
+|    9 | <2013-05-30 Thu> | Data warehousing, Data mining            |      | class notes               |
+|   10 | <2013-06-06 Thu> | NoSQL Databases, Big Data                |      | class notes               |
+|      | <2013-06-12 Wed> | Final project deadline!                  |      |                           |
+|------+------------------+------------------------------------------+------+---------------------------|
+
+* HowTos
+
+[[file:mysql-intro.org][Getting Started With MySQL]]
+
+[[file:mysql-load.org][Loading Data in MySQL]]
+
+[[http://dev.mysql.com/doc/refman/5.5/en/tutorial.html][MySQL 5.5 Tutorial]] (external link)
+
+
+* Assignments
+
+|------+------------------+-------------+--------------------------|
+| Week | Date             | Assignments | Due                      |
+|------+------------------+-------------+--------------------------|
+|    1 | <2013-04-04 Thu> | [[file:hw1.org][hw1]]         | <2013-04-17 Wed 11:59pm> |
+|    q | <2013-04-11 Thu> | [[file:hw2.org][hw2]]         | <2013-04-24 Wed 11:59pm> |
+|    3 | <2013-04-18 Thu> |             |                          |
+|    4 | <2013-04-25 Thu> | [[file:hw3.org][hw3]]         | <2013-05-02 Thu 11:59am> |
+|    5 | <2013-05-02 Thu> | hw4         |                          |
+|    6 | <2013-05-09 Thu> | hw5         |                          |
+|    7 | <2013-05-16 Thu> | hw6         |                          |
+|    8 | <2013-05-23 Thu> | hw7         |                          |
+|    9 | <2013-05-30 Thu> | hw8         |                          |
+|   10 | <2013-06-06 Thu> |             |                          |
+|      | <2013-06-12 Wed> |             |                          |
+|------+------------------+-------------+--------------------------|
+
+
