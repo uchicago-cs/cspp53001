@@ -1,24 +1,5 @@
 #+TITLE: Getting Started With MySQL
 
-* Contents
-
--  [[Overview]]
-# -  [[#Getting][Getting a MySQL account]
--  [[Logging In to MySQL]]
--  [[Changing Your Password]]
--  [[Using Your Database]]
--  [[Creating a Table]]
--  [[Creating a Table With a Primary Key]]
--  [[Inserting Tuples]]
--  [[Getting the Value of a Relation]]
--  [[Getting Rid of Your Tables]]
--  [[Getting Information About Your Database]]
--  [[Quitting MySQL]]
--  [[Executing SQL From a File]]
--  [[Recording Your Session]]
--  [[Help Facilities]]
-
-
 * Overview
 
 You will use the MySQL database system to implement your TBP App this
@@ -38,7 +19,7 @@ to you, please log in to change the initial password.
 
 You should use your =cs.uchicago.edu= account and login to any CS
 Linux machine. You can find a CS machines to log in to using the
-following tool: [[http://tools.cs.uchicago.edu/find_cs_hosts/find.cgi][http://tools.cs.uchicago.edu/find\_cs\_hosts/find.cgi]]
+following tool: [[http://tools.cs.uchicago.edu/find_cs_hosts/find.cgi][http://tools.cs.uchicago.edu/find_cs_hosts/find.cgi]]
 
 Now, you can log in to MySQL by typing:
 

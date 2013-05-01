@@ -1,22 +1,23 @@
 #+TITLE:Databases (CS53001 Spring 2013)
 
 #+begin_src emacs-lisp :results silent :exports none
-  (require 'org-publish)
-  (setq org-publish-project-alist
-        '(("cspp53001-org"
-           :base-directory "./"
-           :base-extension "org"
-;;           :include "\\(index\\|hw[123]\\|mysql-[^.]+\\)\\.org"
-           :publishing-directory "./public_html/"
-           :recursive t
-           :publishing-function org-publish-org-to-html
-           :headline-levels 4       ; Just the default for this project.
-           :auto-preamble t)
-          ("cspp53001-images"
-           :base-directory "./"
-           :base-extension "png"
-           :publishing-function org-publish-attachment)
-          ("cspp53001" :components ("cspp53001-org" "cspp53001-images"))))
+    (require 'org-publish)
+    (setq org-publish-project-alist
+          '(("cspp53001-org"
+             :base-directory "./"
+             :base-extension "org"
+             ;; :include "\\(index\\|hw[123]\\|mysql-[^.]+\\)\\.org"
+             :publishing-directory "./public_html/"
+             :recursive t
+             ;; :publishing-function org-html-publish-to-html
+             :headline-levels 4       ; Just the default for this project.
+             :section-numbers nil
+             :auto-preamble t)
+            ("cspp53001-images"
+             :base-directory "./"
+             :base-extension "png"
+             :publishing-function org-publish-attachment)
+            ("cspp53001" :components ("cspp53001-org" "cspp53001-images"))))
 #+end_src
 
 * Textbooks

@@ -1,5 +1,8 @@
 #+TITLE: CSPP 53001: Assignment 3
 
+#+OPTIONS: ^:{}
+
+
 *Online homework and project due by 11:59am on Thursday, May 2, 2013*
 
 
@@ -8,49 +11,50 @@
 The second part of your TBP project is to create a database in MySQL,
 populate it with some real data and run several interesting queries.
 
-1. Get a MySQL account. For specific instructions on how to get a MySQL
-   account, login to MySQL, create relations, etc. please, refer to
-   [[file:mysql-intro.org][/Getting Started With MySQL/]]. Get acquainted
-   with MySQL, change your initial password, experiment with some simple
-   commands, and check out the =help= command.
+1. Get a MySQL account. For specific instructions on how to get a
+   MySQL account, login to MySQL, create relations, etc. please, refer
+   to [[file:mysql-intro.org][/Getting Started With MySQL/]]. Get acquainted with MySQL, change
+   your initial password, experiment with some simple commands, and
+   check out the =help= command.
 2. Create relations for your TBP based on your final relational schema
-   from *Step 1*. In addition to creating the appropriate attributes and
-   types, please declare /primary keys/ for your relations. The
-   attribute types supported by MySQL are described in the
-   [[http://dev.mysql.com/doc/refman/5.5/en/data-types.html][MySQL online documentation]] Please, generate a script file called
+   from *Step 1*. In addition to creating the appropriate attributes
+   and types, please declare /primary keys/ for your relations. The
+   attribute types supported by MySQL are described in the [[http://dev.mysql.com/doc/refman/5.5/en/data-types.html][MySQL
+   online documentation]] Please, generate a script file called
    =create_db.sql= that creates all of your tables.
 3. Develop a small amount (10-20 tuples per relation) of real data and
    load it into your relations using the =SQL load= command. See
-   [[file:mysql-load.org][/Loading Data in MySQL/]] and for information on how
-   to bulk-load data. Please, generate a script file called
-   =populate_db.sql= that loads all of your tables. Note that the script
-   will likely reference several data files in your directory.
-4. Develop and test at least six SQL data retrieval (=select=) commands.
+   [[file:mysql-load.org][/Loading Data in MySQL/]] and for information on how to bulk-load
+   data. Please, generate a script file called =populate_db.sql= that
+   loads all of your tables. Note that the script will likely
+   reference several data files in your directory.
+4. Develop and test at least six SQL data retrieval (=select=)
+   commands.
 5. Please, generate a script file called =query2.sql= with all of your
    queries.
 
 Please note:
 
--  You can invoke your SQL commands interactively through =mysql=, as
-   described in the document [[file:mysql-intro.org][/Getting Started With MySQL/]].
--  Please write "interesting" queries. You should try to use most or all
-   of the SQL constructs discussed in class and in the textbook. You
-   will not receive full credit if your queries are all extremely
-   simple.
+- You can invoke your SQL commands interactively through =mysql=, as
+  described in the document [[file:mysql-intro.org][/Getting Started With MySQL/]].
+- Please write "interesting" queries. You should try to use most or
+  all of the SQL constructs discussed in class and in the
+  textbook. You will not receive full credit if your queries are all
+  extremely simple.
 
-   You will submit your homework using the =hwsubmit= command. Please,
-   create a new directory called hw2\_<your\_username>, e.g.
-   hw2\_evtimov, and move all of the relevant scripts and data files
-   there. Then, you can submit your work by typing (<path\_to> is the
-   directory path to your hw2 directory).
+- You will submit your homework using the =hwsubmit= command. Please,
+  create a new directory called hw2_<your_username>, e.g.
+  hw2_evtimov, and move all of the relevant scripts and data files
+  there. Then, you can submit your work by typing (<path\_to> is the
+  directory path to your hw2 directory).
 
-   =hwsubmit cspp53001 <path_to>/hw2_<your_username>=
+  =hwsubmit cspp53001 <path_to>/hw2_<your_username>=
 
-   *Please make sure that all of the relevant files and no others are in
-   that directory.*
+*Please make sure that all of the relevant files, including your data
+ files, and no others are in that directory.*
 
 
-*** Problem Set
+* Problem Set
 
 You will complete the problem set using [[http://www.newgradiance.com/][Gradiance]].
 

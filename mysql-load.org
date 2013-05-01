@@ -1,6 +1,6 @@
 #+TITLE: Loading Data in MySQL
 
-* Contents
+* COMMENT Contents
 
 - [[Overview]]
 - [[Creating the Data File]]
