@@ -1,23 +1,24 @@
 #+TITLE:Databases (CS53001 Spring 2013)
 
 #+begin_src emacs-lisp :results silent :exports none
-    (require 'org-publish)
-    (setq org-publish-project-alist
-          '(("cspp53001-org"
-             :base-directory "./"
-             :base-extension "org"
-             ;; :include "\\(index\\|hw[123]\\|mysql-[^.]+\\)\\.org"
-             :publishing-directory "./public_html/"
-             :recursive t
-             ;; :publishing-function org-html-publish-to-html
-             :headline-levels 4       ; Just the default for this project.
-             :section-numbers nil
-             :auto-preamble t)
-            ("cspp53001-images"
-             :base-directory "./"
-             :base-extension "png"
-             :publishing-function org-publish-attachment)
-            ("cspp53001" :components ("cspp53001-org" "cspp53001-images"))))
+  (require 'org-publish)
+  (setq org-publish-project-alist
+        '(("cspp53001-org"
+           :base-directory "./"
+           :base-extension "org"
+           ; :include "\\(index\\|hw[1234]\\|mysql-[^.]+\\)\\.org"
+           ; :publishing-directory "./public_html/"
+           :publishing-directory "/ssh:classes:/stage/cspp53001"
+           :recursive t
+           :publishing-function org-html-publish-to-html
+           :headline-levels 4       ; Just the default for this project.
+           :section-numbers nil
+           :auto-preamble t)
+          ("cspp53001-images"
+           :base-directory "./"
+           :base-extension "png"
+           :publishing-function org-publish-attachment)
+          ("cspp53001" :components ("cspp53001-org" "cspp53001-images"))))
 #+end_src
 
 * Textbooks
@@ -69,31 +70,34 @@ circumstances will not receive full credit.
 |      | <2013-06-12 Wed> | Final project deadline!                  |      |                           |
 |------+------------------+------------------------------------------+------+---------------------------|
 
+
 * HowTos
 
 [[file:mysql-intro.org][Getting Started With MySQL]]
 
 [[file:mysql-load.org][Loading Data in MySQL]]
 
+[[file:mysql-option.org][MySQL Option Files]]
+
 [[http://dev.mysql.com/doc/refman/5.5/en/tutorial.html][MySQL 5.5 Tutorial]] (external link)
 
 
 * Assignments
 
-|------+------------------+-------------+--------------------------|
-| Week | Date             | Assignments | Due                      |
-|------+------------------+-------------+--------------------------|
-|    1 | <2013-04-04 Thu> | [[file:hw1.org][hw1]]         | <2013-04-17 Wed 11:59pm> |
-|    q | <2013-04-11 Thu> | [[file:hw2.org][hw2]]         | <2013-04-24 Wed 11:59pm> |
-|    3 | <2013-04-18 Thu> |             |                          |
-|    4 | <2013-04-25 Thu> | [[file:hw3.org][hw3]]         | <2013-05-02 Thu 11:59am> |
-|    5 | <2013-05-02 Thu> | hw4         |                          |
-|    6 | <2013-05-09 Thu> | hw5         |                          |
-|    7 | <2013-05-16 Thu> | hw6         |                          |
-|    8 | <2013-05-23 Thu> | hw7         |                          |
-|    9 | <2013-05-30 Thu> | hw8         |                          |
-|   10 | <2013-06-06 Thu> |             |                          |
-|      | <2013-06-12 Wed> |             |                          |
-|------+------------------+-------------+--------------------------|
+|------+------------------+--------------+--------------------------|
+| Week | Date             | Assignments  | Due                      |
+|------+------------------+--------------+--------------------------|
+|    1 | <2013-04-04 Thu> | [[file:hw1.org][hw1]]          | <2013-04-17 Wed 11:59pm> |
+|    q | <2013-04-11 Thu> | [[file:hw2.org][hw2]]          | <2013-04-24 Wed 11:59pm> |
+|    3 | <2013-04-18 Thu> |              |                          |
+|    4 | <2013-04-25 Thu> | [[file:hw3.org][hw3]]          | <2013-05-02 Thu 11:59am> |
+|    5 | <2013-05-02 Thu> | [[file:hw4.org][hw4]]          | <2013-05-09 Thu 11:59am> |
+|    6 | <2013-05-09 Thu> | hw5          | <2013-05-16 Thu 11:59am> |
+|    7 | <2013-05-16 Thu> | hw6          | <2013-05-23 Thu 11:59am> |
+|    8 | <2013-05-23 Thu> | hw7          | <2013-05-30 Thu 11:59am> |
+|    9 | <2013-05-30 Thu> | hw8          | <2013-06-06 Thu 11:59am> |
+|   10 | <2013-06-06 Thu> |              |                          |
+|      |                  | Projects Due | <2013-06-12 Wed 11:59pm>                 |
+|------+------------------+--------------+--------------------------|
 
 

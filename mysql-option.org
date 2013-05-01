@@ -1,0 +1,37 @@
+#+TITLE:MySQL Option Files
+
+
+You can simplify the process of connecting to the database by using an
+option file.
+
+Create a file named =.my.cnf= in your home directory, i.e. =~/.my.cnf=
+and edit it. Add lines of this form:
+
+#+BEGIN_EXAMPLE
+[client]
+host=classdbs
+user=neil
+database=instructorDB
+password=12345
+#+END_EXAMPLE
+
+Edit the values to match what you have been entering on the command
+line, save the file and run =mysql= with no options. /Voilà!/ 
+
+In many environments it may be a questionable practice to include a
+password in a file, but in this situation we can accept this risk. We
+are not using are databases to house sensitive data and our accounts
+do not have privileges beyond our own databases. Exposure can be
+minimized by changing the permissions on the option file if they are
+not already set minimally:
+
+#+BEGIN_EXAMPLE
+chmod u=rw,go= ~/.my.cnf
+#+END_EXAMPLE
+
+If you prefer you may leave out the =password= entry and start the
+client with =mysql -p=.
+
+See the output from =mysql --help= or
+http://dev.mysql.com/doc/refman/5.5/en/option-files.html for more
+information.
