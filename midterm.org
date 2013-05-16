@@ -1,0 +1,361 @@
+#+PROPERTY: engine mysql
+
+The solutions are based on the extended datasets from the textbook web site.
+
+* Add mysql to PATH
+
+#+BEGIN_SRC emacs-lisp
+  (setenv "PATH" (concat "/opt/local/lib/mysql55/bin:"
+                         (getenv "PATH")))
+#+END_SRC
+
+#+RESULTS:
+: /opt/local/lib/mysql55/bin:/opt/local/bin:/opt/local/sbin:/opt/local/Library/Frameworks/Python.framework/Versions/2.6/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/GDAL.framework/Programs:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin:/usr/texbin:/usr/local/git/bin:/opt/local/lib/postgresql83/bin:/Users/nbest/bin
+
+
+* Load sample data sets
+
+#+BEGIN_SRC sh
+  which mysql
+#+END_SRC
+
+#+RESULTS:
+: /opt/local/lib/mysql55/bin/mysql
+
+#+BEGIN_SRC sql
+-- ZAGI
+DROP TABLE soldvia; 
+DROP TABLE salestransaction; 
+DROP TABLE store; 
+DROP TABLE product; 
+DROP TABLE vendor; 
+DROP TABLE region; 
+DROP TABLE category; 
+DROP TABLE customer; 
+-- HAFH
+DROP TABLE cleaning; 
+DROP TABLE staffmember; 
+DROP TABLE apartment; 
+DROP TABLE corpclient; 
+DROP TABLE inspecting; 
+DROP TABLE inspector; 
+DROP TABLE managerphone; 
+DROP TABLE advising;
+DROP TABLE building;
+DROP TABLE employee;
+DROP TABLE manager;
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC sh :results silent
+  # mysql < examples/HAFH\ schema.sql
+  # mysql < examples/HAFH\ insert.sql
+  mysql < examples/ZAGI\ schema.sql
+  # mysql < examples/ZAGI\ insert.sql
+#+END_SRC
+
+
+* Download and insert the expanded data sets
+
+#+BEGIN_SRC sh :results output
+  wget --no-verbose \
+      http://dbtextbook.com/downloads/HAFHMOREINSERTINTOstatementsMySQL.txt \
+      -O examples/ZAGIMORE\ insert.sql 
+  wget --no-verbose \
+      http://dbtextbook.com/downloads/ZAGIMOREINSERTINTOstatementsMySQL.txt \
+      -O examples/HAFHMORE\ insert.sql
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC sh :results output
+  mysql < examples/HAFHMORE\ insert.sql
+  mysql < examples/ZAGIMORE\ insert.sql
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC sql :engine mysql
+  show tables;
+#+END_SRC
+
+#+RESULTS:
+| Tables_in_instructorDB |
+|------------------------|
+| apartment              |
+| building               |
+| category               |
+| cleaning               |
+| corpclient             |
+| customer               |
+| inspecting             |
+| inspector              |
+| manager                |
+| managerphone           |
+| product                |
+| region                 |
+| salestransaction       |
+| soldvia                |
+| staffmember            |
+| store                  |
+| vendor                 |
+
+
+* Problem 3
+
+Consider the ER diagram and relational schema for the ZAGI Retail
+Company Sales Department in Figures 5.1a and 5.1b on pages 130 and 131
+in your text.  Write the SQL queries that accomplish the following
+tasks:
+
+
+** Part 1
+
+Display the RegionID, RegionName, and number of stores in the region
+for all regions.  Sort the results by number of stores from greatest
+to least.  (10 points)
+
+/This is exercise 5.1h from the text with an additional requirement
+to sort the results./
+
+#+BEGIN_SRC sql :engine mysql
+SELECT r.regionid, r.regionname, count(*)
+FROM region r, store s
+WHERE r.regionid = s.regionid
+GROUP BY r.regionid, r.regionname
+ORDER BY count(*) DESC;
+#+END_SRC
+
+#+RESULTS:
+| regionid | regionname  | count(*) |
+|----------+-------------+----------|
+| C        | Chicagoland |        4 |
+| T        | Tristate    |        4 |
+| I        | Indiana     |        3 |
+| N        | North       |        3 |
+
+
+
+** Part 2
+
+Display the ProductID and ProductName of the cheapest product.  
+(5 points)
+
+/This is exercise 5.1l from the text./
+
+#+BEGIN_SRC sql
+SELECT productid, productname
+FROM product
+WHERE productprice = (
+  SELECT MIN(productprice) FROM product);
+#+END_SRC
+
+#+RESULTS:
+| productid | productname |
+|-----------+-------------|
+|       3X3 | Cosy Sock   |
+
+
+** Part 3
+
+Rewrite Query 29 on page 147 using a join statement (no nested
+queries).  
+(10 points)
+
+/This is exercise 5.1o from the textbook./
+
+The query text:
+
+/For each product that has more than three items sold within all sales
+transactions, retrieve the product ID, product name and product price./
+
+The original query and its results:
+
+#+BEGIN_SRC sql
+SELECT productid, productname, productprice 
+FROM product 
+WHERE productid IN (
+  SELECT productid 
+  FROM soldvia 
+  GROUP BY productid 
+  HAVING SUM(noofitems) > 3); 
+#+END_SRC
+
+#+RESULTS:
+| productid | productname            | productprice |
+|-----------+------------------------+--------------|
+|       1X2 | Comfy Harness          |       150.00 |
+|       1X4 | Safe-T Helmet          |        40.00 |
+|       2X1 | Mmm Stove              |        80.00 |
+|       2X2 | Easy Boot              |        70.00 |
+|       2X3 | Reflect-o Jacket       |        35.00 |
+|       2X4 | Strongster Carribeaner |        20.00 |
+|       3X1 | Sleepy Pad             |        25.00 |
+|       3X3 | Cosy Sock              |        15.00 |
+|       3X4 | Treado Tire            |        30.00 |
+|       4X2 | Electra Compass        |        45.00 |
+|       4X3 | Mega Camera            |       275.00 |
+|       4X4 | Dura Boot              |        90.00 |
+|       8X8 | Power Pedals           |        20.00 |
+|       9X9 | Trusty Rope            |        30.00 |
+
+The solution and its results:
+
+#+BEGIN_SRC sql
+SELECT p.productid, productname, productprice
+FROM product p, soldvia s
+WHERE p.productid = s.productid
+GROUP BY p.productid, p.productname, p.productprice
+HAVING SUM(s.noofitems) > 3;
+#+END_SRC
+
+#+RESULTS:
+| productid | productname            | productprice |
+|-----------+------------------------+--------------|
+|       1X2 | Comfy Harness          |       150.00 |
+|       1X4 | Safe-T Helmet          |        40.00 |
+|       2X1 | Mmm Stove              |        80.00 |
+|       2X2 | Easy Boot              |        70.00 |
+|       2X3 | Reflect-o Jacket       |        35.00 |
+|       2X4 | Strongster Carribeaner |        20.00 |
+|       3X1 | Sleepy Pad             |        25.00 |
+|       3X3 | Cosy Sock              |        15.00 |
+|       3X4 | Treado Tire            |        30.00 |
+|       4X2 | Electra Compass        |        45.00 |
+|       4X3 | Mega Camera            |       275.00 |
+|       4X4 | Dura Boot              |        90.00 |
+|       8X8 | Power Pedals           |        20.00 |
+|       9X9 | Trusty Rope            |        30.00 |
+
+
+* Problem 4
+
+Consider the ER diagram and relational schema for the HAFH Realty
+Company Property Management Database in Figures 5.39a and 5.39b on
+pages 158 and 159 in your text.  Write the SQL queries that accomplish
+the following tasks:
+
+** Part 1
+
+Display the MFName, MLNames, MSalary, MBdate, and number of buildings
+that the manager manages for all managers with a salary less than
+$55,000.  (10 points)
+
+/This is problem E5.2d in the text./
+
+#+BEGIN_SRC sql :engine mysql
+SELECT m.mfname, m.mlname, m.msalary, m.mbdate, count(*)
+FROM building b, manager m
+WHERE b.bmanagerid = m.managerid 
+AND m.msalary < 55000
+GROUP BY m.mfname, m.mlname, m.msalary, m.mbdate;
+#+END_SRC
+
+#+RESULTS:
+| mfname  | mlname   |  msalary |     mbdate | count(*) |
+|---------+----------+----------+------------+----------|
+| Austin  | Lee      | 50000.00 | 1975-10-30 |        2 |
+| George  | Sherman  | 52000.00 | 1976-01-11 |        1 |
+| Mariana | Gonzalez | 54000.00 | 1980-12-27 |        2 |
+
+
+
+** Part 2
+
+Display complete records of any corporate clients that have both been
+referred by another client and in turn referred additional clients.
+(10 points)
+
+/This is another example of a unary relationship, much like the
+example from figures 3.47 and 3.48 on page 75 in the text, except that
+all of the data we need is in one table.  See also [[https://piazza.com/class#spring2013/cspp53001/37][Piazza post @37]]./
+
+Compare the structure of the example we discussed:
+
+#+BEGIN_SRC sql :engine mysql
+SELECT
+ advisor.EmpName AS AdvisorName,
+ advisee.EmpName AS AdviseeName
+FROM advising
+JOIN employee AS advisor
+ON Advisor = advisor.EmpID
+JOIN employee AS advisee
+ON Advisee = advisee.EmpID
+WHERE advisor.EmpName = "Becky";
+#+END_SRC
+
+to this query that solves the problem:
+
+#+BEGIN_SRC sql :engine mysql
+SELECT self.*
+FROM corpclient AS self
+JOIN corpclient AS referrer
+ON self.ccidreferredby = referrer.ccid 
+JOIN corpclient AS referred
+ON self.ccid = referred.ccidreferredby;
+#+END_SRC
+
+#+RESULTS:
+| ccid | ccname   | ccindustry   | cclocation | ccidreferredby |
+|------+----------+--------------+------------+----------------|
+| C222 | SkyJet   | Airline      | Oak Park   | C111           |
+| C444 | NanoCorp | Broadcasting | Rosemont   | C111           |
+| C777 | WindyCT  | Music        | Chicago    | C222           |
+
+To check this result we can inspect the related records either by
+expanding the =SELECT= clause or through the use of subqueries.
+
+#+BEGIN_SRC sql :engine mysql
+SELECT *
+FROM corpclient AS self
+JOIN corpclient AS referrer
+ON self.ccidreferredby = referrer.ccid 
+JOIN corpclient AS referred
+ON self.ccid = referred.ccidreferredby;
+#+END_SRC
+
+#+RESULTS:
+| ccid | ccname   | ccindustry   | cclocation | ccidreferredby | ccid | ccname     | ccindustry | cclocation | ccidreferredby | ccid | ccname    | ccindustry   | cclocation | ccidreferredby |
+|------+----------+--------------+------------+----------------+------+------------+------------+------------+----------------+------+-----------+--------------+------------+----------------|
+| C444 | NanoCorp | Broadcasting | Rosemont   | C111           | C111 | BlingNotes | Music      | Chicago    | NULL           | C666 | DelishInc | Food Service | Oak Brook  | C444           |
+| C222 | SkyJet   | Airline      | Oak Park   | C111           | C111 | BlingNotes | Music      | Chicago    | NULL           | C777 | WindyCT   | Music        | Chicago    | C222           |
+| C777 | WindyCT  | Music        | Chicago    | C222           | C222 | SkyJet     | Airline    | Oak Park   | C111           | C888 | SouthAlps | Sports       | Rosemont   | C777           |
+
+#+BEGIN_SRC sql :engine mysql
+SELECT *
+FROM corpclient
+WHERE ccidreferredby IN (
+  SELECT self.ccid
+  FROM corpclient AS self
+  JOIN corpclient AS referrer
+  ON self.ccidreferredby = referrer.ccid 
+  JOIN corpclient AS referred
+  ON self.ccid = referred.ccidreferredby);
+#+END_SRC
+
+#+RESULTS:
+| ccid | ccname    | ccindustry   | cclocation | ccidreferredby |
+|------+-----------+--------------+------------+----------------|
+| C666 | DelishInc | Food Service | Oak Brook  | C444           |
+| C777 | WindyCT   | Music        | Chicago    | C222           |
+| C888 | SouthAlps | Sports       | Rosemont   | C777           |
+
+#+BEGIN_SRC sql :engine mysql
+SELECT *
+FROM corpclient
+WHERE ccid IN (
+  SELECT self.ccidreferredby
+  FROM corpclient AS self
+  JOIN corpclient AS referrer
+  ON self.ccidreferredby = referrer.ccid 
+  JOIN corpclient AS referred
+  ON self.ccid = referred.ccidreferredby);
+#+END_SRC
+
+#+RESULTS:
+| ccid | ccname     | ccindustry | cclocation | ccidreferredby |
+|------+------------+------------+------------+----------------|
+| C111 | BlingNotes | Music      | Chicago    | NULL           |
+| C222 | SkyJet     | Airline    | Oak Park   | C111           |
+
