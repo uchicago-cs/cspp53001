@@ -2,8 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title></title>
-<!-- 2013-04-24 Wed 23:32 -->
+<title>CSPP 53001: Assignment 5</title>
+<!-- 2013-05-09 Thu 19:58 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="generator" content="Org-mode"/>
 <meta name="author" content="Neil Best"/>
@@ -134,35 +134,49 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title"></h1>
+<h1 class="title">CSPP 53001: Assignment 5</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">CSPP 53001: Assignment 5</a>
+<li><a href="#sec-1">Steps 4 and 5 of Your TBP App</a>
 <ul>
-<li>
-<ul>
-<li><a href="#sec-1-0-1">Project is due by 11:59pm on Friday, November 16, 2012</a></li>
-<li><a href="#sec-1-0-2">Steps 4 and 5 of Your TBP App</a></li>
-<li><a href="#sec-1-0-3">There is no Gradiance Problem Set this week</a></li>
-</ul>
-</li>
+<li><a href="#sec-1-1">Step 4: "Need more input!"</a></li>
+<li><a href="#sec-1-2">Step 5: "Join together with the band!"</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">CSPP 53001: Assignment 5</h2>
-<div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-0-1" class="outline-4">
-<h4 id="sec-1-0-1">Project is due by 11:59pm on Friday, November 16, 2012</h4>
-</div>
+<p>
+<b>Project is due by 11:59pm on Friday, May 17, 2012</b>
+</p>
 
-<div id="outline-container-sec-1-0-2" class="outline-4">
-<h4 id="sec-1-0-2">Steps 4 and 5 of Your TBP App</h4>
-<div class="outline-text-4" id="text-1-0-2">
+<p>
+<b>Please be sure to include your data in your homework submissions</b>
+</p>
+
+<p>
+This is critical for Sam's grading procedure.
+</p>
+
+<p>
+<b>Please be prepared to discuss your TBP project in class on May 16</b>
+</p>
+
+<p>
+You will have a day to incorporate any changes that come out of our
+discussion if you choose, but you should be very close to completing
+these tasks before coming to class on Thursday.
+</p>
+
+<p>
+<b>There is no Gradiance Problem Set this week</b>
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Steps 4 and 5 of Your TBP App</h2>
+<div class="outline-text-2" id="text-1">
 <p>
 The fourth part of your TBP project is to generate some more data and
 populate your MySQL database with it. The fifth part is to design and
@@ -171,20 +185,26 @@ develop several join and aggregation queries on this larger database.
 
 <p>
 You also have the <b>optional</b> choice to redesign your database based on
-the feedback you have received from the instructor and the TAs and your
-experience developing the TBP App so far. If you do choose to redesign
-your database in a significant way, please, include your new ER diagram,
-named TBP\<sub>ERD\</sub><sub>v2</sub>.??? with your submission. Note that adding or
-deleting several attributes or adding a few new relationships <b>is not</b> a
-significant redesign. If you do choose these option, please, make sure
-that the relations in your database correspond (i.e. have the same
-names) to the entity sets and relationships in your ER diagram.
+the feedback you have received from the instructor and the TA(s) and
+your experience developing the TBP App so far. If you do choose to
+redesign your database in a significant way, please, include your new
+ER diagram, named <code>TBP_ERD_v2.???</code> with your submission. Note that
+adding or deleting several attributes or adding a few new
+relationships <b>is not</b> a significant redesign. If you do choose these
+option, please, make sure that the relations in your database
+correspond (i.e. have the same names) to the entity sets and
+relationships in your ER diagram.
 </p>
+</div>
 
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">Step 4: "Need more input!"</h3>
+<div class="outline-text-3" id="text-1-1">
 <p>
-Develop a larger amount of data for your database and load it into your
-relations using the SQL load command. The data you generate and load
-should be on the order of:
+Develop a larger amount of data for your database and load it into
+your relations using the SQL <code>LOAD</code> command. The data you generate and
+load should be on the order of:
 </p>
 
 <ul class="org-ul">
@@ -200,38 +220,39 @@ programming language you like. The program should create large files
 consisting of records in an <b>ASCII text-only</b> format acceptable to the
 MySQL bulk loader. Then you should load the data into your TBP
 relations. If you are using real data, your program will need to
-transform the data into files of records conforming to your TBP schema.
-Otherwise you will write a program to fabricate data: your program will
-generate either random or nonrandom (e.g., sequential) records
-conforming to your schema. Note that it is acceptable for your data
-values to be meaningless (i.e. random sequence of characters instead of
-actual names).
+transform the data into files of records conforming to your TBP
+schema.  Otherwise you will write a program to fabricate data: your
+program will generate either random or nonrandom (e.g., sequential)
+records conforming to your schema. Note that it is acceptable for your
+data values to be meaningless (i.e. random sequence of characters
+instead of actual names).
 </p>
 
 <p>
-If the semantics of your schema includes relations that are expected to
-be relatively small (e.g., states in the US), it is fine to use some
-small relations, but please ensure that you have relations of the sizes
-prescribed above as well. When writing a program to fabricate data,
-there are two important points to keep in mind:
+If the semantics of your schema includes relations that are expected
+to be relatively small (e.g., states in the US), it is fine to use
+some small relations, but please ensure that you have relations of the
+sizes prescribed above as well. When writing a program to fabricate
+data, there are two important points to keep in mind:
 </p>
 
 <ul class="org-ul">
 <li>Be sure not to generate duplicate values for your key attributes.
 </li>
-<li>Your TBP certainly includes relations that are expected to join with
-each other. For example, if the key of the Users relation is
-username, then it is expected to join with the username\<sub>leader</sub> and
-username\<sub>follower</sub> attributes of the Follows relation. In generating
-data, be sure to generate values that actually do join &#x2013; otherwise
-all of your interesting queries will have empty results! One way to
-guarantee joinability is to generate the values in one relation
-(corresponding to an entity set in your E/R diagram), then use the
-generated values to select joining values for the other relation
-(corresponding to a relationship in your E/R diagram). For example,
-you could generate usernames first (either sequentially or randomly),
-then use these usernames to fill in the username\<sub>leader</sub> and
-username\<sub>follower</sub> values in the Follows relation.
+<li>Your TBP certainly includes relations that are expected to join
+with each other. For example, if the key of the <code>Users</code> relation is
+<code>username</code>, then it is expected to join with the <code>username_leader</code>
+and <code>username_follower</code> attributes of the Follows relation. In
+generating data, be sure to generate values that actually do join
+&#x2013; otherwise all of your interesting queries will have empty
+results! One way to guarantee joinability is to generate the values
+in one relation (corresponding to an entity set in your E/R
+diagram), then use the generated values to select joining values
+for the other relation (corresponding to a relationship in your E/R
+diagram). For example, you could generate usernames first (either
+sequentially or randomly), then use these usernames to fill in the
+<code>username_leader</code> and <code>username_follower</code> values in the Follows
+relation.
 </li>
 </ul>
 
@@ -242,9 +263,9 @@ in your <code>populate_db_large.sql</code> script.
 </p>
 
 <p>
-To demonstrate the size of your new relations, please, generate a script
-file called <code>count.sql</code> that finds the number of tuples in every one of
-your relations.
+To demonstrate the size of your new relations, please, generate a
+script file called <code>count.sql</code> that finds the number of tuples in
+every one of your relations.
 </p>
 
 <p>
@@ -265,20 +286,25 @@ Users, Tweets, and Follows and their sizes were 10000, 50000, and
 | Follows    |     100000 |
 +------------+------------+
 </pre>
+</div>
+</div>
 
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">Step 5: "Join together with the band!"</h3>
+<div class="outline-text-3" id="text-1-2">
 <p>
-Develop and test at least ten SQL queries using the JOIN syntax
+Develop and test at least ten SQL queries using the <code>JOIN</code> syntax
 discussed in class. At least five of your queries should involve
-aggregation. To receive full credit, you should use all JOIN variations
-discussed in class (ON, USING, NATURAL, OUTER) and aggregation with and
-without GROUP BY clause. Please, generate a script file called
-<code>query5.sql</code> with all of your join and aggregation queries. *Your
-queries must not produce empty results and also must complete in a
-reasonable amount of time (a few minutes).* If any of your queries takes
-a long time to complete, consider modifying it by adding more conditions
-that limit the size of the intermediate results or final result. For
-example, if your query finds all pairs of users that follow at least one
-user in common:
+aggregation. To receive full credit, you should use all <code>JOIN</code>
+variations discussed in class (<code>ON</code>, <code>USING</code>, <code>NATURAL</code>, <code>OUTER</code>) and
+aggregation with and without <code>GROUP BY</code> clause. Please, generate a
+script file called <code>query5.sql</code> with all of your join and aggregation
+queries. <b>Your queries must not produce empty results and also must
+complete in a reasonable amount of time (a few minutes).</b> If any of
+your queries takes a long time to complete, consider modifying it by
+adding more conditions that limit the size of the intermediate results
+or final result. For example, if your query finds all pairs of users
+that follow at least one user in common:
 </p>
 
 <pre class="example">
@@ -291,7 +317,7 @@ WHERE F_1.username_follower &lt;&gt; F_2.username_follower;
 
 <p>
 and it takes 30 minutes or more to produces millions of results,
-consider adding some conditions that limit the users from F\<sub>1</sub> and F\<sub>2</sub>.
+consider adding some conditions that limit the users from F_1 and F_2.
 For example, you can only consider usernames starting with the letters
 "a" and "b":
 </p>
@@ -313,36 +339,35 @@ database as well as the corresponding data files</b>
 
 <p>
 You will submit your homework using the <code>hwsubmit</code> command. Please,
-create a new directory called hw5\_&lt;your\<sub>username</sub>&gt;, e.g. hw5\<sub>evtimov</sub>,
-and move there all of the relevant scripts <b>and all data files</b>. For
-this assignment, there should be the four scripts:
-<code>create_db_large.sql</code>, <code>populate_db_large.sql</code>, <code>count.sql</code> and
-<code>query5.sql</code>, all the large data files and, if you have chosen to
-redesign your database, your new ER diagram TBP\<sub>ERD\</sub><sub>v2</sub>.???. Then, you
-can submit your work by typing (&lt;path\<sub>to</sub>&gt; is the directory path to your
-hw5 directory).
+create a new directory called <code>hw5_&lt;your_username&gt;</code>,
+e.g. <code>hw5_evtimov</code>, and move there all of the relevant scripts <b>and
+all data files</b>. For this assignment, there should be the four
+scripts: <code>create_db_large.sql</code>, <code>populate_db_large.sql</code>, <code>count.sql</code>
+and <code>query5.sql</code>, all the large data files and, if you have chosen to
+redesign your database, your new ER diagram <code>TBP_ERD_v2.???</code>. Then,
+you can submit your work by typing:
 </p>
+
 
 <p>
 <code>hwsubmit cspp53001 &lt;path_to&gt;/hw5_&lt;your_username&gt;</code>
 </p>
 
 <p>
-<b>Please make sure that all of the relevant files and no others are in
-that directory.</b>
+where <code>&lt;path_to&gt;</code> is the directory path to your hw5 directory.
 </p>
 
-<hr/>
+<p>
+<b>Please make sure that all of the relevant files, including your data,
+and no others are in that directory.</b>
+</p>
 </div>
-</div>
-<div id="outline-container-sec-1-0-3" class="outline-4">
-<h4 id="sec-1-0-3">There is no Gradiance Problem Set this week</h4>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Neil Best</p>
-<p class="date">Created: 2013-04-24 Wed 23:32</p>
+<p class="date">Created: 2013-05-09 Thu 19:58</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.1 (<a href="http://orgmode.org">Org</a> mode 8.0.1)</p>
 <p class="xhtml-validation"><a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a></p>
 </div>

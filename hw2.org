@@ -1,5 +1,6 @@
 #+TITLE:CSPP 53001: Assignment 2
 
+
 * Term Project: Your Twitter Basic Plus (TBP) App, Step 1
 
 Your programming project for CSPP 53001 will be to build a substantial
@@ -71,8 +72,8 @@ Show the relational schema and the functional dependencies in a text
 file called =TBP_schema.txt=
 
 You will submit your homework using the =hwsubmit= command. Please,
-create a new directory called hw1\_<your\_username>,
-e.g. hw1\_evtimov, and move all of the relevant files there:
+create a new directory called hw1_<your_username>,
+e.g. hw1_evtimov, and move all of the relevant files there:
 =TBP_description.txt, TBP_ERD.???, TBP_schema.txt=. Then, you can
 submit your work by typing (<path\_to> is the directory path to your
 hw1 directory):

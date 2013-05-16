@@ -1,26 +1,42 @@
-* CSPP 53001: Assignment 5
+#+TITLE:CSPP 53001: Assignment 5
 
-*** Project is due by 11:59pm on Friday, November 16, 2012
+*Project is due by 11:59pm on Friday, May 17, 2012*
 
-*** Steps 4 and 5 of Your TBP App
+*Please be sure to include your data in your homework submissions*
+
+This is critical for Sam's grading procedure.
+
+*Please be prepared to discuss your TBP project in class on May 16*
+
+You will have a day to incorporate any changes that come out of our
+discussion if you choose, but you should be very close to completing
+these tasks before coming to class on Thursday.
+
+*There is no Gradiance Problem Set this week*
+
+* Steps 4 and 5 of Your TBP App
 
 The fourth part of your TBP project is to generate some more data and
 populate your MySQL database with it. The fifth part is to design and
 develop several join and aggregation queries on this larger database.
 
 You also have the *optional* choice to redesign your database based on
-the feedback you have received from the instructor and the TAs and your
-experience developing the TBP App so far. If you do choose to redesign
-your database in a significant way, please, include your new ER diagram,
-named TBP\_ERD\_v2.??? with your submission. Note that adding or
-deleting several attributes or adding a few new relationships *is not* a
-significant redesign. If you do choose these option, please, make sure
-that the relations in your database correspond (i.e. have the same
-names) to the entity sets and relationships in your ER diagram.
+the feedback you have received from the instructor and the TA(s) and
+your experience developing the TBP App so far. If you do choose to
+redesign your database in a significant way, please, include your new
+ER diagram, named =TBP_ERD_v2.???= with your submission. Note that
+adding or deleting several attributes or adding a few new
+relationships *is not* a significant redesign. If you do choose these
+option, please, make sure that the relations in your database
+correspond (i.e. have the same names) to the entity sets and
+relationships in your ER diagram.
 
-Develop a larger amount of data for your database and load it into your
-relations using the SQL load command. The data you generate and load
-should be on the order of:
+
+** Step 4: "Need more input!"
+
+Develop a larger amount of data for your database and load it into
+your relations using the SQL =LOAD= command. The data you generate and
+load should be on the order of:
 
 -  At least two relations with thousands of tuples
 -  At least one additional relation with hundreds of tuples
@@ -30,41 +46,42 @@ programming language you like. The program should create large files
 consisting of records in an *ASCII text-only* format acceptable to the
 MySQL bulk loader. Then you should load the data into your TBP
 relations. If you are using real data, your program will need to
-transform the data into files of records conforming to your TBP schema.
-Otherwise you will write a program to fabricate data: your program will
-generate either random or nonrandom (e.g., sequential) records
-conforming to your schema. Note that it is acceptable for your data
-values to be meaningless (i.e. random sequence of characters instead of
-actual names).
+transform the data into files of records conforming to your TBP
+schema.  Otherwise you will write a program to fabricate data: your
+program will generate either random or nonrandom (e.g., sequential)
+records conforming to your schema. Note that it is acceptable for your
+data values to be meaningless (i.e. random sequence of characters
+instead of actual names).
 
-If the semantics of your schema includes relations that are expected to
-be relatively small (e.g., states in the US), it is fine to use some
-small relations, but please ensure that you have relations of the sizes
-prescribed above as well. When writing a program to fabricate data,
-there are two important points to keep in mind:
+If the semantics of your schema includes relations that are expected
+to be relatively small (e.g., states in the US), it is fine to use
+some small relations, but please ensure that you have relations of the
+sizes prescribed above as well. When writing a program to fabricate
+data, there are two important points to keep in mind:
 
 -  Be sure not to generate duplicate values for your key attributes.
--  Your TBP certainly includes relations that are expected to join with
-   each other. For example, if the key of the Users relation is
-   username, then it is expected to join with the username\_leader and
-   username\_follower attributes of the Follows relation. In generating
-   data, be sure to generate values that actually do join -- otherwise
-   all of your interesting queries will have empty results! One way to
-   guarantee joinability is to generate the values in one relation
-   (corresponding to an entity set in your E/R diagram), then use the
-   generated values to select joining values for the other relation
-   (corresponding to a relationship in your E/R diagram). For example,
-   you could generate usernames first (either sequentially or randomly),
-   then use these usernames to fill in the username\_leader and
-   username\_follower values in the Follows relation.
+-  Your TBP certainly includes relations that are expected to join
+   with each other. For example, if the key of the =Users= relation is
+   =username=, then it is expected to join with the =username_leader=
+   and =username_follower= attributes of the Follows relation. In
+   generating data, be sure to generate values that actually do join
+   -- otherwise all of your interesting queries will have empty
+   results! One way to guarantee joinability is to generate the values
+   in one relation (corresponding to an entity set in your E/R
+   diagram), then use the generated values to select joining values
+   for the other relation (corresponding to a relationship in your E/R
+   diagram). For example, you could generate usernames first (either
+   sequentially or randomly), then use these usernames to fill in the
+   =username_leader= and =username_follower= values in the Follows
+   relation.
 
 You will need to submit your new =create_db_large.sql= and
 =populate_db_large.sql= scripts along with *all data files* referenced
 in your =populate_db_large.sql= script.
 
-To demonstrate the size of your new relations, please, generate a script
-file called =count.sql= that finds the number of tuples in every one of
-your relations.
+To demonstrate the size of your new relations, please, generate a
+script file called =count.sql= that finds the number of tuples in
+every one of your relations.
 
 *Extra credit:* Develop a single query that returns the name of every
 table along with its size. For example, if you had only three tables:
@@ -83,18 +100,21 @@ Users, Tweets, and Follows and their sizes were 10000, 50000, and
     +------------+------------+
 #+END_EXAMPLE
 
-Develop and test at least ten SQL queries using the JOIN syntax
+
+** Step 5: "Join together with the band!"
+
+Develop and test at least ten SQL queries using the =JOIN= syntax
 discussed in class. At least five of your queries should involve
-aggregation. To receive full credit, you should use all JOIN variations
-discussed in class (ON, USING, NATURAL, OUTER) and aggregation with and
-without GROUP BY clause. Please, generate a script file called
-=query5.sql= with all of your join and aggregation queries. *Your
-queries must not produce empty results and also must complete in a
-reasonable amount of time (a few minutes).* If any of your queries takes
-a long time to complete, consider modifying it by adding more conditions
-that limit the size of the intermediate results or final result. For
-example, if your query finds all pairs of users that follow at least one
-user in common:
+aggregation. To receive full credit, you should use all =JOIN=
+variations discussed in class (=ON=, =USING=, =NATURAL=, =OUTER=) and
+aggregation with and without =GROUP BY= clause. Please, generate a
+script file called =query5.sql= with all of your join and aggregation
+queries. *Your queries must not produce empty results and also must
+complete in a reasonable amount of time (a few minutes).* If any of
+your queries takes a long time to complete, consider modifying it by
+adding more conditions that limit the size of the intermediate results
+or final result. For example, if your query finds all pairs of users
+that follow at least one user in common:
 
 #+BEGIN_EXAMPLE
     SELECT DISTINCT F_1.username_follower AS user1, 
@@ -105,7 +125,7 @@ user in common:
 #+END_EXAMPLE
 
 and it takes 30 minutes or more to produces millions of results,
-consider adding some conditions that limit the users from F\_1 and F\_2.
+consider adding some conditions that limit the users from F_1 and F_2.
 For example, you can only consider usernames starting with the letters
 "a" and "b":
 
@@ -123,20 +143,20 @@ Note that you *do need to submit the scripts that populates your large
 database as well as the corresponding data files*
 
 You will submit your homework using the =hwsubmit= command. Please,
-create a new directory called hw5\_<your\_username>, e.g. hw5\_evtimov,
-and move there all of the relevant scripts *and all data files*. For
-this assignment, there should be the four scripts:
-=create_db_large.sql=, =populate_db_large.sql=, =count.sql= and
-=query5.sql=, all the large data files and, if you have chosen to
-redesign your database, your new ER diagram TBP\_ERD\_v2.???. Then, you
-can submit your work by typing (<path\_to> is the directory path to your
-hw5 directory).
+create a new directory called =hw5_<your_username>=,
+e.g. =hw5_evtimov=, and move there all of the relevant scripts *and
+all data files*. For this assignment, there should be the four
+scripts: =create_db_large.sql=, =populate_db_large.sql=, =count.sql=
+and =query5.sql=, all the large data files and, if you have chosen to
+redesign your database, your new ER diagram =TBP_ERD_v2.???=. Then,
+you can submit your work by typing:
+
 
 =hwsubmit cspp53001 <path_to>/hw5_<your_username>=
 
-*Please make sure that all of the relevant files and no others are in
-that directory.*
+where =<path_to>= is the directory path to your hw5 directory.
 
---------------
+*Please make sure that all of the relevant files, including your data,
+and no others are in that directory.*
 
-*** There is no Gradiance Problem Set this week
+

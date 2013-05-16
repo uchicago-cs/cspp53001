@@ -1,6 +1,6 @@
 #+TITLE:CSPP 53001: Assignment 4
 
-*Online homework and project due by 11:59am on Thursday, May 2, 2013*
+*Online homework and project due by 11:59am on Thursday, May 9, 2013*
 
 * Step 3 of Your TBP
 
@@ -28,10 +28,10 @@ users that follow at least one twitterer that you follow.
    =mods3.sql= with all of your modifications.
 
 You will submit your homework using the =hwsubmit= command. Please,
-create a new directory called hw3\_<your\_username>, e.g. hw3\_evtimov,
-and move all of the relevant scripts and data files there. Then, you can
-submit your work by typing (<path\_to> is the directory path to your hw3
-directory).
+create a new directory called =hw3_<your_username>=,
+e.g. =hw3_evtimov=, and move all of the relevant scripts and data
+files there. Then, you can submit your work by typing (=<path_to>= is
+the directory path to your =hw3= directory).
 
 =hwsubmit cspp53001 <path_to>/hw3_<your_username>=
 
@@ -43,7 +43,7 @@ files, and no others are in that directory.*
 
 You will complete the problem set using [[http://www.newgradiance.com/][Gradiance]]
 
-The name of the homework is CSPPDB-Aut13 HW4. There are 11 questions in
+The name of the homework is CSPPDB-Spr13 HW4. There are 11 questions in
 this homework - 10 regular questions and one extra credit one (about
 outer joins). All questions in this problem set are multiple choice.
 However, to answer them correctly you will need to work out their long
@@ -55,4 +55,4 @@ wrong you will lose a point. Note that you will probably get slightly
 different questions each time you attempt the problem set.
 
 *The due date for the Gradiance part of the homework is 11:59am on
-Thursday, May 2, 2013.*
+Thursday, May 9, 2013.*
