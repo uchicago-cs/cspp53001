@@ -1,55 +1,57 @@
-* CSPP 53001: Assignment 6
+#+TITLE:CSPP 53001: Assignment 6
 
-*** Online homework and project due by 11:59pm on Monday, November 26,
-2012
+*Project Step 6 due by 11:59am on Thursday, May 30, 2013*
 
-*** Step 6 of Your TBP App
+This assignment is for extra credit.  It can only help your final
+grade.  However, no late submissions will be accepted.
+
+* Step 6 of Your TBP App
 
 The sixth part of your TBP project is to create several triggers and
 stored routines.
 
 Create at least three triggers and show that they work. One of your
-triggers should enforce an attribute constraint. You should also have a
-trigger that keeps track of some quantity such as the number of tuples
-in a relation, or an aggregate function of some attribute. Please,
-create a script =triggers.sql= that includes all of your trigger
-definitions. To show that your triggers work create a script
-=scenario1.sql= that shows, for each trigger, the effect of two database
-modifications. One modification should activate the trigger while the
-other should not. In the script, show queries that demonstrate that the
-trigger has an effect in the first case and not in the second one.
+triggers should enforce an attribute constraint. You should also have
+a trigger that keeps track of some quantity such as the number of
+tuples in a relation, or an aggregate function of some
+attribute. Please, create a script =triggers.sql= that includes all of
+your trigger definitions. To show that your triggers work create a
+script =scenario1.sql= that shows, for each trigger, the effect of two
+database modifications. One modification should activate the trigger
+while the other should not. In the script, show queries that
+demonstrate that the trigger has an effect in the first case and not
+in the second one.
 
 Create at least three stored routines, with at least one including a
-database modification, and show that they work. Please, create, a script
-=routines.sql= that includes all of your stored routine definitions. To
-show that your routines work create a script =scenario2.sql= that shows
-the effect of each routine. For routines including database
-modifications show the instance of an affected relation before and after
-the routine is called.
+database modification, and show that they work. Please, create, a
+script =routines.sql= that includes all of your stored routine
+definitions. To show that your routines work create a script
+=scenario2.sql= that shows the effect of each routine. For routines
+including database modifications show the instance of an affected
+relation before and after the routine is called.
 
 In addition to the four new scripts, please, also submit
 =create_db_large.sql= and =populate_db_large.sql= scripts along with
-*all data files* referenced in your =populate_db_large.sql= script from
-hw5. You can modify these scripts in order to ensure that your triggers
-and routines work as expected.
+*all data files* referenced in your =populate_db_large.sql= script
+from hw5. You can modify these scripts in order to ensure that your
+triggers and routines work as expected.
 
 You will submit your homework using the =hwsubmit= command. Please,
-create a new directory called hw6\_<your\_username>, e.g. hw6\_evtimov,
+create a new directory called hw6_<your_username>, e.g. hw6_evtimov,
 and move there all of the relevant scripts *and all data files*. For
-this assignment, there should be the four new scripts:
-=triggers.sql, scenario1.sql, routines.sql, scenario2.sql=, the scripts
-from hw5: =create_db_large.sql=, =populate_db_large.sql=, and all the
-large data files, Then, you can submit your work by typing (<path\_to>
-is the directory path to your hw6 directory):
+this assignment, there should be the four new scripts: =triggers.sql,
+scenario1.sql, routines.sql, scenario2.sql=, the scripts from hw5:
+=create_db_large.sql=, =populate_db_large.sql=, and all the large data
+files, Then, you can submit your work by typing (<path_to> is the
+directory path to your hw6 directory):
 
 =hwsubmit cspp53001 <path_to>/hw6_<your_username>=
 
-*Please make sure that all of the relevant files and no others are in
-that directory.*
+*Please make sure that all of the relevant files, including your data,
+and no others are in that directory.*
 
---------------
 
-*** Problem Set
+* Problem Set							   :noexport:
 
 You will complete the problem set using
 [[http://www.newgradiance.com/][Gradiance]]

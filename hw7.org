@@ -1,24 +1,23 @@
-* CSPP 53001: Assignment 7
+#+TITLE:CSPP 53001: Assignment 7
 
-*** Online homework and project due by 11:59pm on Tuesday, December 4,
-2012
+*Online homework and project due by 11:59am on Thursday, May 30, 2013*
 
-*** Step 7 of Your TBP App
+* Step 7 of Your TBP App
 
 The seventh part of your TBP project is to create a web interface to
-your database using the php programming language and a web server.
+your database using the PHP programming language and a web server.
 
-First, you will need to request an
-[[https://tools.cs.uchicago.edu/activate_cgi_service][account]] on the
-CS CGI server. Then you should create a directory named =cs53001= in
-your =/stage/cgi-cspp/<your_username>/public_html= directory.
+First, you will need to request an [[https://tools.cs.uchicago.edu/activate_cgi_service][account]] on the CS CGI server. Then
+you should create a directory named =cs53001= in your
+=/stage/cgi-cspp/<your_username>/public_html= directory.
 
-Next, you will create a web page that will be the (temporary) interface
-to your TBP. This web page should consist of links and forms and short
-explanations for any complex functions that implement the functionality
-needed by your TBP app. The functions and their parameters will depend
-on your schema and application scenario but you should certainly include
-functions that display users and tweets based on some conditions.
+Next, you will create a web page that will be the (temporary)
+interface to your TBP. This web page should consist of links and forms
+and short explanations for any complex functions that implement the
+functionality needed by your TBP app. The functions and their
+parameters will depend on your schema and application scenario but you
+should certainly include functions that display users and tweets based
+on some conditions.
 
 Every link and form on this web page should correspond to (and
 implement) a particular functionality of your TBP app. For this
@@ -27,18 +26,17 @@ have to implement any functions that modify your database such as
 registering a new user or sending a tweet - you will get to do that in
 the last part of your TBP app.
 
-Here is an example of a web page, [[tbp.html.txt][=tbp.html=]], that has
-a link to a php script [[list_tables.php.txt][=list_tables.php=]] and a
-form that runs [[list_attrs.php.txt][=list_attrs.php=]]. Note that the
-names of the files have an extra =.txt= extension so the source code can
-be viewed in your browser. The second php file assumes that you have a
-table Users with several attributes.
+Here is an example of a web page, [[file:hw7/tbp.html.txt][=tbp.html=]] that has a link to a PHP
+script [[file:hw7/list_tables.php.txt][=list_tables.php=]] and a form that runs [[file:hw7/list_attrs.php.txt][=list_attrs.php=]] Note
+that the names of the files have an extra =.txt= extension so the
+source code can be viewed in your browser. The second PHP file assumes
+that you have a table Users with several attributes.
 
 For a quick primer on HTML forms you can go to
 [[http://www.w3schools.com/html/html_forms.asp][http://www.w3schools.com/html/html\_forms.asp]].
 
-For more information on how to handle form variables passed to php refer
-to this section of the php manual
+For more information on how to handle form variables passed to PHP
+refer to this section of the PHP manual
 [[http://us3.php.net/manual/en/language.variables.external.php][http://us3.php.net/manual/en/language.variables.external.php]].
 
 For more information on accessing MySQL from php read
@@ -50,15 +48,17 @@ Your web page that contains all links and forms should be named`
 sure that this page is viewable by a browser. The url is:
 =http://cgi-cspp.cs.uchicago.edu/~<your_username>/cs53001/tbp.html=.
 
-You will submit your homework by emailing the TAs and instructor a link
-to your TBP web page.
+You will submit your homework by emailing the TAs and instructor a
+link to your TBP web page.
 
-*** Problem Set
 
-You will complete two SQL labs using
-[[http://www.newgradiance.com/][Gradiance]]
+* Problem Set
+
+You will complete two SQL labs using [[http://www.newgradiance.com/][Gradiance]]
 (http://www.newgradiance.com/). The names of the SQL Labs are
-CSPPDB-Aut12 HW7a and CSPPDB-Aut12 HW7b
+CSPPDB-Spr13 HW7a and CSPPDB-Spr13 HW7b
 
-*The due date for the SQL labs is midnight on Tuesday, December 4,
-2012.*
+/These SQL lab exercises are not yet available.  Please watch for an
+announcement as soon as they are./
+
+*The due date for the SQL labs is 11:59am on Thursday, May 30, 2013*

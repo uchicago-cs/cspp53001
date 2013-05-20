@@ -2,8 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title></title>
-<!-- 2013-04-24 Wed 23:32 -->
+<title>CSPP 53001: Assignment 6</title>
+<!-- 2013-05-20 Mon 09:35 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="generator" content="Org-mode"/>
 <meta name="author" content="Neil Best"/>
@@ -134,39 +134,27 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title"></h1>
+<h1 class="title">CSPP 53001: Assignment 6</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">CSPP 53001: Assignment 6</a>
-<ul>
-<li>
-<ul>
-<li><a href="#sec-1-0-1">Online homework and project due by 11:59pm on Monday, November 26,</a></li>
-<li><a href="#sec-1-0-2">Step 6 of Your TBP App</a></li>
-<li><a href="#sec-1-0-3">Problem Set</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a href="#sec-1">Step 6 of Your TBP App</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">CSPP 53001: Assignment 6</h2>
-<div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-0-1" class="outline-4">
-<h4 id="sec-1-0-1">Online homework and project due by 11:59pm on Monday, November 26,</h4>
-<div class="outline-text-4" id="text-1-0-1">
 <p>
-2012
+<b>Project Step 6 due by 11:59am on Thursday, May 30, 2013</b>
 </p>
-</div>
-</div>
-<div id="outline-container-sec-1-0-2" class="outline-4">
-<h4 id="sec-1-0-2">Step 6 of Your TBP App</h4>
-<div class="outline-text-4" id="text-1-0-2">
+
+<p>
+This assignment is for extra credit.  It can only help your final
+grade.  However, no late submissions will be accepted.
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Step 6 of Your TBP App</h2>
+<div class="outline-text-2" id="text-1">
 <p>
 The sixth part of your TBP project is to create several triggers and
 stored routines.
@@ -174,44 +162,45 @@ stored routines.
 
 <p>
 Create at least three triggers and show that they work. One of your
-triggers should enforce an attribute constraint. You should also have a
-trigger that keeps track of some quantity such as the number of tuples
-in a relation, or an aggregate function of some attribute. Please,
-create a script <code>triggers.sql</code> that includes all of your trigger
-definitions. To show that your triggers work create a script
-<code>scenario1.sql</code> that shows, for each trigger, the effect of two database
-modifications. One modification should activate the trigger while the
-other should not. In the script, show queries that demonstrate that the
-trigger has an effect in the first case and not in the second one.
+triggers should enforce an attribute constraint. You should also have
+a trigger that keeps track of some quantity such as the number of
+tuples in a relation, or an aggregate function of some
+attribute. Please, create a script <code>triggers.sql</code> that includes all of
+your trigger definitions. To show that your triggers work create a
+script <code>scenario1.sql</code> that shows, for each trigger, the effect of two
+database modifications. One modification should activate the trigger
+while the other should not. In the script, show queries that
+demonstrate that the trigger has an effect in the first case and not
+in the second one.
 </p>
 
 <p>
 Create at least three stored routines, with at least one including a
-database modification, and show that they work. Please, create, a script
-<code>routines.sql</code> that includes all of your stored routine definitions. To
-show that your routines work create a script <code>scenario2.sql</code> that shows
-the effect of each routine. For routines including database
-modifications show the instance of an affected relation before and after
-the routine is called.
+database modification, and show that they work. Please, create, a
+script <code>routines.sql</code> that includes all of your stored routine
+definitions. To show that your routines work create a script
+<code>scenario2.sql</code> that shows the effect of each routine. For routines
+including database modifications show the instance of an affected
+relation before and after the routine is called.
 </p>
 
 <p>
 In addition to the four new scripts, please, also submit
 <code>create_db_large.sql</code> and <code>populate_db_large.sql</code> scripts along with
-<b>all data files</b> referenced in your <code>populate_db_large.sql</code> script from
-hw5. You can modify these scripts in order to ensure that your triggers
-and routines work as expected.
+<b>all data files</b> referenced in your <code>populate_db_large.sql</code> script
+from hw5. You can modify these scripts in order to ensure that your
+triggers and routines work as expected.
 </p>
 
 <p>
 You will submit your homework using the <code>hwsubmit</code> command. Please,
-create a new directory called hw6\_&lt;your\<sub>username</sub>&gt;, e.g. hw6\<sub>evtimov</sub>,
+create a new directory called hw6_&lt;your_username&gt;, e.g. hw6_evtimov,
 and move there all of the relevant scripts <b>and all data files</b>. For
-this assignment, there should be the four new scripts:
-<code>triggers.sql, scenario1.sql, routines.sql, scenario2.sql</code>, the scripts
-from hw5: <code>create_db_large.sql</code>, <code>populate_db_large.sql</code>, and all the
-large data files, Then, you can submit your work by typing (&lt;path\<sub>to</sub>&gt;
-is the directory path to your hw6 directory):
+this assignment, there should be the four new scripts: <code>triggers.sql,
+scenario1.sql, routines.sql, scenario2.sql</code>, the scripts from hw5:
+<code>create_db_large.sql</code>, <code>populate_db_large.sql</code>, and all the large data
+files, Then, you can submit your work by typing (&lt;path_to&gt; is the
+directory path to your hw6 directory):
 </p>
 
 <p>
@@ -219,44 +208,15 @@ is the directory path to your hw6 directory):
 </p>
 
 <p>
-<b>Please make sure that all of the relevant files and no others are in
-that directory.</b>
+<b>Please make sure that all of the relevant files, including your data,
+and no others are in that directory.</b>
 </p>
-
-<hr/>
-</div>
-</div>
-<div id="outline-container-sec-1-0-3" class="outline-4">
-<h4 id="sec-1-0-3">Problem Set</h4>
-<div class="outline-text-4" id="text-1-0-3">
-<p>
-You will complete the problem set using
-<a href="http://www.newgradiance.com/">Gradiance</a>
-(<a href="http://www.newgradiance.com/">http://www.newgradiance.com/</a>).
-</p>
-
-<p>
-The name of the homework is CSPPDB-Aut12 HW6. There are 10 questions in
-this homework. All questions in this problem set are multiple choice.
-However, to answer them correctly you will need to work out their long
-(general) answers. A correct answer is worth 3 points. You lose a point
-for each incorrect answer. You can attempt the problem set as many times
-as you like; only your highest score will count. Note that you will
-probably get slightly different questions each time you attempt the
-problem set.
-</p>
-
-<p>
-<b>The due date for the Gradiance part of the homework is 11:59pm on
-Monday, November 26, 2012.</b>
-</p>
-</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Neil Best</p>
-<p class="date">Created: 2013-04-24 Wed 23:32</p>
+<p class="date">Created: 2013-05-20 Mon 09:35</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.1 (<a href="http://orgmode.org">Org</a> mode 8.0.1)</p>
 <p class="xhtml-validation"><a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a></p>
 </div>

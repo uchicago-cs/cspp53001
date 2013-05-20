@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>CS53001 Web Interface Example</title>
+</head>
+
+<body>
+<h1>CS53001 Web Interface Example</h1>
+
+First, a link to a php script (<tt>list_tables.php</tt>) that list all tables in
+your database:
+<p>
+<a href="list_tables.php">List your tables!</a>
+<hr>
+Second, a form to get all attributes of a user given a username.  The script that runs when you press the <it>Submit</it> button is <tt>list_attrs.php<tt>.
+<p>
+
+<form method=get action="list_attrs.php">
+<b>Enter username:</b><br>
+<input type="text" name="user"><BR>
+<input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

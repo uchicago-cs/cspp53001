@@ -137,6 +137,87 @@ ORDER BY count(*) DESC;
 
 
 
+*** Alternative 1
+
+#+BEGIN_SRC sql
+SELECT r.regionid,r.regionname, count(s.storeid)
+FROM region r
+INNER JOIN store s
+ON r.regionid = s.regionid
+GROUP BY r.regionid
+ORDER BY count(s.storeid) DESC;
+#+END_SRC
+
+#+RESULTS:
+| regionid | regionname  | count(s.storeid) |
+|----------+-------------+------------------|
+| T        | Tristate    |                4 |
+| C        | Chicagoland |                4 |
+| N        | North       |                3 |
+| I        | Indiana     |                3 |
+
+*** Alternative 2
+
+#+BEGIN_SRC sql
+SELECT region.regionid, region.regionname, count(*) AS storecount
+FROM region
+INNER JOIN store
+ON store.regionid = region.regionid
+GROUP BY regionid
+ORDER BY storecount DESC;
+#+END_SRC
+
+#+RESULTS:
+| regionid | regionname  | storecount |
+|----------+-------------+------------|
+| C        | Chicagoland |          4 |
+| T        | Tristate    |          4 |
+| I        | Indiana     |          3 |
+| N        | North       |          3 |
+
+#+BEGIN_EXAMPLE
+  ERROR 1052 (23000) at line 1: Column 'regionid' in field list is ambiguous
+#+END_EXAMPLE
+
+*** Alternative 3
+
+#+BEGIN_SRC sql
+SELECT region.regionid, region.regionname, count(*)
+FROM region
+LEFT OUTER JOIN store
+ON store.regionid = region.regionid
+GROUP BY region.regionid
+ORDER BY count(*) DESC;
+#+END_SRC
+
+#+RESULTS:
+| regionid | regionname  | count(*) |
+|----------+-------------+----------|
+| T        | Tristate    |        4 |
+| C        | Chicagoland |        4 |
+| N        | North       |        3 |
+| I        | Indiana     |        3 |
+
+
+*** cartesian, no WHERE
+
+#+BEGIN_SRC sql :engine mysql
+SELECT r.regionid, r.regionname, count(storeid)
+FROM region r, store s
+-- WHERE r.regionid = s.regionid
+GROUP BY r.regionid
+ORDER BY count( storeid) DESC;
+#+END_SRC
+
+#+RESULTS:
+| regionid | regionname  | count(storeid) |
+|----------+-------------+----------------|
+| I        | Indiana     |             14 |
+| N        | North       |             14 |
+| T        | Tristate    |             14 |
+| C        | Chicagoland |             14 |
+
+
 ** Part 2
 
 Display the ProductID and ProductName of the cheapest product.  
@@ -229,6 +310,65 @@ HAVING SUM(s.noofitems) > 3;
 |       9X9 | Trusty Rope            |        30.00 |
 
 
+*** ALternative 1
+
+#+BEGIN_SRC sql
+SELECT p.productid, p.productname, p.productprice 
+FROM product p
+INNER JOIN soldvia s
+ON p.productid = s.productid
+GROUP BY p.productid
+HAVING SUM(s.noofitems) >3;
+#+END_SRC
+
+#+RESULTS:
+| productid | productname            | productprice |
+|-----------+------------------------+--------------|
+|       1X2 | Comfy Harness          |       150.00 |
+|       1X4 | Safe-T Helmet          |        40.00 |
+|       2X1 | Mmm Stove              |        80.00 |
+|       2X2 | Easy Boot              |        70.00 |
+|       2X3 | Reflect-o Jacket       |        35.00 |
+|       2X4 | Strongster Carribeaner |        20.00 |
+|       3X1 | Sleepy Pad             |        25.00 |
+|       3X3 | Cosy Sock              |        15.00 |
+|       3X4 | Treado Tire            |        30.00 |
+|       4X2 | Electra Compass        |        45.00 |
+|       4X3 | Mega Camera            |       275.00 |
+|       4X4 | Dura Boot              |        90.00 |
+|       8X8 | Power Pedals           |        20.00 |
+|       9X9 | Trusty Rope            |        30.00 |
+
+
+
+*** qualified name
+
+#+BEGIN_SRC sql
+SELECT p.productid, p.productname, p.productprice 
+FROM product p, soldvia s
+WHERE p.productid = s.productid
+GROUP BY productid
+HAVING SUM(s.noofitems) >3;
+#+END_SRC
+
+#+RESULTS:
+| productid | productname            | productprice |
+|-----------+------------------------+--------------|
+|       1X2 | Comfy Harness          |       150.00 |
+|       1X4 | Safe-T Helmet          |        40.00 |
+|       2X1 | Mmm Stove              |        80.00 |
+|       2X2 | Easy Boot              |        70.00 |
+|       2X3 | Reflect-o Jacket       |        35.00 |
+|       2X4 | Strongster Carribeaner |        20.00 |
+|       3X1 | Sleepy Pad             |        25.00 |
+|       3X3 | Cosy Sock              |        15.00 |
+|       3X4 | Treado Tire            |        30.00 |
+|       4X2 | Electra Compass        |        45.00 |
+|       4X3 | Mega Camera            |       275.00 |
+|       4X4 | Dura Boot              |        90.00 |
+|       8X8 | Power Pedals           |        20.00 |
+|       9X9 | Trusty Rope            |        30.00 |
+
 * Problem 4
 
 Consider the ER diagram and relational schema for the HAFH Realty
@@ -259,6 +399,94 @@ GROUP BY m.mfname, m.mlname, m.msalary, m.mbdate;
 | George  | Sherman  | 52000.00 | 1976-01-11 |        1 |
 | Mariana | Gonzalez | 54000.00 | 1980-12-27 |        2 |
 
+*** Alternative 1
+
+#+BEGIN_SRC sql :engine mysql
+SELECT m.mfname, m.mlname, m.msalary, m.mbdate, count(b.buildingid)
+FROM manager m
+INNER JOIN building b
+ON b.bmanagerid = m.managerid 
+WHERE m.msalary < 55000
+GROUP BY m.managerid;
+#+END_SRC
+
+#+RESULTS:
+| mfname  | mlname   |  msalary |     mbdate | count(b.buildingid) |
+|---------+----------+----------+------------+---------------------|
+| Austin  | Lee      | 50000.00 | 1975-10-30 |                   2 |
+| George  | Sherman  | 52000.00 | 1976-01-11 |                   1 |
+| Mariana | Gonzalez | 54000.00 | 1980-12-27 |                   2 |
+
+
+*** Alternative 2
+
+#+BEGIN_SRC sql :engine mysql
+SELECT m.mfname, m.mlname, m.msalary, m.mbdate, 
+  count( 
+    SELECT * 
+    FROM building b,manager m 
+    WHERE b.bmanagerid = m.managerid) AS mbuildingcount
+FROM manager m
+-- INNER JOIN building b
+-- ON b.bmanagerid = m.managerid 
+WHERE m.msalary < 55000;
+-- GROUP BY m.managerid;
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_EXAMPLE
+ERROR 1064 (42000) at line 1: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT * 
+    FROM building b,manager m 
+    WHERE b.bmanagerid = m.managerid) A' at line 3
+#+END_EXAMPLE
+
+*** Alternative 3
+
+#+BEGIN_SRC sql :engine mysql
+SELECT m.mfname, m.mlname, m.msalary, m.mbdate, count(*)
+FROM building b, manager m
+WHERE b.bmanagerid = m.managerid 
+AND m.msalary < 55000
+-- GROUP BY m.mfname, m.mlname, m.msalary, m.mbdate;
+GROUP BY m.managerid;
+#+END_SRC
+
+#+RESULTS:
+| mfname  | mlname   |  msalary |     mbdate | count(*) |
+|---------+----------+----------+------------+----------|
+| Austin  | Lee      | 50000.00 | 1975-10-30 |        2 |
+| George  | Sherman  | 52000.00 | 1976-01-11 |        1 |
+| Mariana | Gonzalez | 54000.00 | 1980-12-27 |        2 |
+
+*** Alternative 4
+
+#+BEGIN_SRC sql :engine mysql
+SELECT m.mfname, m.mlname, m.msalary, m.mbdate, count(b.buildingid)
+FROM manager m
+INNER JOIN building b
+ON b.bmanagerid = m.managerid 
+GROUP BY m.managerid
+WHERE m.msalary < 55000;
+#+END_SRC
+
+#+RESULTS:
+
+
+#+BEGIN_SRC sql :engine mysql
+SELECT mfname, mlname, msalary, mbdate, count(*)
+FROM building, manager 
+WHERE mresbuildingid = buildingid
+AND msalary < 55000
+GROUP BY managerid;
+#+END_SRC
+
+#+RESULTS:
+| mfname  | mlname   |  msalary |     mbdate | count(*) |
+|---------+----------+----------+------------+----------|
+| Austin  | Lee      | 50000.00 | 1975-10-30 |        1 |
+| George  | Sherman  | 52000.00 | 1976-01-11 |        1 |
+| Mariana | Gonzalez | 54000.00 | 1980-12-27 |        1 |
 
 
 ** Part 2
@@ -287,7 +515,7 @@ WHERE advisor.EmpName = "Becky";
 
 to this query that solves the problem:
 
-#+BEGIN_SRC sql :engine mysql
+#+Begin_SRC sql :engine mysql
 SELECT self.*
 FROM corpclient AS self
 JOIN corpclient AS referrer
@@ -321,6 +549,7 @@ ON self.ccid = referred.ccidreferredby;
 | C444 | NanoCorp | Broadcasting | Rosemont   | C111           | C111 | BlingNotes | Music      | Chicago    | NULL           | C666 | DelishInc | Food Service | Oak Brook  | C444           |
 | C222 | SkyJet   | Airline      | Oak Park   | C111           | C111 | BlingNotes | Music      | Chicago    | NULL           | C777 | WindyCT   | Music        | Chicago    | C222           |
 | C777 | WindyCT  | Music        | Chicago    | C222           | C222 | SkyJet     | Airline    | Oak Park   | C111           | C888 | SouthAlps | Sports       | Rosemont   | C777           |
+
 
 #+BEGIN_SRC sql :engine mysql
 SELECT *
@@ -358,4 +587,141 @@ WHERE ccid IN (
 |------+------------+------------+------------+----------------|
 | C111 | BlingNotes | Music      | Chicago    | NULL           |
 | C222 | SkyJet     | Airline    | Oak Park   | C111           |
+
+
+
+*** Alternative 1
+
+#+BEGIN_SRC sql
+SELECT * 
+FROM corpclient a
+WHERE ccidreferredby IS NOT NULL
+AND EXISTS (
+  SELECT ccidreferredby
+  FROM corpclient b
+  WHERE b.ccidreferredby = a.ccid);
+#+END_SRC
+
+#+RESULTS:
+| ccid | ccname   | ccindustry   | cclocation | ccidreferredby |
+|------+----------+--------------+------------+----------------|
+| C222 | SkyJet   | Airline      | Oak Park   | C111           |
+| C444 | NanoCorp | Broadcasting | Rosemont   | C111           |
+| C777 | WindyCT  | Music        | Chicago    | C222           |
+
+
+
+*** Alternative 2
+
+#+BEGIN_SRC sql
+SELECT c2.*
+FROM corpclient c1, corpclient c2, corpclient c3
+WHERE c1.ccidreferredby = c2.ccid
+AND c2.ccidreferredby = c3.ccid;
+#+END_SRC
+
+#+RESULTS:
+| ccid | ccname   | ccindustry   | cclocation | ccidreferredby |
+|------+----------+--------------+------------+----------------|
+| C222 | SkyJet   | Airline      | Oak Park   | C111           |
+| C444 | NanoCorp | Broadcasting | Rosemont   | C111           |
+| C777 | WindyCT  | Music        | Chicago    | C222           |
+
+
+*** Alternative 3
+
+#+BEGIN_SRC sql
+SELECT *
+FROM corpclient c1
+WHERE EXISTS (
+  SELECT 1
+  FROM corpclient c2
+  WHERE c1.ccid = c2.ccidreferredby)
+AND EXISTS (
+  SELECT 1
+  FROM corpclient c3
+  WHERE c1.ccidreferredby = c3.ccid);
+#+END_SRC
+
+#+RESULTS:
+| ccid | ccname   | ccindustry   | cclocation | ccidreferredby |
+|------+----------+--------------+------------+----------------|
+| C222 | SkyJet   | Airline      | Oak Park   | C111           |
+| C444 | NanoCorp | Broadcasting | Rosemont   | C111           |
+| C777 | WindyCT  | Music        | Chicago    | C222           |
+
+
+
+*** Alternative 4
+
+#+BEGIN_SRC sql
+SELECT referred.*
+FROM corpclient referred, corpclient referrer
+WHERE referred.ccid = referrer.ccidreferredby
+AND referred.ccidreferredby IS NOT NULL;
+#+END_SRC
+
+#+RESULTS:
+| ccid | ccname   | ccindustry   | cclocation | ccidreferredby |
+|------+----------+--------------+------------+----------------|
+| C222 | SkyJet   | Airline      | Oak Park   | C111           |
+| C444 | NanoCorp | Broadcasting | Rosemont   | C111           |
+| C777 | WindyCT  | Music        | Chicago    | C222           |
+
+*** Alternative 5
+
+#+BEGIN_SRC sql
+SELECT *
+FROM corpclient
+WHERE ccid IN (
+  SELECT ccidreferredby
+  FROM corpclient)
+AND ccidreferredby IS NOT NULL;
+#+END_SRC
+
+#+RESULTS:
+| ccid | ccname   | ccindustry   | cclocation | ccidreferredby |
+|------+----------+--------------+------------+----------------|
+| C222 | SkyJet   | Airline      | Oak Park   | C111           |
+| C444 | NanoCorp | Broadcasting | Rosemont   | C111           |
+| C777 | WindyCT  | Music        | Chicago    | C222           |
+
+
+*** Alternative 6
+
+#+BEGIN_SRC sql
+SELECT cc2.*
+FROM corpclient cc1, corpclient cc2
+WHERE cc1.ccidreferredby = cc2.ccid
+AND cc2.ccidreferredby IS NOT NULL;
+#+END_SRC
+
+#+RESULTS:
+| ccid | ccname   | ccindustry   | cclocation | ccidreferredby |
+|------+----------+--------------+------------+----------------|
+| C222 | SkyJet   | Airline      | Oak Park   | C111           |
+| C444 | NanoCorp | Broadcasting | Rosemont   | C111           |
+| C777 | WindyCT  | Music        | Chicago    | C222           |
+
+
+
+*** Alternative 7 -- not quite right!
+
+#+BEGIN_SRC sql
+SELECT *
+FROM corpclient
+WHERE ccid IN (
+  SELECT c.ccid
+  FROM corpclient c
+  JOIN corpclient r
+  ON c.ccid = r.ccidreferredby);
+#+END_SRC
+
+#+RESULTS:
+| ccid | ccname     | ccindustry   | cclocation | ccidreferredby |
+|------+------------+--------------+------------+----------------|
+| C111 | BlingNotes | Music        | Chicago    | NULL           |
+| C222 | SkyJet     | Airline      | Oak Park   | C111           |
+| C444 | NanoCorp   | Broadcasting | Rosemont   | C111           |
+| C777 | WindyCT    | Music        | Chicago    | C222           |
 
