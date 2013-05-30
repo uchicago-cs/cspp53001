@@ -1,8 +1,10 @@
 #+PROPERTY: engine mysql
+#+PROPERTY: exports both
+#+PROPERTY: results verbatim output
 
 The solutions are based on the extended datasets from the textbook web site.
 
-* Add mysql to PATH
+* Add mysql to PATH						   :noexport:
 
 #+BEGIN_SRC emacs-lisp
   (setenv "PATH" (concat "/opt/local/lib/mysql55/bin:"
@@ -13,7 +15,7 @@ The solutions are based on the extended datasets from the textbook web site.
 : /opt/local/lib/mysql55/bin:/opt/local/bin:/opt/local/sbin:/opt/local/Library/Frameworks/Python.framework/Versions/2.6/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/GDAL.framework/Programs:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin:/usr/texbin:/usr/local/git/bin:/opt/local/lib/postgresql83/bin:/Users/nbest/bin
 
 
-* Load sample data sets
+* Load sample data sets						   :noexport:
 
 #+BEGIN_SRC sh
   which mysql
@@ -156,6 +158,7 @@ ORDER BY count(s.storeid) DESC;
 | N        | North       |                3 |
 | I        | Indiana     |                3 |
 
+
 *** Alternative 2
 
 #+BEGIN_SRC sql
@@ -179,6 +182,7 @@ ORDER BY storecount DESC;
   ERROR 1052 (23000) at line 1: Column 'regionid' in field list is ambiguous
 #+END_EXAMPLE
 
+
 *** Alternative 3
 
 #+BEGIN_SRC sql
@@ -199,7 +203,7 @@ ORDER BY count(*) DESC;
 | I        | Indiana     |        3 |
 
 
-*** cartesian, no WHERE
+*** cartesian, no WHERE						   :noexport:
 
 #+BEGIN_SRC sql :engine mysql
 SELECT r.regionid, r.regionname, count(storeid)
@@ -341,7 +345,7 @@ HAVING SUM(s.noofitems) >3;
 
 
 
-*** qualified name
+*** qualified name						   :noexport:
 
 #+BEGIN_SRC sql
 SELECT p.productid, p.productname, p.productprice 
@@ -369,12 +373,14 @@ HAVING SUM(s.noofitems) >3;
 |       8X8 | Power Pedals           |        20.00 |
 |       9X9 | Trusty Rope            |        30.00 |
 
+
 * Problem 4
 
 Consider the ER diagram and relational schema for the HAFH Realty
 Company Property Management Database in Figures 5.39a and 5.39b on
 pages 158 and 159 in your text.  Write the SQL queries that accomplish
 the following tasks:
+
 
 ** Part 1
 
@@ -398,6 +404,7 @@ GROUP BY m.mfname, m.mlname, m.msalary, m.mbdate;
 | Austin  | Lee      | 50000.00 | 1975-10-30 |        2 |
 | George  | Sherman  | 52000.00 | 1976-01-11 |        1 |
 | Mariana | Gonzalez | 54000.00 | 1980-12-27 |        2 |
+
 
 *** Alternative 1
 
@@ -441,6 +448,7 @@ ERROR 1064 (42000) at line 1: You have an error in your SQL syntax; check the ma
     WHERE b.bmanagerid = m.managerid) A' at line 3
 #+END_EXAMPLE
 
+
 *** Alternative 3
 
 #+BEGIN_SRC sql :engine mysql
@@ -459,6 +467,7 @@ GROUP BY m.managerid;
 | George  | Sherman  | 52000.00 | 1976-01-11 |        1 |
 | Mariana | Gonzalez | 54000.00 | 1980-12-27 |        2 |
 
+
 *** Alternative 4
 
 #+BEGIN_SRC sql :engine mysql
@@ -472,6 +481,9 @@ WHERE m.msalary < 55000;
 
 #+RESULTS:
 
+#+BEGIN_EXAMPLE
+ERROR 1064 (42000) at line 1: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE m.msalary < 55000' at line 6
+#+END_EXAMPLE
 
 #+BEGIN_SRC sql :engine mysql
 SELECT mfname, mlname, msalary, mbdate, count(*)
@@ -667,6 +679,7 @@ AND referred.ccidreferredby IS NOT NULL;
 | C222 | SkyJet   | Airline      | Oak Park   | C111           |
 | C444 | NanoCorp | Broadcasting | Rosemont   | C111           |
 | C777 | WindyCT  | Music        | Chicago    | C222           |
+
 
 *** Alternative 5
 

@@ -1,6 +1,6 @@
 #+TITLE:CSPP 53001: Assignment 7
 
-*Online homework and project due by 11:59am on Thursday, May 30, 2013*
+*Due by 11:59am on Thursday, May 30, 2013*
 
 * Step 7 of Your TBP App
 
@@ -33,7 +33,7 @@ source code can be viewed in your browser. The second PHP file assumes
 that you have a table Users with several attributes.
 
 For a quick primer on HTML forms you can go to
-[[http://www.w3schools.com/html/html_forms.asp][http://www.w3schools.com/html/html\_forms.asp]].
+[[http://www.w3schools.com/html/html_forms.asp][http://www.w3schools.com/html/html_forms.asp]].
 
 For more information on how to handle form variables passed to PHP
 refer to this section of the PHP manual
@@ -52,13 +52,4 @@ You will submit your homework by emailing the TAs and instructor a
 link to your TBP web page.
 
 
-* Problem Set
 
-You will complete two SQL labs using [[http://www.newgradiance.com/][Gradiance]]
-(http://www.newgradiance.com/). The names of the SQL Labs are
-CSPPDB-Spr13 HW7a and CSPPDB-Spr13 HW7b
-
-/These SQL lab exercises are not yet available.  Please watch for an
-announcement as soon as they are./
-
-*The due date for the SQL labs is 11:59am on Thursday, May 30, 2013*

@@ -1,7 +1,7 @@
 <?php
 
 // Connection parameters 
-$host = 'cspp53001.cs.uchicago.edu';
+$host = 'classdbs.cs.uchicago.edu';
 $username = 'your_username';
 $password = 'secret';
 $database = $username.'DB';

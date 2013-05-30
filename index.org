@@ -38,8 +38,8 @@
 : building file list ... done
 : hw7.html
 : 
-: sent 1439 bytes  received 120 bytes  164.11 bytes/sec
-: total size is 127154  speedup is 81.56
+: sent 1426 bytes  received 120 bytes  1030.67 bytes/sec
+: total size is 171807  speedup is 111.13
 
 * Textbooks
 
@@ -73,22 +73,21 @@ circumstances will not receive full credit.
 
 * Readings
 
-|------+------------------+------------------------------------------+------+---------------------------|
-| Week | Date             | Topics                                   | JV&N | U&W                       |
-|------+------------------+------------------------------------------+------+---------------------------|
-|      |                  | <40>                                     |      |                           |
-|    1 | <2013-04-04 Thu> | Introduction, Entity-Relationship model and design | 1, 2 | 1, 4.1-4.4                |
-|    2 | <2013-04-11 Thu> | Database design, Relational model, Functional dependencies | 3, 4 | 2.1-2.2, 4.5-4.6, 3.1-3.5 |
-|    3 | <2013-04-18 Thu> | Normal forms, +Relational algebra+, SQL: Schemas, Simple queries | 4, 5 | 2.3-2.5, 5, 6.1-6.2       |
-|    4 | <2013-04-25 Thu> | SQL: Subqueries, Aggregation, Modifications | 5    | 6.2-6.5                   |
-|    5 | <2013-05-02 Thu> | SQL: Joins, Views, Indexes, Constraints  | 5, 6 | 6.3, 7.1-7.2, 8.1-8.4     |
-|    6 | <2013-05-09 Thu> | *Midterm;* Transactions, Authorization   | 10   | 6.6, 10.1                 |
-|    7 | <2013-05-16 Thu> | Midterm review; +Triggers, Stored procedures+; Project design review |      | +7.5, 9.1-9.4+            |
-|    8 | <2013-05-23 Thu> | Database connectivity, Web programming   |      | 9.5-9.7, class notes      |
-|    9 | <2013-05-30 Thu> | Data warehousing, Data mining            |      | class notes               |
-|   10 | <2013-06-06 Thu> | NoSQL Databases, Big Data                |      | class notes               |
-|      | <2013-06-12 Wed> | Final project deadline!                  |      |                           |
-|------+------------------+------------------------------------------+------+---------------------------|
+|------+------------------+-------------------------------------------------------------------------------------+------+---------------------------|
+| Week | Date             | Topics                                                                              | JV&N | U&W                       |
+|------+------------------+-------------------------------------------------------------------------------------+------+---------------------------|
+|    1 | <2013-04-04 Thu> | Introduction, Entity-Relationship model and design                                  | 1, 2 | 1, 4.1-4.4                |
+|    2 | <2013-04-11 Thu> | Database design, Relational model, Functional dependencies                          | 3, 4 | 2.1-2.2, 4.5-4.6, 3.1-3.5 |
+|    3 | <2013-04-18 Thu> | Normal forms, +Relational algebra+, SQL: Schemas, Simple queries                    | 4, 5 | 2.3-2.5, 5, 6.1-6.2       |
+|    4 | <2013-04-25 Thu> | SQL: Subqueries, Aggregation, Modifications                                         | 5    | 6.2-6.5                   |
+|    5 | <2013-05-02 Thu> | SQL: Joins, Views, Indexes, Constraints                                             | 5, 6 | 6.3, 7.1-7.2, 8.1-8.4     |
+|    6 | <2013-05-09 Thu> | *Midterm;* Transactions, Authorization                                              | 10   | 6.6, 10.1                 |
+|    7 | <2013-05-16 Thu> | Project discussion; +Triggers, Stored procedures+; Project design review            |      | +7.5, 9.1-9.4+            |
+|    8 | <2013-05-23 Thu> | [[file:midterm.org][Midterm review]], Database connectivity, Web programming, Triggers, Stored Procedures | 6    | 9.5-9.7, class notes      |
+|    9 | <2013-05-30 Thu> | Data warehousing, Data mining                                                       | 7, 8 | class notes               |
+|   10 | <2013-06-06 Thu> | NoSQL Databases, Big Data                                                           | I, J | class notes               |
+|      | <2013-06-12 Wed> | Final project deadline!                                                             |      |                           |
+|------+------------------+-------------------------------------------------------------------------------------+------+---------------------------|
 #+TBLFM: 
 
 

@@ -2,8 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>CSPP 53001: Assignment 7</title>
-<!-- 2013-05-28 Tue 16:15 -->
+<title>MySQL Option Files</title>
+<!-- 2013-05-02 Thu 15:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="generator" content="Org-mode"/>
 <meta name="author" content="Neil Best"/>
@@ -134,94 +134,57 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">CSPP 53001: Assignment 7</h1>
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">Step 7 of Your TBP App</a></li>
-</ul>
-</div>
-</div>
+<h1 class="title">MySQL Option Files</h1>
 <p>
-<b>Due by 11:59am on Thursday, May 30, 2013</b>
-</p>
-
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Step 7 of Your TBP App</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-The seventh part of your TBP project is to create a web interface to
-your database using the PHP programming language and a web server.
+You can simplify the process of connecting to the database by using an
+option file.
 </p>
 
 <p>
-First, you will need to request an <a href="https://tools.cs.uchicago.edu/activate_cgi_service">account</a> on the CS CGI server. Then
-you should create a directory named <code>cs53001</code> in your
-<code>/stage/cgi-cspp/&lt;your_username&gt;/public_html</code> directory.
+Create a file named <code>.my.cnf</code> in your home directory, i.e. <code>~/.my.cnf</code>
+and edit it. Add lines of this form:
+</p>
+
+<pre class="example">
+[client]
+host=classdbs
+user=neil
+database=instructorDB
+password=12345
+</pre>
+
+<p>
+Edit the values to match what you have been entering on the command
+line, save the file and run <code>mysql</code> with no options. <i>Voilà!</i> 
 </p>
 
 <p>
-Next, you will create a web page that will be the (temporary)
-interface to your TBP. This web page should consist of links and forms
-and short explanations for any complex functions that implement the
-functionality needed by your TBP app. The functions and their
-parameters will depend on your schema and application scenario but you
-should certainly include functions that display users and tweets based
-on some conditions.
+In many environments it may be a questionable practice to include a
+password in a file, but in this situation we can accept this risk. We
+are not using are databases to house sensitive data and our accounts
+do not have privileges beyond our own databases. Exposure can be
+minimized by changing the permissions on the option file if they are
+not already set minimally:
+</p>
+
+<pre class="example">
+chmod u=rw,go= ~/.my.cnf
+</pre>
+
+<p>
+If you prefer you may leave out the <code>password</code> entry and start the
+client with <code>mysql -p</code>.
 </p>
 
 <p>
-Every link and form on this web page should correspond to (and
-implement) a particular functionality of your TBP app. For this
-assignment, you will only need to implement 8-10 functions. You don't
-have to implement any functions that modify your database such as
-registering a new user or sending a tweet - you will get to do that in
-the last part of your TBP app.
+See the output from <code>mysql &#x2013;help</code> or
+<a href="http://dev.mysql.com/doc/refman/5.5/en/option-files.html">http://dev.mysql.com/doc/refman/5.5/en/option-files.html</a> for more
+information.
 </p>
-
-<p>
-Here is an example of a web page, <a href="hw7/tbp.html.txt"><code>tbp.html</code></a> that has a link to a PHP
-script <a href="hw7/list_tables.php.txt"><code>list_tables.php</code></a> and a form that runs <a href="hw7/list_attrs.php.txt"><code>list_attrs.php</code></a> Note
-that the names of the files have an extra <code>.txt</code> extension so the
-source code can be viewed in your browser. The second PHP file assumes
-that you have a table Users with several attributes.
-</p>
-
-<p>
-For a quick primer on HTML forms you can go to
-<a href="http://www.w3schools.com/html/html_forms.asp"><a href="http://www.w3schools.com/html/html_forms.asp">http://www.w3schools.com/html/html_forms.asp</a></a>.
-</p>
-
-<p>
-For more information on how to handle form variables passed to PHP
-refer to this section of the PHP manual
-<a href="http://us3.php.net/manual/en/language.variables.external.php"><a href="http://us3.php.net/manual/en/language.variables.external.php">http://us3.php.net/manual/en/language.variables.external.php</a></a>.
-</p>
-
-<p>
-For more information on accessing MySQL from php read
-<a href="http://us3.php.net/manual/en/ref.mysql.php"><a href="http://us3.php.net/manual/en/ref.mysql.php">http://us3.php.net/manual/en/ref.mysql.php</a></a>.
-</p>
-
-<p>
-Your web page that contains all links and forms should be named`
-<code>tbp.html</code> and should be placed in your
-<code>/stage/cgi-cspp/&lt;your_username&gt;/public_html/cs53001/</code> directory. Make
-sure that this page is viewable by a browser. The url is:
-<code>http://cgi-cspp.cs.uchicago.edu/~&lt;your_username&gt;/cs53001/tbp.html</code>.
-</p>
-
-<p>
-You will submit your homework by emailing the TAs and instructor a
-link to your TBP web page.
-</p>
-</div>
-</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Neil Best</p>
-<p class="date">Created: 2013-05-28 Tue 16:15</p>
+<p class="date">Created: 2013-05-02 Thu 15:31</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.1 (<a href="http://orgmode.org">Org</a> mode 8.0.1)</p>
 <p class="xhtml-validation"><a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a></p>
 </div>

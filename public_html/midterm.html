@@ -1,0 +1,2154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title></title>
+<!-- 2013-05-22 Wed 22:30 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="author" content="Neil Best"/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012  Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title"></h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">Download and insert the expanded data sets</a></li>
+<li><a href="#sec-2">Problem 3</a>
+<ul>
+<li><a href="#sec-2-1">Part 1</a>
+<ul>
+<li><a href="#sec-2-1-1">Alternative 1</a></li>
+<li><a href="#sec-2-1-2">Alternative 2</a></li>
+<li><a href="#sec-2-1-3">Alternative 3</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-2">Part 2</a></li>
+<li><a href="#sec-2-3">Part 3</a>
+<ul>
+<li><a href="#sec-2-3-1">ALternative 1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-3">Problem 4</a>
+<ul>
+<li><a href="#sec-3-1">Part 1</a>
+<ul>
+<li><a href="#sec-3-1-1">Alternative 1</a></li>
+<li><a href="#sec-3-1-2">Alternative 2</a></li>
+<li><a href="#sec-3-1-3">Alternative 3</a></li>
+<li><a href="#sec-3-1-4">Alternative 4</a></li>
+</ul>
+</li>
+<li><a href="#sec-3-2">Part 2</a>
+<ul>
+<li><a href="#sec-3-2-1">Alternative 1</a></li>
+<li><a href="#sec-3-2-2">Alternative 2</a></li>
+<li><a href="#sec-3-2-3">Alternative 3</a></li>
+<li><a href="#sec-3-2-4">Alternative 4</a></li>
+<li><a href="#sec-3-2-5">Alternative 5</a></li>
+<li><a href="#sec-3-2-6">Alternative 6</a></li>
+<li><a href="#sec-3-2-7">Alternative 7 &#x2013; not quite right!</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+The solutions are based on the extended datasets from the textbook web site.
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Download and insert the expanded data sets</h2>
+<div class="outline-text-2" id="text-1">
+<div class="org-src-container">
+
+<pre class="src src-sh">wget --no-verbose \
+    http://dbtextbook.com/downloads/HAFHMOREINSERTINTOstatementsMySQL.txt \
+    -O examples/ZAGIMORE\ insert.sql 
+wget --no-verbose \
+    http://dbtextbook.com/downloads/ZAGIMOREINSERTINTOstatementsMySQL.txt \
+    -O examples/HAFHMORE\ insert.sql
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">mysql &lt; examples/HAFHMORE\ insert.sql
+mysql &lt; examples/ZAGIMORE\ insert.sql
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-sql">show tables;
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Tables_in_instructorDB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">apartment</td>
+</tr>
+
+<tr>
+<td class="left">building</td>
+</tr>
+
+<tr>
+<td class="left">category</td>
+</tr>
+
+<tr>
+<td class="left">cleaning</td>
+</tr>
+
+<tr>
+<td class="left">corpclient</td>
+</tr>
+
+<tr>
+<td class="left">customer</td>
+</tr>
+
+<tr>
+<td class="left">inspecting</td>
+</tr>
+
+<tr>
+<td class="left">inspector</td>
+</tr>
+
+<tr>
+<td class="left">manager</td>
+</tr>
+
+<tr>
+<td class="left">managerphone</td>
+</tr>
+
+<tr>
+<td class="left">product</td>
+</tr>
+
+<tr>
+<td class="left">region</td>
+</tr>
+
+<tr>
+<td class="left">salestransaction</td>
+</tr>
+
+<tr>
+<td class="left">soldvia</td>
+</tr>
+
+<tr>
+<td class="left">staffmember</td>
+</tr>
+
+<tr>
+<td class="left">store</td>
+</tr>
+
+<tr>
+<td class="left">vendor</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Problem 3</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Consider the ER diagram and relational schema for the ZAGI Retail
+Company Sales Department in Figures 5.1a and 5.1b on pages 130 and 131
+in your text.  Write the SQL queries that accomplish the following
+tasks:
+</p>
+</div>
+
+
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">Part 1</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Display the RegionID, RegionName, and number of stores in the region
+for all regions.  Sort the results by number of stores from greatest
+to least.  (10 points)
+</p>
+
+<p>
+<i>This is exercise 5.1h from the text with an additional requirement
+to sort the results.</i>
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT r.regionid, r.regionname, count(*)
+FROM region r, store s
+WHERE r.regionid = s.regionid
+GROUP BY r.regionid, r.regionname
+ORDER BY count(*) DESC;
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="right"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">regionid</th>
+<th scope="col" class="left">regionname</th>
+<th scope="col" class="right">count(*)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">C</td>
+<td class="left">Chicagoland</td>
+<td class="right">4</td>
+</tr>
+
+<tr>
+<td class="left">T</td>
+<td class="left">Tristate</td>
+<td class="right">4</td>
+</tr>
+
+<tr>
+<td class="left">I</td>
+<td class="left">Indiana</td>
+<td class="right">3</td>
+</tr>
+
+<tr>
+<td class="left">N</td>
+<td class="left">North</td>
+<td class="right">3</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+
+<div id="outline-container-sec-2-1-1" class="outline-4">
+<h4 id="sec-2-1-1">Alternative 1</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT r.regionid,r.regionname, count(s.storeid)
+FROM region r
+INNER JOIN store s
+ON r.regionid = s.regionid
+GROUP BY r.regionid
+ORDER BY count(s.storeid) DESC;
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="right"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">regionid</th>
+<th scope="col" class="left">regionname</th>
+<th scope="col" class="right">count(s.storeid)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">T</td>
+<td class="left">Tristate</td>
+<td class="right">4</td>
+</tr>
+
+<tr>
+<td class="left">C</td>
+<td class="left">Chicagoland</td>
+<td class="right">4</td>
+</tr>
+
+<tr>
+<td class="left">N</td>
+<td class="left">North</td>
+<td class="right">3</td>
+</tr>
+
+<tr>
+<td class="left">I</td>
+<td class="left">Indiana</td>
+<td class="right">3</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-2-1-2" class="outline-4">
+<h4 id="sec-2-1-2">Alternative 2</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT region.regionid, region.regionname, count(*) AS storecount
+FROM region
+INNER JOIN store
+ON store.regionid = region.regionid
+GROUP BY regionid
+ORDER BY storecount DESC;
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="right"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">regionid</th>
+<th scope="col" class="left">regionname</th>
+<th scope="col" class="right">storecount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">C</td>
+<td class="left">Chicagoland</td>
+<td class="right">4</td>
+</tr>
+
+<tr>
+<td class="left">T</td>
+<td class="left">Tristate</td>
+<td class="right">4</td>
+</tr>
+
+<tr>
+<td class="left">I</td>
+<td class="left">Indiana</td>
+<td class="right">3</td>
+</tr>
+
+<tr>
+<td class="left">N</td>
+<td class="left">North</td>
+<td class="right">3</td>
+</tr>
+</tbody>
+</table>
+
+<pre class="example">
+ERROR 1052 (23000) at line 1: Column 'regionid' in field list is ambiguous
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-2-1-3" class="outline-4">
+<h4 id="sec-2-1-3">Alternative 3</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT region.regionid, region.regionname, count(*)
+FROM region
+LEFT OUTER JOIN store
+ON store.regionid = region.regionid
+GROUP BY region.regionid
+ORDER BY count(*) DESC;
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="right"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">regionid</th>
+<th scope="col" class="left">regionname</th>
+<th scope="col" class="right">count(*)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">T</td>
+<td class="left">Tristate</td>
+<td class="right">4</td>
+</tr>
+
+<tr>
+<td class="left">C</td>
+<td class="left">Chicagoland</td>
+<td class="right">4</td>
+</tr>
+
+<tr>
+<td class="left">N</td>
+<td class="left">North</td>
+<td class="right">3</td>
+</tr>
+
+<tr>
+<td class="left">I</td>
+<td class="left">Indiana</td>
+<td class="right">3</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">Part 2</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Display the ProductID and ProductName of the cheapest product.  
+(5 points)
+</p>
+
+<p>
+<i>This is exercise 5.1l from the text.</i>
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT productid, productname
+FROM product
+WHERE productprice = (
+  SELECT MIN(productprice) FROM product);
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="right"/>
+
+<col class="left"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="right">productid</th>
+<th scope="col" class="left">productname</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="right">3X3</td>
+<td class="left">Cosy Sock</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3">Part 3</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Rewrite Query 29 on page 147 using a join statement (no nested
+queries).  
+(10 points)
+</p>
+
+<p>
+<i>This is exercise 5.1o from the textbook.</i>
+</p>
+
+<p>
+The query text:
+</p>
+
+<p>
+<i>For each product that has more than three items sold within all sales
+transactions, retrieve the product ID, product name and product price.</i>
+</p>
+
+<p>
+The original query and its results:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT productid, productname, productprice 
+FROM product 
+WHERE productid IN (
+  SELECT productid 
+  FROM soldvia 
+  GROUP BY productid 
+  HAVING SUM(noofitems) &gt; 3);
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="right"/>
+
+<col class="left"/>
+
+<col class="right"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="right">productid</th>
+<th scope="col" class="left">productname</th>
+<th scope="col" class="right">productprice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="right">1X2</td>
+<td class="left">Comfy Harness</td>
+<td class="right">150.00</td>
+</tr>
+
+<tr>
+<td class="right">1X4</td>
+<td class="left">Safe-T Helmet</td>
+<td class="right">40.00</td>
+</tr>
+
+<tr>
+<td class="right">2X1</td>
+<td class="left">Mmm Stove</td>
+<td class="right">80.00</td>
+</tr>
+
+<tr>
+<td class="right">2X2</td>
+<td class="left">Easy Boot</td>
+<td class="right">70.00</td>
+</tr>
+
+<tr>
+<td class="right">2X3</td>
+<td class="left">Reflect-o Jacket</td>
+<td class="right">35.00</td>
+</tr>
+
+<tr>
+<td class="right">2X4</td>
+<td class="left">Strongster Carribeaner</td>
+<td class="right">20.00</td>
+</tr>
+
+<tr>
+<td class="right">3X1</td>
+<td class="left">Sleepy Pad</td>
+<td class="right">25.00</td>
+</tr>
+
+<tr>
+<td class="right">3X3</td>
+<td class="left">Cosy Sock</td>
+<td class="right">15.00</td>
+</tr>
+
+<tr>
+<td class="right">3X4</td>
+<td class="left">Treado Tire</td>
+<td class="right">30.00</td>
+</tr>
+
+<tr>
+<td class="right">4X2</td>
+<td class="left">Electra Compass</td>
+<td class="right">45.00</td>
+</tr>
+
+<tr>
+<td class="right">4X3</td>
+<td class="left">Mega Camera</td>
+<td class="right">275.00</td>
+</tr>
+
+<tr>
+<td class="right">4X4</td>
+<td class="left">Dura Boot</td>
+<td class="right">90.00</td>
+</tr>
+
+<tr>
+<td class="right">8X8</td>
+<td class="left">Power Pedals</td>
+<td class="right">20.00</td>
+</tr>
+
+<tr>
+<td class="right">9X9</td>
+<td class="left">Trusty Rope</td>
+<td class="right">30.00</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+The solution and its results:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT p.productid, productname, productprice
+FROM product p, soldvia s
+WHERE p.productid = s.productid
+GROUP BY p.productid, p.productname, p.productprice
+HAVING SUM(s.noofitems) &gt; 3;
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="right"/>
+
+<col class="left"/>
+
+<col class="right"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="right">productid</th>
+<th scope="col" class="left">productname</th>
+<th scope="col" class="right">productprice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="right">1X2</td>
+<td class="left">Comfy Harness</td>
+<td class="right">150.00</td>
+</tr>
+
+<tr>
+<td class="right">1X4</td>
+<td class="left">Safe-T Helmet</td>
+<td class="right">40.00</td>
+</tr>
+
+<tr>
+<td class="right">2X1</td>
+<td class="left">Mmm Stove</td>
+<td class="right">80.00</td>
+</tr>
+
+<tr>
+<td class="right">2X2</td>
+<td class="left">Easy Boot</td>
+<td class="right">70.00</td>
+</tr>
+
+<tr>
+<td class="right">2X3</td>
+<td class="left">Reflect-o Jacket</td>
+<td class="right">35.00</td>
+</tr>
+
+<tr>
+<td class="right">2X4</td>
+<td class="left">Strongster Carribeaner</td>
+<td class="right">20.00</td>
+</tr>
+
+<tr>
+<td class="right">3X1</td>
+<td class="left">Sleepy Pad</td>
+<td class="right">25.00</td>
+</tr>
+
+<tr>
+<td class="right">3X3</td>
+<td class="left">Cosy Sock</td>
+<td class="right">15.00</td>
+</tr>
+
+<tr>
+<td class="right">3X4</td>
+<td class="left">Treado Tire</td>
+<td class="right">30.00</td>
+</tr>
+
+<tr>
+<td class="right">4X2</td>
+<td class="left">Electra Compass</td>
+<td class="right">45.00</td>
+</tr>
+
+<tr>
+<td class="right">4X3</td>
+<td class="left">Mega Camera</td>
+<td class="right">275.00</td>
+</tr>
+
+<tr>
+<td class="right">4X4</td>
+<td class="left">Dura Boot</td>
+<td class="right">90.00</td>
+</tr>
+
+<tr>
+<td class="right">8X8</td>
+<td class="left">Power Pedals</td>
+<td class="right">20.00</td>
+</tr>
+
+<tr>
+<td class="right">9X9</td>
+<td class="left">Trusty Rope</td>
+<td class="right">30.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div id="outline-container-sec-2-3-1" class="outline-4">
+<h4 id="sec-2-3-1">ALternative 1</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT p.productid, p.productname, p.productprice 
+FROM product p
+INNER JOIN soldvia s
+ON p.productid = s.productid
+GROUP BY p.productid
+HAVING SUM(s.noofitems) &gt;3;
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="right"/>
+
+<col class="left"/>
+
+<col class="right"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="right">productid</th>
+<th scope="col" class="left">productname</th>
+<th scope="col" class="right">productprice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="right">1X2</td>
+<td class="left">Comfy Harness</td>
+<td class="right">150.00</td>
+</tr>
+
+<tr>
+<td class="right">1X4</td>
+<td class="left">Safe-T Helmet</td>
+<td class="right">40.00</td>
+</tr>
+
+<tr>
+<td class="right">2X1</td>
+<td class="left">Mmm Stove</td>
+<td class="right">80.00</td>
+</tr>
+
+<tr>
+<td class="right">2X2</td>
+<td class="left">Easy Boot</td>
+<td class="right">70.00</td>
+</tr>
+
+<tr>
+<td class="right">2X3</td>
+<td class="left">Reflect-o Jacket</td>
+<td class="right">35.00</td>
+</tr>
+
+<tr>
+<td class="right">2X4</td>
+<td class="left">Strongster Carribeaner</td>
+<td class="right">20.00</td>
+</tr>
+
+<tr>
+<td class="right">3X1</td>
+<td class="left">Sleepy Pad</td>
+<td class="right">25.00</td>
+</tr>
+
+<tr>
+<td class="right">3X3</td>
+<td class="left">Cosy Sock</td>
+<td class="right">15.00</td>
+</tr>
+
+<tr>
+<td class="right">3X4</td>
+<td class="left">Treado Tire</td>
+<td class="right">30.00</td>
+</tr>
+
+<tr>
+<td class="right">4X2</td>
+<td class="left">Electra Compass</td>
+<td class="right">45.00</td>
+</tr>
+
+<tr>
+<td class="right">4X3</td>
+<td class="left">Mega Camera</td>
+<td class="right">275.00</td>
+</tr>
+
+<tr>
+<td class="right">4X4</td>
+<td class="left">Dura Boot</td>
+<td class="right">90.00</td>
+</tr>
+
+<tr>
+<td class="right">8X8</td>
+<td class="left">Power Pedals</td>
+<td class="right">20.00</td>
+</tr>
+
+<tr>
+<td class="right">9X9</td>
+<td class="left">Trusty Rope</td>
+<td class="right">30.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Problem 4</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Consider the ER diagram and relational schema for the HAFH Realty
+Company Property Management Database in Figures 5.39a and 5.39b on
+pages 158 and 159 in your text.  Write the SQL queries that accomplish
+the following tasks:
+</p>
+</div>
+
+
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">Part 1</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Display the MFName, MLNames, MSalary, MBdate, and number of buildings
+that the manager manages for all managers with a salary less than
+$55,000.  (10 points)
+</p>
+
+<p>
+<i>This is problem E5.2d in the text.</i>
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT m.mfname, m.mlname, m.msalary, m.mbdate, count(*)
+FROM building b, manager m
+WHERE b.bmanagerid = m.managerid 
+AND m.msalary &lt; 55000
+GROUP BY m.mfname, m.mlname, m.msalary, m.mbdate;
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="right"/>
+
+<col class="right"/>
+
+<col class="right"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">mfname</th>
+<th scope="col" class="left">mlname</th>
+<th scope="col" class="right">msalary</th>
+<th scope="col" class="right">mbdate</th>
+<th scope="col" class="right">count(*)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">Austin</td>
+<td class="left">Lee</td>
+<td class="right">50000.00</td>
+<td class="right">1975-10-30</td>
+<td class="right">2</td>
+</tr>
+
+<tr>
+<td class="left">George</td>
+<td class="left">Sherman</td>
+<td class="right">52000.00</td>
+<td class="right">1976-01-11</td>
+<td class="right">1</td>
+</tr>
+
+<tr>
+<td class="left">Mariana</td>
+<td class="left">Gonzalez</td>
+<td class="right">54000.00</td>
+<td class="right">1980-12-27</td>
+<td class="right">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div id="outline-container-sec-3-1-1" class="outline-4">
+<h4 id="sec-3-1-1">Alternative 1</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT m.mfname, m.mlname, m.msalary, m.mbdate, count(b.buildingid)
+FROM manager m
+INNER JOIN building b
+ON b.bmanagerid = m.managerid 
+WHERE m.msalary &lt; 55000
+GROUP BY m.managerid;
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="right"/>
+
+<col class="right"/>
+
+<col class="right"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">mfname</th>
+<th scope="col" class="left">mlname</th>
+<th scope="col" class="right">msalary</th>
+<th scope="col" class="right">mbdate</th>
+<th scope="col" class="right">count(b.buildingid)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">Austin</td>
+<td class="left">Lee</td>
+<td class="right">50000.00</td>
+<td class="right">1975-10-30</td>
+<td class="right">2</td>
+</tr>
+
+<tr>
+<td class="left">George</td>
+<td class="left">Sherman</td>
+<td class="right">52000.00</td>
+<td class="right">1976-01-11</td>
+<td class="right">1</td>
+</tr>
+
+<tr>
+<td class="left">Mariana</td>
+<td class="left">Gonzalez</td>
+<td class="right">54000.00</td>
+<td class="right">1980-12-27</td>
+<td class="right">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-3-1-2" class="outline-4">
+<h4 id="sec-3-1-2">Alternative 2</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT m.mfname, m.mlname, m.msalary, m.mbdate, 
+  count( 
+    SELECT * 
+    FROM building b,manager m 
+    WHERE b.bmanagerid = m.managerid) AS mbuildingcount
+FROM manager m
+-- INNER JOIN building b
+-- ON b.bmanagerid = m.managerid 
+WHERE m.msalary &lt; 55000;
+-- GROUP BY m.managerid;
+</pre>
+</div>
+
+<pre class="example">
+ERROR 1064 (42000) at line 1: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT * 
+    FROM building b,manager m 
+    WHERE b.bmanagerid = m.managerid) A' at line 3
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-3-1-3" class="outline-4">
+<h4 id="sec-3-1-3">Alternative 3</h4>
+<div class="outline-text-4" id="text-3-1-3">
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT m.mfname, m.mlname, m.msalary, m.mbdate, count(*)
+FROM building b, manager m
+WHERE b.bmanagerid = m.managerid 
+AND m.msalary &lt; 55000
+-- GROUP BY m.mfname, m.mlname, m.msalary, m.mbdate;
+GROUP BY m.managerid;
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="right"/>
+
+<col class="right"/>
+
+<col class="right"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">mfname</th>
+<th scope="col" class="left">mlname</th>
+<th scope="col" class="right">msalary</th>
+<th scope="col" class="right">mbdate</th>
+<th scope="col" class="right">count(*)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">Austin</td>
+<td class="left">Lee</td>
+<td class="right">50000.00</td>
+<td class="right">1975-10-30</td>
+<td class="right">2</td>
+</tr>
+
+<tr>
+<td class="left">George</td>
+<td class="left">Sherman</td>
+<td class="right">52000.00</td>
+<td class="right">1976-01-11</td>
+<td class="right">1</td>
+</tr>
+
+<tr>
+<td class="left">Mariana</td>
+<td class="left">Gonzalez</td>
+<td class="right">54000.00</td>
+<td class="right">1980-12-27</td>
+<td class="right">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-3-1-4" class="outline-4">
+<h4 id="sec-3-1-4">Alternative 4</h4>
+<div class="outline-text-4" id="text-3-1-4">
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT m.mfname, m.mlname, m.msalary, m.mbdate, count(b.buildingid)
+FROM manager m
+INNER JOIN building b
+ON b.bmanagerid = m.managerid 
+GROUP BY m.managerid
+WHERE m.msalary &lt; 55000;
+</pre>
+</div>
+
+<pre class="example">
+ERROR 1064 (42000) at line 1: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE m.msalary &lt; 55000' at line 6
+</pre>
+
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT mfname, mlname, msalary, mbdate, count(*)
+FROM building, manager 
+WHERE mresbuildingid = buildingid
+AND msalary &lt; 55000
+GROUP BY managerid;
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="right"/>
+
+<col class="right"/>
+
+<col class="right"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">mfname</th>
+<th scope="col" class="left">mlname</th>
+<th scope="col" class="right">msalary</th>
+<th scope="col" class="right">mbdate</th>
+<th scope="col" class="right">count(*)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">Austin</td>
+<td class="left">Lee</td>
+<td class="right">50000.00</td>
+<td class="right">1975-10-30</td>
+<td class="right">1</td>
+</tr>
+
+<tr>
+<td class="left">George</td>
+<td class="left">Sherman</td>
+<td class="right">52000.00</td>
+<td class="right">1976-01-11</td>
+<td class="right">1</td>
+</tr>
+
+<tr>
+<td class="left">Mariana</td>
+<td class="left">Gonzalez</td>
+<td class="right">54000.00</td>
+<td class="right">1980-12-27</td>
+<td class="right">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2">Part 2</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Display complete records of any corporate clients that have both been
+referred by another client and in turn referred additional clients.
+(10 points)
+</p>
+
+<p>
+/This is another example of a unary relationship, much like the
+example from figures 3.47 and 3.48 on page 75 in the text, except that
+all of the data we need is in one table.  See also <a href="https://piazza.com/class#spring2013/cspp53001/37">Piazza post @37</a>./
+</p>
+
+<p>
+Compare the structure of the example we discussed:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT
+ advisor.EmpName AS AdvisorName,
+ advisee.EmpName AS AdviseeName
+FROM advising
+JOIN employee AS advisor
+ON Advisor = advisor.EmpID
+JOIN employee AS advisee
+ON Advisee = advisee.EmpID
+WHERE advisor.EmpName = "Becky";
+</pre>
+</div>
+
+<p>
+to this query that solves the problem:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT self.*
+FROM corpclient AS self
+JOIN corpclient AS referrer
+ON self.ccidreferredby = referrer.ccid 
+JOIN corpclient AS referred
+ON self.ccid = referred.ccidreferredby;
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">ccid</th>
+<th scope="col" class="left">ccname</th>
+<th scope="col" class="left">ccindustry</th>
+<th scope="col" class="left">cclocation</th>
+<th scope="col" class="left">ccidreferredby</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">C222</td>
+<td class="left">SkyJet</td>
+<td class="left">Airline</td>
+<td class="left">Oak Park</td>
+<td class="left">C111</td>
+</tr>
+
+<tr>
+<td class="left">C444</td>
+<td class="left">NanoCorp</td>
+<td class="left">Broadcasting</td>
+<td class="left">Rosemont</td>
+<td class="left">C111</td>
+</tr>
+
+<tr>
+<td class="left">C777</td>
+<td class="left">WindyCT</td>
+<td class="left">Music</td>
+<td class="left">Chicago</td>
+<td class="left">C222</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+To check this result we can inspect the related records either by
+expanding the <code>SELECT</code> clause or through the use of subqueries.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT *
+FROM corpclient AS self
+JOIN corpclient AS referrer
+ON self.ccidreferredby = referrer.ccid 
+JOIN corpclient AS referred
+ON self.ccid = referred.ccidreferredby;
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">ccid</th>
+<th scope="col" class="left">ccname</th>
+<th scope="col" class="left">ccindustry</th>
+<th scope="col" class="left">cclocation</th>
+<th scope="col" class="left">ccidreferredby</th>
+<th scope="col" class="left">ccid</th>
+<th scope="col" class="left">ccname</th>
+<th scope="col" class="left">ccindustry</th>
+<th scope="col" class="left">cclocation</th>
+<th scope="col" class="left">ccidreferredby</th>
+<th scope="col" class="left">ccid</th>
+<th scope="col" class="left">ccname</th>
+<th scope="col" class="left">ccindustry</th>
+<th scope="col" class="left">cclocation</th>
+<th scope="col" class="left">ccidreferredby</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">C444</td>
+<td class="left">NanoCorp</td>
+<td class="left">Broadcasting</td>
+<td class="left">Rosemont</td>
+<td class="left">C111</td>
+<td class="left">C111</td>
+<td class="left">BlingNotes</td>
+<td class="left">Music</td>
+<td class="left">Chicago</td>
+<td class="left">NULL</td>
+<td class="left">C666</td>
+<td class="left">DelishInc</td>
+<td class="left">Food Service</td>
+<td class="left">Oak Brook</td>
+<td class="left">C444</td>
+</tr>
+
+<tr>
+<td class="left">C222</td>
+<td class="left">SkyJet</td>
+<td class="left">Airline</td>
+<td class="left">Oak Park</td>
+<td class="left">C111</td>
+<td class="left">C111</td>
+<td class="left">BlingNotes</td>
+<td class="left">Music</td>
+<td class="left">Chicago</td>
+<td class="left">NULL</td>
+<td class="left">C777</td>
+<td class="left">WindyCT</td>
+<td class="left">Music</td>
+<td class="left">Chicago</td>
+<td class="left">C222</td>
+</tr>
+
+<tr>
+<td class="left">C777</td>
+<td class="left">WindyCT</td>
+<td class="left">Music</td>
+<td class="left">Chicago</td>
+<td class="left">C222</td>
+<td class="left">C222</td>
+<td class="left">SkyJet</td>
+<td class="left">Airline</td>
+<td class="left">Oak Park</td>
+<td class="left">C111</td>
+<td class="left">C888</td>
+<td class="left">SouthAlps</td>
+<td class="left">Sports</td>
+<td class="left">Rosemont</td>
+<td class="left">C777</td>
+</tr>
+</tbody>
+</table>
+
+
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT *
+FROM corpclient
+WHERE ccidreferredby IN (
+  SELECT self.ccid
+  FROM corpclient AS self
+  JOIN corpclient AS referrer
+  ON self.ccidreferredby = referrer.ccid 
+  JOIN corpclient AS referred
+  ON self.ccid = referred.ccidreferredby);
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">ccid</th>
+<th scope="col" class="left">ccname</th>
+<th scope="col" class="left">ccindustry</th>
+<th scope="col" class="left">cclocation</th>
+<th scope="col" class="left">ccidreferredby</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">C666</td>
+<td class="left">DelishInc</td>
+<td class="left">Food Service</td>
+<td class="left">Oak Brook</td>
+<td class="left">C444</td>
+</tr>
+
+<tr>
+<td class="left">C777</td>
+<td class="left">WindyCT</td>
+<td class="left">Music</td>
+<td class="left">Chicago</td>
+<td class="left">C222</td>
+</tr>
+
+<tr>
+<td class="left">C888</td>
+<td class="left">SouthAlps</td>
+<td class="left">Sports</td>
+<td class="left">Rosemont</td>
+<td class="left">C777</td>
+</tr>
+</tbody>
+</table>
+
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT *
+FROM corpclient
+WHERE ccid IN (
+  SELECT self.ccidreferredby
+  FROM corpclient AS self
+  JOIN corpclient AS referrer
+  ON self.ccidreferredby = referrer.ccid 
+  JOIN corpclient AS referred
+  ON self.ccid = referred.ccidreferredby);
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">ccid</th>
+<th scope="col" class="left">ccname</th>
+<th scope="col" class="left">ccindustry</th>
+<th scope="col" class="left">cclocation</th>
+<th scope="col" class="left">ccidreferredby</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">C111</td>
+<td class="left">BlingNotes</td>
+<td class="left">Music</td>
+<td class="left">Chicago</td>
+<td class="left">NULL</td>
+</tr>
+
+<tr>
+<td class="left">C222</td>
+<td class="left">SkyJet</td>
+<td class="left">Airline</td>
+<td class="left">Oak Park</td>
+<td class="left">C111</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+
+<div id="outline-container-sec-3-2-1" class="outline-4">
+<h4 id="sec-3-2-1">Alternative 1</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT * 
+FROM corpclient a
+WHERE ccidreferredby IS NOT NULL
+AND EXISTS (
+  SELECT ccidreferredby
+  FROM corpclient b
+  WHERE b.ccidreferredby = a.ccid);
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">ccid</th>
+<th scope="col" class="left">ccname</th>
+<th scope="col" class="left">ccindustry</th>
+<th scope="col" class="left">cclocation</th>
+<th scope="col" class="left">ccidreferredby</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">C222</td>
+<td class="left">SkyJet</td>
+<td class="left">Airline</td>
+<td class="left">Oak Park</td>
+<td class="left">C111</td>
+</tr>
+
+<tr>
+<td class="left">C444</td>
+<td class="left">NanoCorp</td>
+<td class="left">Broadcasting</td>
+<td class="left">Rosemont</td>
+<td class="left">C111</td>
+</tr>
+
+<tr>
+<td class="left">C777</td>
+<td class="left">WindyCT</td>
+<td class="left">Music</td>
+<td class="left">Chicago</td>
+<td class="left">C222</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-sec-3-2-2" class="outline-4">
+<h4 id="sec-3-2-2">Alternative 2</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT c2.*
+FROM corpclient c1, corpclient c2, corpclient c3
+WHERE c1.ccidreferredby = c2.ccid
+AND c2.ccidreferredby = c3.ccid;
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">ccid</th>
+<th scope="col" class="left">ccname</th>
+<th scope="col" class="left">ccindustry</th>
+<th scope="col" class="left">cclocation</th>
+<th scope="col" class="left">ccidreferredby</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">C222</td>
+<td class="left">SkyJet</td>
+<td class="left">Airline</td>
+<td class="left">Oak Park</td>
+<td class="left">C111</td>
+</tr>
+
+<tr>
+<td class="left">C444</td>
+<td class="left">NanoCorp</td>
+<td class="left">Broadcasting</td>
+<td class="left">Rosemont</td>
+<td class="left">C111</td>
+</tr>
+
+<tr>
+<td class="left">C777</td>
+<td class="left">WindyCT</td>
+<td class="left">Music</td>
+<td class="left">Chicago</td>
+<td class="left">C222</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2-3" class="outline-4">
+<h4 id="sec-3-2-3">Alternative 3</h4>
+<div class="outline-text-4" id="text-3-2-3">
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT *
+FROM corpclient c1
+WHERE EXISTS (
+  SELECT 1
+  FROM corpclient c2
+  WHERE c1.ccid = c2.ccidreferredby)
+AND EXISTS (
+  SELECT 1
+  FROM corpclient c3
+  WHERE c1.ccidreferredby = c3.ccid);
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">ccid</th>
+<th scope="col" class="left">ccname</th>
+<th scope="col" class="left">ccindustry</th>
+<th scope="col" class="left">cclocation</th>
+<th scope="col" class="left">ccidreferredby</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">C222</td>
+<td class="left">SkyJet</td>
+<td class="left">Airline</td>
+<td class="left">Oak Park</td>
+<td class="left">C111</td>
+</tr>
+
+<tr>
+<td class="left">C444</td>
+<td class="left">NanoCorp</td>
+<td class="left">Broadcasting</td>
+<td class="left">Rosemont</td>
+<td class="left">C111</td>
+</tr>
+
+<tr>
+<td class="left">C777</td>
+<td class="left">WindyCT</td>
+<td class="left">Music</td>
+<td class="left">Chicago</td>
+<td class="left">C222</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-sec-3-2-4" class="outline-4">
+<h4 id="sec-3-2-4">Alternative 4</h4>
+<div class="outline-text-4" id="text-3-2-4">
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT referred.*
+FROM corpclient referred, corpclient referrer
+WHERE referred.ccid = referrer.ccidreferredby
+AND referred.ccidreferredby IS NOT NULL;
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">ccid</th>
+<th scope="col" class="left">ccname</th>
+<th scope="col" class="left">ccindustry</th>
+<th scope="col" class="left">cclocation</th>
+<th scope="col" class="left">ccidreferredby</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">C222</td>
+<td class="left">SkyJet</td>
+<td class="left">Airline</td>
+<td class="left">Oak Park</td>
+<td class="left">C111</td>
+</tr>
+
+<tr>
+<td class="left">C444</td>
+<td class="left">NanoCorp</td>
+<td class="left">Broadcasting</td>
+<td class="left">Rosemont</td>
+<td class="left">C111</td>
+</tr>
+
+<tr>
+<td class="left">C777</td>
+<td class="left">WindyCT</td>
+<td class="left">Music</td>
+<td class="left">Chicago</td>
+<td class="left">C222</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2-5" class="outline-4">
+<h4 id="sec-3-2-5">Alternative 5</h4>
+<div class="outline-text-4" id="text-3-2-5">
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT *
+FROM corpclient
+WHERE ccid IN (
+  SELECT ccidreferredby
+  FROM corpclient)
+AND ccidreferredby IS NOT NULL;
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">ccid</th>
+<th scope="col" class="left">ccname</th>
+<th scope="col" class="left">ccindustry</th>
+<th scope="col" class="left">cclocation</th>
+<th scope="col" class="left">ccidreferredby</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">C222</td>
+<td class="left">SkyJet</td>
+<td class="left">Airline</td>
+<td class="left">Oak Park</td>
+<td class="left">C111</td>
+</tr>
+
+<tr>
+<td class="left">C444</td>
+<td class="left">NanoCorp</td>
+<td class="left">Broadcasting</td>
+<td class="left">Rosemont</td>
+<td class="left">C111</td>
+</tr>
+
+<tr>
+<td class="left">C777</td>
+<td class="left">WindyCT</td>
+<td class="left">Music</td>
+<td class="left">Chicago</td>
+<td class="left">C222</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2-6" class="outline-4">
+<h4 id="sec-3-2-6">Alternative 6</h4>
+<div class="outline-text-4" id="text-3-2-6">
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT cc2.*
+FROM corpclient cc1, corpclient cc2
+WHERE cc1.ccidreferredby = cc2.ccid
+AND cc2.ccidreferredby IS NOT NULL;
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">ccid</th>
+<th scope="col" class="left">ccname</th>
+<th scope="col" class="left">ccindustry</th>
+<th scope="col" class="left">cclocation</th>
+<th scope="col" class="left">ccidreferredby</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">C222</td>
+<td class="left">SkyJet</td>
+<td class="left">Airline</td>
+<td class="left">Oak Park</td>
+<td class="left">C111</td>
+</tr>
+
+<tr>
+<td class="left">C444</td>
+<td class="left">NanoCorp</td>
+<td class="left">Broadcasting</td>
+<td class="left">Rosemont</td>
+<td class="left">C111</td>
+</tr>
+
+<tr>
+<td class="left">C777</td>
+<td class="left">WindyCT</td>
+<td class="left">Music</td>
+<td class="left">Chicago</td>
+<td class="left">C222</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-sec-3-2-7" class="outline-4">
+<h4 id="sec-3-2-7">Alternative 7 &#x2013; not quite right!</h4>
+<div class="outline-text-4" id="text-3-2-7">
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT *
+FROM corpclient
+WHERE ccid IN (
+  SELECT c.ccid
+  FROM corpclient c
+  JOIN corpclient r
+  ON c.ccid = r.ccidreferredby);
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">ccid</th>
+<th scope="col" class="left">ccname</th>
+<th scope="col" class="left">ccindustry</th>
+<th scope="col" class="left">cclocation</th>
+<th scope="col" class="left">ccidreferredby</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">C111</td>
+<td class="left">BlingNotes</td>
+<td class="left">Music</td>
+<td class="left">Chicago</td>
+<td class="left">NULL</td>
+</tr>
+
+<tr>
+<td class="left">C222</td>
+<td class="left">SkyJet</td>
+<td class="left">Airline</td>
+<td class="left">Oak Park</td>
+<td class="left">C111</td>
+</tr>
+
+<tr>
+<td class="left">C444</td>
+<td class="left">NanoCorp</td>
+<td class="left">Broadcasting</td>
+<td class="left">Rosemont</td>
+<td class="left">C111</td>
+</tr>
+
+<tr>
+<td class="left">C777</td>
+<td class="left">WindyCT</td>
+<td class="left">Music</td>
+<td class="left">Chicago</td>
+<td class="left">C222</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Neil Best</p>
+<p class="date">Created: 2013-05-22 Wed 22:30</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.1 (<a href="http://orgmode.org">Org</a> mode 8.0.1)</p>
+<p class="xhtml-validation"><a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a></p>
+</div>
+</body>
+</html>

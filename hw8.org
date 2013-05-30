@@ -33,8 +33,8 @@ should be placed in your
 sure that this page is viewable by a browser. The url is:
 =http://cgi-cspp.cs.uchicago.edu/~<your_username>/cs53001/final.html=.
 
-You will submit your homework by emailing /csppdb at cs.uchicago.edu/
-the link to your TBP App.
+You will submit your homework by emailing the TAs and instructor a
+link to your TBP web page.
 
 
 * Problem Set
@@ -43,5 +43,3 @@ You will complete two SQL labs using [[http://www.newgradiance.com/][Gradiance]]
 (http://www.newgradiance.com/). The names of the SQL Labs are Kings
 and Presidents.
 
-*The due date for the SQL labs is midnight on Wednesday, December 12,
-2012.*
